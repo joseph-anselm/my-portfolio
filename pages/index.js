@@ -114,8 +114,8 @@ export default function Home() {
                 <Image
                   src="/images/joseph-anselm-2.png"
                   alt="Web Development"
-                  layout="fill"
-                  objectFit="cover"
+                  width={auto}
+                  height={auto}
                   legacyBehavior
                 />
               </div>

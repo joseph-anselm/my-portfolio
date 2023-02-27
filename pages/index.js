@@ -116,7 +116,6 @@ export default function Home() {
                   alt="Web Development"
                   fill
                   style={"cover"}
-                  legacyBehavior
                 />
               </div>
               <div className="p-6">
@@ -133,8 +132,8 @@ export default function Home() {
                 <Image
                   src="/images/joseph-anselm-5.png"
                   alt="Web Design"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={"cover"}
                 />
               </div>
               <div className="p-6">

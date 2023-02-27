@@ -84,7 +84,7 @@ export default function Navbar() {
                       <Image
                         className="h-8 w-8 rounded-full"
                         src="/images/joe-square.jpg"
-                        alt=""
+                        alt="Your Company"
                         height={32}
                         width={32}
                       />

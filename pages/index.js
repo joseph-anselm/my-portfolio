@@ -129,8 +129,13 @@ export default function Home() {
             </div>
 
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="relative h-46 w-full">
-                <img src="/images/joseph-anselm-5.png" alt="Web Design" />
+              <div className="relative h-48 w-full">
+                <Image
+                  src="/images/joseph-anselm-5.png"
+                  alt="Web Design"
+                  layout="fill"
+                  objectFit="cover"
+                />
               </div>
               <div className="p-6">
                 <h2 className="text-lg font-semibold mb-2">Web Design</h2>

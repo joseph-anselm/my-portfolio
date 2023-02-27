@@ -35,8 +35,8 @@ export default function Home() {
 
             <div className="md:w-1/2 mb-8 md:m-5 order-first sm:order-last">
               <Image
-                src="/../images/Joe-square.jpg"
-                alt="Header Image"
+                src="/images/Joe-square.jpg"
+                alt="Joseph Anselm Head Image"
                 width={400}
                 height={200}
                 className="rounded-full"

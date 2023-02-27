@@ -86,7 +86,85 @@ export default function Home() {
       </section>
 
       {/* *************************************************************************** */}
-      <section></section>
+      <section>
+        <div>
+          <div className="inline-flex items-center justify-center w-full">
+            <hr className="w-64 h-1 my-8 bg-gray-200 border-0 rounded dark:bg-gray-700 mt-12"></hr>
+            <div className="absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900">
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5 text-gray-700 dark:text-gray-300"
+                viewBox="0 0 24 27"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+          <h1 className="text-4xl font-bold text-center">About Me</h1>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="relative h-48 w-full">
+                <Image
+                  src="/images/joseph-anselm-2.png"
+                  alt="Web Development"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+              <div className="p-6">
+                <h2 className="text-lg font-semibold mb-2">Web Development</h2>
+                <p className="text-gray-600">
+                  We create custom websites using modern web technologies to
+                  help your business succeed online.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="relative h-48 w-full">
+                <Image
+                  src="/images/joseph-anselm-5.png"
+                  alt="Web Design"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+              <div className="p-6">
+                <h2 className="text-lg font-semibold mb-2">Web Design</h2>
+                <p className="text-gray-600">
+                  We design beautiful and functional websites that provide the
+                  best user experience for your customers.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="relative h-48 w-full">
+                <Image
+                  src="/images/joseph-anselm-9.png"
+                  alt="IT Tech Support"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+              <div className="p-6">
+                <h2 className="text-lg font-semibold mb-2">IT Tech Support</h2>
+                <p className="text-gray-600">
+                  We offer fast and reliable technical support to keep your
+                  business running smoothly and efficiently.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

@@ -112,7 +112,7 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="relative h-48 w-full">
                 <Image
-                  src="/images/joseph-anselm-2.png"
+                  src="/images/joe-square.jpg"
                   alt="Web Development"
                   fill
                 />

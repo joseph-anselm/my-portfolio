@@ -113,7 +113,7 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="relative h-48 w-full">
                 <Image
-                  src="/joseph-anselm-2.png"
+                  src="/Joseph-Anselm-2.png"
                   alt="Web Development"
                   layout="fill"
                   objectFit="cover"
@@ -149,10 +149,10 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="relative h-48 w-full">
                 <Image
-                  src="/images/joseph-anselm-9.png"
+                  src="/images/Joseph-Anselm-9.png"
                   alt="IT Tech Support"
-                  width={200}
-                  height={100}
+                  layout="fill"
+                  objectFit="cover"
                 />
               </div>
               <div className="p-6">

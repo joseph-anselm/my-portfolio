@@ -114,8 +114,7 @@ export default function Home() {
                 <Image
                   src="/images/joseph-anselm-2.png"
                   alt="Web Development"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
                 />
               </div>
               <div className="p-6">

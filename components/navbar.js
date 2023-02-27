@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const navigation = [
   { name: "Home", href: "#", current: true },
@@ -38,10 +39,12 @@ export default function Navbar() {
                     src="../images/logo3.png"
                     alt="Your Company"
                   />
-                  <img
+                  <Image
                     className="hidden h-12 w-24 lg:block"
-                    src="../images/logo3.png"
+                    src="/images/logo3.png"
                     alt="Your Company"
+                    height={48}
+                    width={96}
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block flex-1 justify-center ">
@@ -78,10 +81,12 @@ export default function Navbar() {
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
-                      <img
+                      <Image
                         className="h-8 w-8 rounded-full"
-                        src="../images/joe-square.jpg"
+                        src="/images/joe-square.jpg"
                         alt=""
+                        height={32}
+                        width={32}
                       />
                     </Menu.Button>
                   </div>

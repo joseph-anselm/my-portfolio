@@ -35,7 +35,7 @@ export default function Home() {
 
             <div className="md:w-1/2 mb-8 md:m-5 order-first sm:order-last">
               <Image
-                src="/images/Joe-square.jpg"
+                src="/../images/Joe-square.jpg"
                 alt="Header Image"
                 width={400}
                 height={200}

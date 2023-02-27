@@ -151,8 +151,8 @@ export default function Home() {
                 <Image
                   src="/images/joseph-anselm-9.png"
                   alt="IT Tech Support"
-                  layout="fill"
-                  objectFit="cover"
+                  width={200}
+                  height={100}
                 />
               </div>
               <div className="p-6">

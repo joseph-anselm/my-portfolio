@@ -88,8 +88,10 @@ export default function Home() {
       {/* *************************************************************************** */}
       <section>
         <div>
+          <h1 className="text-4xl font-bold text-center mt-12">About Me</h1>
+
           <div className="inline-flex items-center justify-center w-full">
-            <hr className="w-64 h-1 my-8 bg-gray-200 border-0 rounded dark:bg-gray-700 mt-12"></hr>
+            <hr className="w-64 h-1 bg-gray-200 border-0 rounded dark:bg-gray-700 mt-12"></hr>
             <div className="absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900">
               <svg
                 aria-hidden="true"
@@ -105,17 +107,16 @@ export default function Home() {
               </svg>
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-center">About Me</h1>
         </div>
         <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="relative h-48 w-full">
                 <Image
-                  src="/images/joseph-anselm-2.png"
+                  src="/images/joe-square.jpg"
                   alt="Web Development"
-                  fill
-                  style={"cover"}
+                  layout="fill"
+                  objectFit="cover"
                 />
               </div>
               <div className="p-6">
@@ -132,8 +133,8 @@ export default function Home() {
                 <Image
                   src="/images/joseph-anselm-5.png"
                   alt="Web Design"
-                  fill
-                  style={"cover"}
+                  layout="fill"
+                  objectFit="cover"
                 />
               </div>
               <div className="p-6">

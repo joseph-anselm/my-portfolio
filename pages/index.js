@@ -21,12 +21,12 @@ export default function Home() {
               </p>
               <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4">
                 <Link href="/products" legacyBehavior>
-                  <a className="bg-blue-700 text-white border-blue-700 py-2 px-6 rounded-full font-bold hover:bg-gray-200 transition duration-300">
+                  <a className="bg-[#2E82FD] text-white border-blue-700 py-2 px-6 rounded-full font-bold hover:bg-blue-700 transition duration-300">
                     View Portfolio
                   </a>
                 </Link>
                 <Link href="/contact" legacyBehavior>
-                  <a className="border-2 border-blue-700 py-2 px-6 rounded-full font-bold hover:bg-white hover:text-gray-900 transition duration-300">
+                  <a className="border-2 border-[#2E82FD] py-2 px-6 rounded-full font-bold hover:bg-blue-700 hover:text-white transition duration-300">
                     Reach Out!
                   </a>
                 </Link>
@@ -47,9 +47,9 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="bg-blue-700 text-white">
+        <div className="bg-[#2E82FD] text-white">
           <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 text-justify">
-            <h1 className="text-4xl font-bold">About Me</h1>
+            <h1 className="text-4xl font-bold text-center m-4">About Me</h1>
             <p>
               As an IT Support Engineer and Web Developer, I am a highly skilled
               professional with a passion for technology and problem-solving.
@@ -67,9 +67,26 @@ export default function Home() {
               trends, and strive to continuously improve my skills to provide
               the best possible service to my clients.
             </p>
+            <div className="flex mx-auto text-center justify-center">
+              <div className="flex m-5">
+                <h1 className="text-6xl text-gray-800">12</h1>
+                <span className="w-16 self-end text-left ml-2 font-bold text-blue-200">
+                  Years experience
+                </span>
+              </div>
+              <div className="flex m-5">
+                <h1 className="text-6xl text-gray-800">125+</h1>
+                <span className="w-16 self-end text-left ml-2 font-bold text-blue-200">
+                  Clients Served
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* *************************************************************************** */}
+      <section></section>
     </>
   );
 }

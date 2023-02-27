@@ -114,8 +114,8 @@ export default function Home() {
                 <Image
                   src="/images/joseph-anselm-2.png"
                   alt="Web Development"
-                  width={0}
-                  height={0}
+                  fill
+                  style={"cover"}
                   legacyBehavior
                 />
               </div>

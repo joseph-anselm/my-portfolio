@@ -117,8 +117,6 @@ export default function Home() {
                   alt="Web Development"
                   layout="fill"
                   objectFit="cover"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' fill='%23e8e8e8'/%3E%3C/svg%3E"
                 />
               </div>
               <div className="p-6">
@@ -131,8 +129,8 @@ export default function Home() {
             </div>
 
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="relative h-48 w-full">
-                <Image
+              <div className="relative h-46 w-full">
+                <img
                   src="/images/joseph-anselm-5.png"
                   alt="Web Design"
                   layout="fill"

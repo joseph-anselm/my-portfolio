@@ -276,7 +276,7 @@ export default function Home() {
             Testimonials
           </h1>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-            <div className="rounded-lg p-4 shadow-lg flex items-center mb-8 md:mb-0">
+            <div className="rounded-lg lg:p-24 p-16 shadow-lg flex items-center mb-8 md:mb-0">
               <Image
                 src="/images/Joseph-Anselm-1.png"
                 alt="John Doe"
@@ -293,7 +293,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="rounded-lg p-4 shadow-lg flex items-center">
+            <div className="rounded-lg lg:p-24 p-16 shadow-lg flex items-center">
               <Image
                 src="/images/Joseph-Anselm-1.png"
                 alt="Jane Doe"

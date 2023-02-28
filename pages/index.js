@@ -268,6 +268,121 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      <section className="w-full bg-blue-300">
+        <div className="bg-sky-blue w-full px-4 py-8">
+          <h1 className="text-3xl font-bold text-center text-white mb-8">
+            Testimonials
+          </h1>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+            <div className=" rounded-lg lg:p-24 shadow-lg flex items-center mb-8 md:mb-0">
+              <img
+                src="https://via.placeholder.com/50"
+                alt="John Doe"
+                className="rounded-full mr-4 self-start"
+              />
+              <div>
+                <p className="text-gray-800 text-lg font-bold mb-2">John Doe</p>
+                <p className="text-gray-600 text-sm">
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua."
+                </p>
+              </div>
+            </div>
+            <div className="rounded-lg lg:p-24 sm:p-16 shadow-lg flex items-center">
+              <img
+                src="https://via.placeholder.com/50"
+                alt="Jane Doe"
+                className="rounded-full mr-4 self-start"
+              />
+              <div>
+                <p className="text-gray-800 text-lg font-bold mb-2">Jane Doe</p>
+                <p className="text-gray-600 text-sm">
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="bg-white w-full px-4 py-8">
+          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+            Featured Posts
+          </h1>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Post 1"
+                className="rounded-lg mb-4"
+              />
+              <h2 className="text-lg font-bold text-gray-800 mb-2">
+                Post 1 Title
+              </h2>
+              <p className="text-gray-600 text-sm mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <a
+                href="#"
+                className="bg-[#3788FB] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Read More
+              </a>
+            </div>
+            <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Post 2"
+                className="rounded-lg mb-4"
+              />
+              <h2 className="text-lg font-bold text-gray-800 mb-2">
+                Post 2 Title
+              </h2>
+              <p className="text-gray-600 text-sm mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <a
+                href="#"
+                className="bg-[#3788FB] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Read More
+              </a>
+            </div>
+            <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Post 3"
+                className="rounded-lg mb-4"
+              />
+              <h2 className="text-lg font-bold text-gray-800 mb-2">
+                Post 3 Title
+              </h2>
+              <p className="text-gray-600 text-sm mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <a
+                href="#"
+                className="bg-[#3788FB] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Read More
+              </a>
+            </div>
+          </div>
+          <div className="max-w-7xl mx-auto text-right mt-8">
+            <a href="#" className="text-blue-500 hover:text-blue-700 font-bold">
+              More Posts &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

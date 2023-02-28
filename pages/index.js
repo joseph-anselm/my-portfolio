@@ -316,7 +316,7 @@ export default function Home() {
           </h1>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
-              <img
+              <Image
                 src="https://via.placeholder.com/300x200"
                 alt="Post 1"
                 className="rounded-lg mb-4"
@@ -336,7 +336,7 @@ export default function Home() {
               </a>
             </div>
             <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
-              <img
+              <Image
                 src="https://via.placeholder.com/300x200"
                 alt="Post 2"
                 className="rounded-lg mb-4"
@@ -356,7 +356,7 @@ export default function Home() {
               </a>
             </div>
             <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
-              <img
+              <Image
                 src="https://via.placeholder.com/300x200"
                 alt="Post 3"
                 className="rounded-lg mb-4"

@@ -81,8 +81,8 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-gray-700 py-4 px-4 sm:px-6 lg:px-8 text-sm">
-        <p className="text-gray-400">
-          &copy; 2023 MyCompany. All rights reserved.
+        <p className="text-gray-400 text-center">
+          &copy; 2023 Joseph Anselm. All rights reserved.
         </p>
       </div>
     </footer>

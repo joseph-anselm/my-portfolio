@@ -259,7 +259,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="text-center">
+        <div className="text-center mb-5">
           <a
             href="/portfolio"
             className="text-lg font-semibold text-gray-700 hover:text-gray-900"

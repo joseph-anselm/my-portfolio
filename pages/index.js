@@ -287,9 +287,9 @@ export default function Home() {
               <div>
                 <p className="text-gray-800 text-lg font-bold mb-2">John Doe</p>
                 <p className="text-gray-600 text-sm">
-                  &quot;" Lorem ipsum dolor sit amet, consectetur adipiscing
+                  &quot; Lorem ipsum dolor sit amet, consectetur adipiscing
                   elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.&ldquo;"
+                  magna aliqua.&ldquo;
                 </p>
               </div>
             </div>
@@ -304,9 +304,9 @@ export default function Home() {
               <div>
                 <p className="text-gray-800 text-lg font-bold mb-2">Jane Doe</p>
                 <p className="text-gray-600 text-sm">
-                  &quot;" Lorem ipsum dolor sit amet, consectetur adipiscing
+                  &quot; Lorem ipsum dolor sit amet, consectetur adipiscing
                   elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.&ldquo;"
+                  magna aliqua.&ldquo;
                 </p>
               </div>
             </div>

@@ -271,6 +271,50 @@ export default function Home() {
       </section>
 
       <section>
+        <div className="bg-blue-200 w-full px-4 py-8">
+          <h1 className="text-3xl font-bold text-center text-white mb-8">
+            Testimonials
+          </h1>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+            <div className="rounded-lg p-4 shadow-lg flex items-center mb-8 md:mb-0">
+              <Image
+                src="/images/Joseph-Anselm-1.png"
+                alt="John Doe"
+                className="rounded-full mr-4"
+                width={50}
+                height={50}
+              />
+              <div>
+                <p className="text-gray-800 text-lg font-bold mb-2">John Doe</p>
+                <p className="text-gray-600 text-sm">
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua."
+                </p>
+              </div>
+            </div>
+            <div className="rounded-lg p-4 shadow-lg flex items-center">
+              <Image
+                src="/images/Joseph-Anselm-1.png"
+                alt="Jane Doe"
+                className="rounded-full mr-4"
+                width={50}
+                height={50}
+              />
+              <div>
+                <p className="text-gray-800 text-lg font-bold mb-2">Jane Doe</p>
+                <p className="text-gray-600 text-sm">
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
         <div className="bg-white w-full px-4 py-8">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
             Featured Posts
@@ -278,7 +322,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
               <img
-                src="https://via.placeholder.com/300x200"
+                src="/images/Joseph-Anselm-1.png"
                 alt="Post 1"
                 className="rounded-lg mb-4"
               />
@@ -298,7 +342,7 @@ export default function Home() {
             </div>
             <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
               <img
-                src="https://via.placeholder.com/300x200"
+                src="/images/Joseph-Anselm-1.png"
                 alt="Post 2"
                 className="rounded-lg mb-4"
               />
@@ -318,7 +362,7 @@ export default function Home() {
             </div>
             <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
               <img
-                src="https://via.placeholder.com/300x200"
+                src="/images/Joseph-Anselm-1.png"
                 alt="Post 3"
                 className="rounded-lg mb-4"
               />

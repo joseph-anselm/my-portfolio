@@ -156,8 +156,8 @@ export default function Home() {
               <div className="p-6">
                 <h2 className="text-lg font-semibold mb-2">Web Development</h2>
                 <p className="text-gray-600">
-                  We create custom websites using modern web technologies to
-                  help your business succeed online.
+                  I create custom websites and applications using modern web
+                  technologies to help your business succeed online.
                 </p>
               </div>
             </div>
@@ -174,8 +174,8 @@ export default function Home() {
               <div className="p-6">
                 <h2 className="text-lg font-semibold mb-2">Web Design</h2>
                 <p className="text-gray-600">
-                  We design beautiful and functional websites that provide the
-                  best user experience for your customers.
+                  I design beautiful and functional websites that provide the
+                  best user experience for your customers and target audience.
                 </p>
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function Home() {
               <div className="p-6">
                 <h2 className="text-lg font-semibold mb-2">IT Tech Support</h2>
                 <p className="text-gray-600">
-                  We offer fast and reliable technical support to keep your
+                  I offer fast and reliable IT technical support to keep your
                   business running smoothly and efficiently.
                 </p>
               </div>

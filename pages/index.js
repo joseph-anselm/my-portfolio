@@ -38,7 +38,7 @@ export default function Home() {
       name: "Project 4",
       description:
         "In hac habitasse platea dictumst. Maecenas vestibulum massa a nisl porttitor, nec mattis ex venenatis.",
-      imageUrl: "/images/joseph-anselm-4.png",
+      imageUrl: "/images/Joseph-Anselm-4.png",
       linkUrl: "https://example.com/project-4",
     },
   ];

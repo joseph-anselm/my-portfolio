@@ -325,10 +325,12 @@ export default function Home() {
           </h1>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
-              <img
+              <Image
                 src="/images/Joseph-Anselm-1.png"
                 alt="Post 1"
                 className="rounded-lg mb-4"
+                width={500}
+                height={400}
               />
               <h2 className="text-lg font-bold text-gray-800 mb-2">
                 Post 1 Title
@@ -345,10 +347,12 @@ export default function Home() {
               </a>
             </div>
             <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
-              <img
+              <Image
                 src="/images/Joseph-Anselm-1.png"
                 alt="Post 2"
                 className="rounded-lg mb-4"
+                width={500}
+                height={400}
               />
               <h2 className="text-lg font-bold text-gray-800 mb-2">
                 Post 2 Title
@@ -365,10 +369,12 @@ export default function Home() {
               </a>
             </div>
             <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center">
-              <img
+              <Image
                 src="/images/Joseph-Anselm-1.png"
                 alt="Post 3"
                 className="rounded-lg mb-4"
+                width={500}
+                height={400}
               />
               <h2 className="text-lg font-bold text-gray-800 mb-2">
                 Post 3 Title

@@ -83,7 +83,7 @@ export default function Navbar() {
                       <span className="sr-only">Open user menu</span>
                       <Image
                         className="h-8 w-8 rounded-full"
-                        src="/images/joe-square.jpg"
+                        src="/images/Joe-square.jpg"
                         alt="Your Company"
                         height={32}
                         width={32}

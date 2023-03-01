@@ -61,12 +61,12 @@ export default function Home() {
               </p>
               <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4">
                 <Link href="/products" legacyBehavior>
-                  <a className="bg-[#2E82FD] text-white border-[#3987FA] border-2 py-2 px-8 rounded-full font-bold hover:bg-blue-700 transition duration-300">
+                  <a className="bg-[#2E82FD] text-white border-[#3987FA] w-48 border-2 py-2 px-8 rounded-full font-bold hover:bg-blue-700 transition duration-300">
                     My Portfolio
                   </a>
                 </Link>
                 <Link href="/contact" legacyBehavior>
-                  <a className="border-2 border-[#2E82FD] py-2 px-8 rounded-full font-bold hover:bg-blue-700 hover:text-white transition duration-300">
+                  <a className="border-2 border-[#2E82FD] w-48 py-2 px-8 rounded-full font-bold hover:bg-blue-700 hover:text-white transition duration-300">
                     Reach Out !
                   </a>
                 </Link>
@@ -77,7 +77,7 @@ export default function Home() {
               <Image
                 src="/images/Joe-square.jpg"
                 alt="Joseph Anselm Head Image"
-                width={400}
+                width={350}
                 height={200}
                 className="rounded-full"
               />

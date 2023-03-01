@@ -50,7 +50,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 text-center md:text-left m-5">
               <h1 className="text-4xl font-bold mb-4">Hey! I am Joe Anselm</h1>
-              <p className="mb-8">
+              <p className="mb-8 text-justify">
                 My goal is to to create and support high-quality tech products,
                 apps and offer exceptional customer service. I am committed to
                 providing you with the support you need, and I am always

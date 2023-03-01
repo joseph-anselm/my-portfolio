@@ -51,9 +51,12 @@ export default function Home() {
             <div className="md:w-1/2 text-center md:text-left m-5">
               <h1 className="text-4xl font-bold mb-4">Hey! I am Joe Anselm</h1>
               <p className="mb-8">
-                We provide high-quality products and services to customers
-                around the world. Our team is dedicated to providing excellent
-                customer service and support. Contact us today to learn more.
+                My goal is to to create and support high-quality tech products,
+                apps and offer exceptional customer service. I am committed to
+                providing you with the support you need, and I am always
+                available to answer any questions or concerns you may have.
+                Please don't hesitate to reach out to me directly to learn more
+                about how I can help you. I'm excited to connect with you soon.
               </p>
               <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4">
                 <Link href="/products" legacyBehavior>
@@ -272,7 +275,7 @@ export default function Home() {
 
       <section>
         <div className="bg-blue-200 w-full px-4 py-8">
-          <h1 className="text-3xl font-bold text-center text-white mb-8">
+          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
             Testimonials
           </h1>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">

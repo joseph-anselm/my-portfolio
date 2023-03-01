@@ -55,8 +55,9 @@ export default function Home() {
                 apps and offer exceptional customer service. I am committed to
                 providing you with the support you need, and I am always
                 available to answer any questions or concerns you may have.
-                Please don't hesitate to reach out to me directly to learn more
-                about how I can help you. I'm excited to connect with you soon.
+                Please don&apost hesitate to reach out to me directly to learn
+                more about how I can help you. I&aposm excited to connect with
+                you soon.
               </p>
               <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4">
                 <Link href="/products" legacyBehavior>

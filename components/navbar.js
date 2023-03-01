@@ -35,7 +35,7 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="block h-12 w-auto lg:hidden"
+                    className="block h-12 w-auto lg:hidden mx-auto"
                     src="../images/logo3.png"
                     alt="Your Company"
                   />
@@ -47,7 +47,7 @@ export default function Navbar() {
                     width={96}
                   />
                 </div>
-                <div className="hidden sm:ml-6 sm:block flex-1 justify-center ">
+                <div className="hidden sm:ml-6 sm:block flex-1 justify-center self-center">
                   <div className="flex space-x-4 flex-1 justify-center align-middle text-black-800">
                     {navigation.map((item) => (
                       <a
@@ -99,7 +99,7 @@ export default function Navbar() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none self-center">
                       <Menu.Item>
                         {({ active }) => (
                           <a

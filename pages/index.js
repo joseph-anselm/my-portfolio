@@ -55,19 +55,19 @@ export default function Home() {
                 apps and offer exceptional customer service. I am committed to
                 providing you with the support you need, and I am always
                 available to answer any questions or concerns you may have.
-                Please don&apost hesitate to reach out to me directly to learn
-                more about how I can help you. I&aposm excited to connect with
+                Please don&apos;t hesitate to reach out to me directly to learn
+                more about how I can help you. I&apos;m excited to connect with
                 you soon.
               </p>
               <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-4 md:space-y-0 md:space-x-4">
                 <Link href="/products" legacyBehavior>
-                  <a className="bg-[#2E82FD] text-white border-blue-700 py-2 px-6 rounded-full font-bold hover:bg-blue-700 transition duration-300">
-                    View Portfolio
+                  <a className="bg-[#2E82FD] text-white border-[#3987FA] border-2 py-2 px-8 rounded-full font-bold hover:bg-blue-700 transition duration-300">
+                    My Portfolio
                   </a>
                 </Link>
                 <Link href="/contact" legacyBehavior>
-                  <a className="border-2 border-[#2E82FD] py-2 px-6 rounded-full font-bold hover:bg-blue-700 hover:text-white transition duration-300">
-                    Reach Out!
+                  <a className="border-2 border-[#2E82FD] py-2 px-8 rounded-full font-bold hover:bg-blue-700 hover:text-white transition duration-300">
+                    Reach Out !
                   </a>
                 </Link>
               </div>

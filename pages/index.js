@@ -109,9 +109,9 @@ export default function Home() {
               trends, and strive to continuously improve my skills to provide
               the best possible service to my clients.
             </p>
-            <div className="flex mx-auto text-center justify-center">
+            <div className="flex mx-auto text-center justify-center px-3">
               <div className="flex m-5">
-                <h1 className="text-6xl text-gray-800">12</h1>
+                <h1 className="pl-2 text-6xl text-gray-800">12</h1>
                 <span className="w-16 self-end text-left ml-2 font-bold text-blue-200">
                   Years experience
                 </span>
@@ -126,7 +126,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="custom-shape-divider-top-1679742103">
+        <div class="custom-shape-divider-top-1680109549">
           <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@ export default function Home() {
           >
             <path
               d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              className="shape-fill"
+              class="shape-fill"
             ></path>
           </svg>
         </div>
@@ -291,8 +291,8 @@ export default function Home() {
       </section>
 
       <section className="home-testimonial">
-        <div className="bg-blue-200 w-full px-4 py-8">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+        <div className="bg-blue-200 w-full px-4 py-11">
+          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8 pt-8">
             Testimonials
           </h1>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
@@ -332,7 +332,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div class="custom-shape-divider-top-1679745683">
+        <div class="custom-shape-divider-top-1680109549">
           <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"

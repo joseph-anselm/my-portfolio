@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-gray-400">
+    <footer className="bg-gray-800 text-gray-400 footer">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-10">
         <div className="space-y-4 mx-4">
           <h2 className="text-lg font-medium">About Me</h2>
@@ -80,6 +80,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
+
       <div className="bg-gray-700 py-4 px-4 sm:px-6 lg:px-8 text-sm">
         <p className="text-gray-400 text-center">
           &copy; 2023 Joseph Anselm. All rights reserved.

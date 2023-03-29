@@ -49,7 +49,9 @@ export default function Home() {
         <div className="bg-white-900 text-black h-400 md:h-400">
           <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 text-center md:text-left m-5">
-              <h1 className="text-4xl font-bold mb-4">Hey! I am Joe Anselm</h1>
+              <h1 className="text-4xl sm:text-3xl font-bold mb-4">
+                Hey! I am Joe Anselm
+              </h1>
               <p className="mb-8 text-justify">
                 My goal is to to create and support high-quality tech products,
                 apps and offer exceptional customer service. I am committed to
@@ -86,7 +88,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      <section className="home-about">
         <div className="bg-[#2E82FD] text-white">
           <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 text-justify">
             <h1 className="text-4xl font-bold text-center m-4">About Me</h1>
@@ -122,6 +124,20 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="custom-shape-divider-top-1679742103">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              className="shape-fill"
+            ></path>
+          </svg>
         </div>
       </section>
 
@@ -274,7 +290,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      <section className="home-testimonial">
         <div className="bg-blue-200 w-full px-4 py-8">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
             Testimonials
@@ -316,9 +332,22 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div class="custom-shape-divider-top-1679745683">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              class="shape-fill"
+            ></path>
+          </svg>
+        </div>
       </section>
 
-      <section>
+      <section className="featured-post">
         <div className="bg-white w-full px-4 py-8">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
             Featured Posts

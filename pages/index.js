@@ -296,15 +296,17 @@ export default function Home() {
             Testimonials
           </h1>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-            <div className="rounded-lg lg:p-24 p-16 shadow-lg flex items-center mb-8 md:mb-0">
-              <Image
-                src="/images/Joseph-Anselm-1.png"
-                alt="John Doe"
-                className="rounded-full mr-4"
-                width={50}
-                height={50}
-              />
-              <div>
+            <div className="rounded-lg lg:p-24 p-16 shadow-lg flex flex-col lg:flex-row items-center mb-8 md:mb-0">
+              <div className="flex-shrink-0">
+                <Image
+                  src="/images/Joseph-Anselm-1.png"
+                  alt="John Doe"
+                  className="rounded-full w-12 h-12 lg:w-16 lg:h-16 lg:mr-4 lg:self-center"
+                  width={50}
+                  height={50}
+                />
+              </div>
+              <div className="mt-4 lg:mt-0 text-center lg:text-left">
                 <p className="text-gray-800 text-lg font-bold mb-2">John Doe</p>
                 <p className="text-gray-600 text-sm">
                   &quot; Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -313,16 +315,19 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="rounded-lg lg:p-24 p-16 shadow-lg flex items-center">
-              <Image
-                src="/images/Joseph-Anselm-1.png"
-                alt="Jane Doe"
-                className="rounded-full mr-4"
-                width={50}
-                height={50}
-              />
-              <div>
-                <p className="text-gray-800 text-lg font-bold mb-2">Jane Doe</p>
+
+            <div className="rounded-lg lg:p-24 p-16 shadow-lg flex flex-col lg:flex-row items-center mb-8 md:mb-0">
+              <div className="flex-shrink-0">
+                <Image
+                  src="/images/Joseph-Anselm-1.png"
+                  alt="John Doe"
+                  className="rounded-full w-12 h-12 lg:w-16 lg:h-16 lg:mr-4 lg:self-center"
+                  width={50}
+                  height={50}
+                />
+              </div>
+              <div className="mt-4 lg:mt-0 text-center lg:text-left">
+                <p className="text-gray-800 text-lg font-bold mb-2">John Doe</p>
                 <p className="text-gray-600 text-sm">
                   &quot; Lorem ipsum dolor sit amet, consectetur adipiscing
                   elit, sed do eiusmod tempor incididunt ut labore et dolore

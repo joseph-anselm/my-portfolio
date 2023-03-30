@@ -30,6 +30,11 @@ const Footer = () => {
                 <a className="hover:text-white">SEO</a>
               </Link>
             </li>
+            <li>
+              <Link href="/services/seo" legacyBehavior>
+                <a className="hover:text-white">Tech Support</a>
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="space-y-4 mx-4">
@@ -52,6 +57,16 @@ const Footer = () => {
               >
                 <a className="hover:text-white">
                   How to Choose the Right Web Hosting
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/blog/top-10-web-development-trends-for-2022"
+                legacyBehavior
+              >
+                <a className="hover:text-white">
+                  Top 10 Web Development Trends for 2022
                 </a>
               </Link>
             </li>

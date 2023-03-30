@@ -4,6 +4,7 @@ import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
+import Carousel from "@/components/carousel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,7 +46,7 @@ export default function Home() {
 
   return (
     <>
-      <section>
+      <section className="min-h-screen">
         <div className="bg-white-900 text-black h-400 md:h-400">
           <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 text-center md:text-left m-5">
@@ -75,14 +76,15 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="md:w-1/2 mb-8 md:m-5 order-first sm:order-last">
-              <Image
+            <div className="md:w-1/2 mb-8 md:m-5 order-first sm:order-last ">
+              {/* <Image
                 src="/images/Joe-square.jpg"
                 alt="Joseph Anselm Head Image"
                 width={350}
                 height={200}
-                className="rounded-full"
-              />
+                className="rounded-full drop-shadow-md hover:drop-shadow-2xl "
+              /> */}
+              <Carousel />
             </div>
           </div>
         </div>

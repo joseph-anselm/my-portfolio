@@ -39,10 +39,10 @@ export default function MyPage() {
         <div className="bg-[#ddeef8] flex flex-col justify-center py-9">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-8">
-              Hi, I'm <span className="text-blue-500">Jojo Anselm</span>
+              Hi, I&apos;m <span className="text-blue-500">Jojo Anselm</span>
             </h1>
             <p className="text-lg mb-8">
-              I'm a web developer with a passion for creating beautiful and
+              I&apos;m a web developer with a passion for creating beautiful and
               functional websites.
             </p>
             <h1 className="text-4xl font-bold mb-8">Tech Stacks</h1>
@@ -105,7 +105,7 @@ export default function MyPage() {
                 </h3>
                 <p className="text-md">
                   Implement DevOps strategies that streamline your development
-                  process and improve your team's productivity.
+                  process and improve your team&apos;s productivity.
                 </p>
               </div>
               <div className="flex flex-col items-center rounded-lg border border-blue-200 p-4">

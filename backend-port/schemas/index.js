@@ -1,4 +1,8 @@
 // schemas/index.js
-import portfolio from './myport'
+import sitesettings from './sitesettings'
+import blogPost from './blogpost'
+import project from './project'
+import author from './author'
+import blockContent from './blockContent'
 
-export const schemaTypes = [portfolio]
+export const schemaTypes = [sitesettings, blogPost, project, author, blockContent]

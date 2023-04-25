@@ -5,51 +5,110 @@ import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import Carousel from "@/components/carousel";
+import LazyLoad from "react-lazy-load";
+
+import { useEffect, useState } from "react";
+
+import sanityClient from "@sanity/client";
+
+const client = sanityClient({
+  projectId: "jy07zzhq",
+  dataset: "production",
+  useCdn: false, // Set this to true if you want to enable CDN caching
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const projects = [
-    {
-      id: 1,
-      name: "Project 1",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel enim ut lorem euismod tincidunt ut sed leo.",
-      imageUrl: "/images/Joseph-Anselm-1.png",
-      linkUrl: "https://example.com/project-1",
-    },
-    {
-      id: 2,
-      name: "Project 2",
-      description:
-        "Sed malesuada aliquam nulla, id vestibulum ipsum bibendum eu. Morbi vitae nulla est.",
-      imageUrl: "/images/Joseph-Anselm-2.png",
-      linkUrl: "https://example.com/project-2",
-    },
-    {
-      id: 3,
-      name: "Project 3",
-      description:
-        "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-      imageUrl: "/images/Joseph-Anselm-3.png",
-      linkUrl: "https://example.com/project-3",
-    },
-    {
-      id: 4,
-      name: "Project 4",
-      description:
-        "In hac habitasse platea dictumst. Maecenas vestibulum massa a nisl porttitor, nec mattis ex venenatis.",
-      imageUrl: "/images/Joseph-Anselm-4.png",
-      linkUrl: "https://example.com/project-4",
-    },
-  ];
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [projects, setProjectSchema] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      const data = await client.fetch(
+        `*[_type == "blogPost"]{
+          _id,
+          title,          
+          slug,                   
+          body,
+          excerpt,
+          "authorName": author->name,
+           featuredImage{
+          asset->{
+            _id,
+            url,
+          },
+          alt
+        },
+        }`
+      );
+      setBlogPosts(data);
+    };
+    const fetchProjects = async () => {
+      const projectData = await client.fetch(
+        `*[_type == "project"]{
+          _id,
+          title,
+          image{
+          asset->{
+            _id,
+            url,
+          },
+          alt
+        },
+          shortDescription,
+          longDescription,
+          "imageUrl": image.asset->url,
+          url
+        }`
+      );
+      setProjectSchema(projectData);
+    };
+    fetchBlogPosts();
+    fetchProjects();
+  }, []);
+
+  // const projects = [
+  //   {
+  //     id: 1,
+  //     name: "Project 1",
+  //     description:
+  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel enim ut lorem euismod tincidunt ut sed leo.",
+  //     imageUrl: "/images/Joseph-Anselm-1.png",
+  //     linkUrl: "https://example.com/project-1",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Project 2",
+  //     description:
+  //       "Sed malesuada aliquam nulla, id vestibulum ipsum bibendum eu. Morbi vitae nulla est.",
+  //     imageUrl: "/images/Joseph-Anselm-2.png",
+  //     linkUrl: "https://example.com/project-2",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Project 3",
+  //     description:
+  //       "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+  //     imageUrl: "/images/Joseph-Anselm-3.png",
+  //     linkUrl: "https://example.com/project-3",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Project 4",
+  //     description:
+  //       "In hac habitasse platea dictumst. Maecenas vestibulum massa a nisl porttitor, nec mattis ex venenatis.",
+  //     imageUrl: "/images/Joseph-Anselm-4.png",
+  //     linkUrl: "https://example.com/project-4",
+  //   },
+  // ];
 
   return (
     <>
-      <section className="min-h-screen">
+      <section className="">
         <div className="bg-white-900 text-black h-400 md:h-400">
-          <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 text-center md:text-left m-5">
+          <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:flex flex-col md:flex-row items-center justify-between">
+            <div className="md:w-1/2 text-center md:text-left m-2 ">
               <h1 className="text-4xl sm:text-3xl font-bold mb-4">
                 Hey! I am Joe Anselm
               </h1>
@@ -76,7 +135,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="md:w-1/2 mb-8 md:m-5 order-first sm:order-last ">
+            <div className="md:w-1/2 mb-8 md:m-5 md:order-last">
               {/* <Image
                 src="/images/Joe-square.jpg"
                 alt="Joseph Anselm Head Image"
@@ -84,6 +143,7 @@ export default function Home() {
                 height={200}
                 className="rounded-full drop-shadow-md hover:drop-shadow-2xl "
               /> */}
+
               <Carousel />
             </div>
           </div>
@@ -224,7 +284,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      {/* <section>
         <div>
           <div className="inline-flex items-center justify-center w-full">
             <hr className="w-40 h-1 bg-gray-200 border-0 rounded dark:bg-gray-700 mt-12"></hr>
@@ -273,6 +333,66 @@ export default function Home() {
                       </h2>
                       <p className="text-gray-600 hidden md:block">
                         {project.description}
+                      </p>
+                      <HiOutlineExternalLink className="text-gray-500 text-xl ml-2" />
+                    </div>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="text-center mb-5">
+          <a
+            href="/portfolio"
+            className="text-lg font-semibold text-gray-700 hover:text-gray-900"
+          >
+            View More Projects
+          </a>
+        </div>
+      </section> */}
+
+      <section>
+        <div>
+          <div className="inline-flex items-center justify-center w-full">
+            <hr className="w-40 h-1 bg-gray-200 border-0 rounded dark:bg-gray-700 mt-12"></hr>
+            <div className="absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900">
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5 text-gray-700 dark:text-gray-300"
+                viewBox="0 0 24 27"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+          <h1 className="text-4xl font-bold text-center">Portfolio</h1>
+        </div>
+
+        <div className="max-w-7xl mx-auto container mt-12 px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {projects.map((project) => (
+              <div key={project._id} className="group relative">
+                <a href={project.url} target="_blank" rel="noopener noreferrer">
+                  <div className="rounded-lg overflow-hidden">
+                    <img
+                      src={project.image?.asset.url}
+                      alt={project.title}
+                      className="transition-opacity duration-300"
+                    />
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <div className="bg-white bg-opacity-75 py-2 px-4 rounded-lg">
+                      <h2 className="text-lg font-semibold mb-2">
+                        {project.title}
+                      </h2>
+                      <p className="text-gray-600 hidden md:block">
+                        {project.shortDescription}
                       </p>
                       <HiOutlineExternalLink className="text-gray-500 text-xl ml-2" />
                     </div>
@@ -354,7 +474,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="featured-post">
+      {/* <section className="featured-post">
         <div className="bg-white w-full px-4 py-8">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
             Featured Posts
@@ -429,6 +549,55 @@ export default function Home() {
           </div>
           <div className="max-w-7xl mx-auto text-right mt-8">
             <a href="#" className="text-blue-500 hover:text-blue-700 font-bold">
+              More Posts &rarr;
+            </a>
+          </div>
+        </div>
+      </section> */}
+
+      <section className="featured-post">
+        <div className="bg-white w-full px-4 py-8">
+          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+            Featured Posts
+          </h1>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {blogPosts.map((post) => (
+              <div
+                key={post._id}
+                className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center"
+              >
+                <div
+                  className="w-full h-80 bg-cover bg-center rounded-lg mb-4"
+                  style={{
+                    backgroundImage: `url(${post.featuredImage.asset.url})`,
+                  }}
+                ></div>
+                <div className="flex flex-col items-center justify-between h-full">
+                  <div className="text-center">
+                    <h2 className="text-lg font-bold text-gray-800 mb-2">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-600 text-sm mb-2">
+                      {post.excerpt.slice(0, 150)}...
+                    </p>
+                  </div>
+                  <div className="mt-auto mb-2">
+                    <a
+                      href={`/blog/${post.slug.current}`}
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                      Read More
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="max-w-7xl mx-auto text-right mt-8">
+            <a
+              href="/blog"
+              className="text-blue-500 hover:text-blue-700 font-bold"
+            >
               More Posts &rarr;
             </a>
           </div>

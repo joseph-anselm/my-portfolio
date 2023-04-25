@@ -1,14 +1,15 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination } from "swiper";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import "swiper/css/autoplay";
 import "swiper/css/effect-coverflow";
+import LazyLoad from "react-lazy-load";
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const images = [
   { src: "/images/Joe-square.jpg", alt: "Joseph Anselm Head Image" },
@@ -19,11 +20,12 @@ const images = [
 
 export default function Carousel() {
   return (
-    <div className="w-full h-72 md:h-auto">
+    <div className="w-full h-75 md:h-auto">
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
         navigation
+        autoplay={true}
         pagination={{ clickable: true }}
         breakpoints={{
           640: { slidesPerView: 1, spaceBetween: 20 },
@@ -35,7 +37,7 @@ export default function Carousel() {
         {images.map(({ src, alt }) => (
           <SwiperSlide key={src}>
             <div className="w-full h-full flex justify-center items-center">
-              <div className="w-48 h-auto md:w-auto md:h-72">
+              <div className="w-48 h-75 md:w-auto md:h-75">
                 <Image
                   src={src}
                   alt={alt}

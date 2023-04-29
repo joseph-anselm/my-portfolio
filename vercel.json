@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "studio/(.*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",

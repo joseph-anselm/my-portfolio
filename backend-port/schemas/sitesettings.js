@@ -25,7 +25,7 @@ export default {
       name: 'enableContactForm',
       title: 'Enable Contact Form',
       type: 'boolean',
-      description: 'Check this box to enable the display of a contact form on the website.',
+      description: 'Check this box to enable the display of contact form on the website.',
     },
   ],
 }

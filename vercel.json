@@ -1,9 +1,13 @@
 {
-  "version": 2,
-  "rewrites": [
+  "headers": [
     {
-      "source": "/studio/(.*)",
-      "destination": "/studio/index.html"
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
     }
   ]
 }

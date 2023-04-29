@@ -642,12 +642,11 @@ export async function getStaticProps() {
       url
     }`
   );
-
   return {
     props: {
-      blogPosts: blogPosts,
-      projects: projects,
+      blogPosts,
+      projects,
     },
-    revalidate: 60, // in seconds
+    revalidate: 60, // number of seconds after which to revalidate content
   };
 }

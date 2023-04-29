@@ -2,8 +2,8 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/studio/(.*)",
-      "destination": "/studio/index.html"
+      "source": "/backend-port/(.*)",
+      "destination": "/backend-port/index.html"
     }
   ]
 }

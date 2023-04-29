@@ -606,3 +606,48 @@ export default function Home() {
     </>
   );
 }
+
+export async function getStaticProps() {
+  const blogPosts = await client.fetch(
+    `*[_type == "blogPost"]{
+      _id,
+      title,          
+      slug,                   
+      body,
+      excerpt,
+      "authorName": author->name,
+       featuredImage{
+        asset->{
+          _id,
+          url,
+        },
+        alt
+      },
+    }`
+  );
+  const projects = await client.fetch(
+    `*[_type == "project"]{
+      _id,
+      title,
+      image{
+        asset->{
+          _id,
+          url,
+        },
+        alt
+      },
+      shortDescription,
+      longDescription,
+      "imageUrl": image.asset->url,
+      url
+    }`
+  );
+
+  return {
+    props: {
+      blogPosts: blogPosts,
+      projects: projects,
+    },
+    revalidate: 60, // in seconds
+  };
+}

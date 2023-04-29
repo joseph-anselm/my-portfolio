@@ -68,7 +68,7 @@ export default function Home() {
           </h1>
           <p className="text-lg mb-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere
-            lorem sit amet erat vestibulum tristique.
+            lorem sit amet erat vestibulum.
           </p>
         </div>
       </div>

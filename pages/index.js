@@ -375,65 +375,6 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto container mt-12 px-4 pb-16 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {projects.map((project) => (
-              <div key={project._id} className="group relative">
-                <a href={project.url} target="_blank" rel="noopener noreferrer">
-                  <div className="rounded-lg overflow-hidden">
-                    <img
-                      src={project.image?.asset.url}
-                      alt={project.title}
-                      className="transition-opacity duration-300"
-                    />
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <div className="bg-white bg-opacity-75 py-2 px-4 rounded-lg">
-                      <h2 className="text-lg font-semibold mb-2">
-                        {project.title}
-                      </h2>
-                      <p className="text-gray-600 hidden md:block">
-                        {project.shortDescription}
-                      </p>
-                      <HiOutlineExternalLink className="text-gray-500 text-xl ml-2" />
-                    </div>
-                  </div>
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto container mt-12 px-4 pb-16 sm:px-6 lg:px-8">
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    {projects.map((project) => (
-      <div key={project._id} className="group relative">
-        <a href={project.url} target="_blank" rel="noopener noreferrer">
-          <div className="rounded-lg overflow-hidden h-64 md:h-80">
-            <img
-              src={project.image?.asset.url}
-              alt={project.title}
-              className="transition-opacity duration-300 h-full w-full object-cover"
-            />
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100">
-            <div className="bg-white bg-opacity-75 py-2 px-4 rounded-lg max-w-full">
-              <h2 className="text-lg font-semibold mb-2 overflow-ellipsis overflow-hidden whitespace-nowrap">
-                {project.title}
-              </h2>
-              <p className="text-gray-600 hidden md:block overflow-ellipsis overflow-hidden whitespace-nowrap">
-                {project.shortDescription}
-              </p>
-              <HiOutlineExternalLink className="text-gray-500 text-xl ml-2" />
-            </div>
-          </div>
-        </a>
-      </div>
-    ))}
-  </div>
-</div>
-
-
-<div className="max-w-7xl mx-auto container mt-12 px-4 pb-16 sm:px-6 lg:px-8">
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     {projects.map((project) => (
       <div key={project._id} className="group relative">
@@ -461,7 +402,6 @@ export default function Home() {
     ))}
   </div>
 </div>
-
 
 
         <div className="text-center mb-5">

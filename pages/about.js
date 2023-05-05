@@ -46,41 +46,18 @@ export default function MyPage() {
             </h1>
           </div>
         </div>
-      </div> */}
-
-      <div
-        className="bg-blue-500"
-        data-aos="fade-right"
-        data-aos-duration="1000"
-      >
-        <div className="max-w-screen-lg mx-auto flex items-center">
-          <div className="w-1/2">
-            <Image
-              src="/images/Jojo-pure.png"
-              alt="My Image"
-              width={400}
-              height={400}
-            />
-          </div>
-          <div className="w-1/2">
-            <h1 className="text-white text-5xl font-bold mb-8">
-              My Big Heading
-            </h1>
-          </div>
-        </div>
-      </div>
+      </div> */}  
 
       <HeroSection />
 
       <section>
-        <div className="bg-[#ddeef8] flex flex-col justify-center py-9">
-          <div className="text-center">
+        <div className="bg-[#ddeef8] flex flex-col justify-center py-9 ">
+          <div className="text-center max-w-screen-lg mx-auto">
             <h1 className="text-4xl font-bold mb-8">
               Hi, I&apos;m <span className="text-blue-500">Jojo Anselm</span>
             </h1>
             <p className="text-lg mb-8">
-              I&apos;m a web developer with a passion for creating beautiful and
-              functional websites.
+              I am a tech professional with expertise in front-end and full-stack development, tech support, and business brand optimization. I build beautiful and functional web and mobile applications that deliver seamless user experiences, and provide tech support services to troubleshoot technical issues. Additionally, I specialize in business brand optimization, helping clients enhance their online presence and strengthen their brand identity through digital marketing strategies. By staying up-to-date with the latest technologies and best practices, I deliver custom solutions that exceed my clients' expectations.
             </p>
             <h1 className="text-4xl font-bold mb-8">Tech Stacks</h1>
           </div>

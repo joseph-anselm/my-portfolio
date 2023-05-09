@@ -26,7 +26,7 @@ export default function Home() {
   useEffect(() => {
     const fetchBlogPosts = async () => {
       const data = await client.fetch(
-        `*[_type == "blogPost"]{
+        `*[_type == "blogPost"]| order(_createdAt desc) [0..3]{
           _id,
           title,          
           slug,                   
@@ -46,9 +46,10 @@ export default function Home() {
     };
     const fetchProjects = async () => {
       const projectData = await client.fetch(
-        `*[_type == "project"]{
+        `*[_type == "project"]| order(_createdAt desc) [0..3]{
           _id,
           title,
+          slug,
           image{
           asset->{
             _id,
@@ -378,7 +379,7 @@ export default function Home() {
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     {projects.map((project) => (
       <div key={project._id} className="group relative">
-        <a href={project.url} target="_blank" rel="noopener noreferrer">
+        <a href={`/projects/${project.slug?.current}`} target="_blank" rel="noopener noreferrer">
           <div className="rounded-lg overflow-hidden h-64 md:h-80">
             <img
               src={project.image?.asset.url}
@@ -404,12 +405,12 @@ export default function Home() {
 </div>
 
 
-        <div className="text-center mb-5">
+        <div className="text-center mb-5 max-w-7xl mx-auto text-right">
           <a
-            href="/portfolio"
-            className="text-lg font-semibold text-gray-700 hover:text-gray-900"
+            href="/projects"
+            className="text-lg font-semibold text-blue-700 hover:text-gray-900"
           >
-            View More Projects
+            View More Projects &rarr;
           </a>
         </div>
       </section>

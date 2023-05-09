@@ -6,8 +6,8 @@ import Image from "next/image";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "About Me", href: "/about", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "My Blog", href: "#", current: false },
+  { name: "Projects", href: "/projects", current: false },
+  { name: "My Blog", href: "/blog", current: false },
 ];
 
 function classNames(...classes) {

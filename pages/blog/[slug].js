@@ -14,7 +14,7 @@ const BlogPostPage = ({ post }) => {
     <div>
       <h1>{post.title}</h1>
       <div>
-        <img
+        <Image
           src={post.featuredImage.asset.url}
           alt={post.featuredImage.alt}
           width={600}

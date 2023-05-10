@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import sanityClient from "@/client";
 import BlockContent from "@sanity/block-content-to-react";
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
 
 const BlogPostPage = ({ post }) => {
   const router = useRouter();
@@ -9,6 +10,10 @@ const BlogPostPage = ({ post }) => {
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
+  const title = post.title;
+
+  const shareUrl = `https://josephanselm.com/${post.slug?.current}`;
+  
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -26,6 +31,17 @@ const BlogPostPage = ({ post }) => {
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
           <p className="text-gray-500">Author: {post.authorName}</p>
         </div>
+        <div className="flex space-x-2">
+          <FacebookShareButton url={shareUrl} quote={title}>
+            <i className="fab fa-facebook-f"></i>
+          </FacebookShareButton>
+          <TwitterShareButton url={shareUrl} title={title}>
+            <i className="fab fa-twitter"></i>
+          </TwitterShareButton>
+          <LinkedinShareButton url={shareUrl} title={title}>
+            <i className="fab fa-linkedin"></i>
+          </LinkedinShareButton>
+        </div>
       </div>
 
       <div className="prose max-w-none">
@@ -33,6 +49,18 @@ const BlogPostPage = ({ post }) => {
           blocks={post.body}
           imageOptions={{ w: 640, h: 480, fit: "max" }}
         />
+      </div>
+
+      <div className="mt-4">
+        <button
+          onClick={() => {
+            router.back();
+          }}
+          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+        >
+          Back to blog list
+        </button>
+        
       </div>
     </div>
   );

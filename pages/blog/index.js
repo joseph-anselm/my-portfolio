@@ -34,6 +34,8 @@ const [blogPosts, setBlogPosts] = useState([]);
     };  fetchBlogPosts();
     
   }, []);
+
+  
   return (
     <>
       <section className="featured-post">
@@ -74,14 +76,7 @@ const [blogPosts, setBlogPosts] = useState([]);
               </div>
             ))}
           </div>
-          <div className="max-w-7xl mx-auto text-right mt-8">
-            <Link
-              href="/blog"
-              className="text-blue-500 hover:text-blue-700 font-bold"
-            >
-              More Posts &rarr;
-            </Link>
-          </div>
+          
         </div>
       </section>
     </>

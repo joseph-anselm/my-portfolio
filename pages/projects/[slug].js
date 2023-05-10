@@ -18,14 +18,18 @@ export default function Project({ project }) {
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-center md:space-x-10">
-        <div className="rounded-lg overflow-hidden h-96 md:w-1/2 sm:w-full relative">
-          <Image
-            src={project.imageUrl}
-            alt={project.title}
-            layout="fill"
-            objectFit="contain"
-            className="transition-opacity duration-300"
-          />
+        <div className="rounded-lg overflow-hidden md:w-1/2 sm:w-full">
+          <div className="aspect-w-16 aspect-h-9">
+            <Image
+              src={project.imageUrl}
+              alt={project.title}
+              width={600}
+            height={400}
+            className="rounded-lg"
+              objectFit="contain"
+              
+            />
+          </div>
         </div>
 
         <div className="flex flex-col mt-10 md:w-1/2">

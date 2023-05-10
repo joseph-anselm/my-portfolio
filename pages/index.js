@@ -379,7 +379,7 @@ export default function Home() {
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     {projects.map((project) => (
       <div key={project._id} className="group relative">
-        <a href={`/projects/${project.slug?.current}`} target="_blank" rel="noopener noreferrer">
+        <a href={`/projects/${project.slug.current}`} target="_blank" rel="noopener noreferrer">
           <div className="rounded-lg overflow-hidden h-64 md:h-80">
             <img
               src={project.image?.asset.url}

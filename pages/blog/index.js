@@ -75,12 +75,12 @@ const [blogPosts, setBlogPosts] = useState([]);
             ))}
           </div>
           <div className="max-w-7xl mx-auto text-right mt-8">
-            <a
+            <Link
               href="/blog"
               className="text-blue-500 hover:text-blue-700 font-bold"
             >
               More Posts &rarr;
-            </a>
+            </Link>
           </div>
         </div>
       </section>

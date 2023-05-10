@@ -381,7 +381,7 @@ export default function Home() {
       <div key={project._id} className="group relative">
         <a href={`/projects/${project.slug.current}`} target="_blank" rel="noopener noreferrer">
           <div className="rounded-lg overflow-hidden h-64 md:h-80">
-            <img
+            <Image
               src={project.image?.asset.url}
               alt={project.title}
               className="transition-opacity duration-300 h-full w-full object-cover"

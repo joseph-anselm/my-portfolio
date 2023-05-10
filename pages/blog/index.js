@@ -2,6 +2,8 @@ import Image from 'next/image'
 import sanityClient from "@/client";
 import { useEffect, useState } from "react";
 import client from '@/client';
+import Link from 'next/link';
+
 
 
 export default function BlogList()  {

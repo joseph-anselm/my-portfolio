@@ -108,11 +108,11 @@ export default function Home() {
     <>
       <section className="">
         <div className="bg-white-900 text-black h-400 md:h-400">
-          <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:flex flex-col md:flex-row items-center justify-between">
+          <div className="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 text-center md:text-left m-2 ">
             <h1 className="text-3xl sm:text-3xl font-bold mb-4 whitespace-nowrap px-3">
-  Hey! I am <span className="text-blue-700">Joe Anselm</span>
-</h1>
+              Hey! I am <span className="text-blue-700">Joe Anselm</span>
+            </h1>
               <p className="mb-8 text-justify">
                 My goal is to to create and support high-quality tech products,
                 apps and offer exceptional customer service. I am committed to
@@ -174,14 +174,14 @@ export default function Home() {
             </p>
             <div className="flex mx-auto text-center justify-center px-5">
               <div className="flex m-5">
-                <h1 className="pl-2 text-6xl text-gray-800">12</h1>
-                <span className="w-16 self-end text-left ml-2 font-bold text-blue-200">
+                <h1 className="pl-2 text-5xl text-gray-800">12</h1>
+                <span className="w-16 self-end text-left ml-2 text-blue-200">
                   Years experience
                 </span>
               </div>
               <div className="flex m-5">
-                <h1 className="text-6xl text-gray-800 px-2">125+</h1>
-                <span className="w-16 self-end text-left ml-2 font-bold text-blue-200">
+                <h1 className="text-5xl text-gray-800 px-2">125+</h1>
+                <span className="w-16 self-end text-left ml-2 text-blue-200">
                   Clients Served
                 </span>
               </div>

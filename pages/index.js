@@ -379,7 +379,7 @@ export default function Home() {
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     {projects.map((project) => (
       <div key={project._id} className="group relative">
-        <a href={`/projects/${project.slug.current}`} target="_blank" rel="noopener noreferrer">
+        <Link href={`/projects/${project.slug.current}`} target="_blank" rel="noopener noreferrer">
           <div className="rounded-lg overflow-hidden h-64 md:h-80">
             <Image
               src={project.image?.asset.url}
@@ -398,7 +398,7 @@ export default function Home() {
               <HiOutlineExternalLink className="text-gray-500 text-xl ml-2" />
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     ))}
   </div>
@@ -597,12 +597,12 @@ export default function Home() {
             ))}
           </div>
           <div className="max-w-7xl mx-auto text-right mt-8">
-            <a
+            <Link
               href="/blog"
               className="text-blue-500 hover:text-blue-700 font-bold"
             >
               More Posts &rarr;
-            </a>
+            </Link>
           </div>
         </div>
       </section>

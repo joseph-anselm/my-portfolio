@@ -34,15 +34,11 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-12 w-auto lg:hidden mx-auto"
-                    src="../images/logo3.png"
-                    alt="Your Company"
-                  />
+                  
                   <Image
                     className="hidden h-12 w-24 lg:block"
                     src="/images/logo3.png"
-                    alt="Your Company"
+                    alt="Jojo"
                     height={48}
                     width={96}
                   />

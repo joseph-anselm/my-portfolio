@@ -111,7 +111,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 text-center md:text-left m-2 ">
               <h1 className="text-4xl sm:text-3xl font-bold mb-4">
-                Hey! I am Joe Anselm
+                Hey! I am <span>Joe Anselm</span>
               </h1>
               <p className="mb-8 text-justify">
                 My goal is to to create and support high-quality tech products,
@@ -180,7 +180,7 @@ export default function Home() {
                 </span>
               </div>
               <div className="flex m-5">
-                <h1 className="text-6xl text-gray-800">125+</h1>
+                <h1 className="text-6xl text-gray-800 px-2">125+</h1>
                 <span className="w-16 self-end text-left ml-2 font-bold text-blue-200">
                   Clients Served
                 </span>

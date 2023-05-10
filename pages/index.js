@@ -406,12 +406,12 @@ export default function Home() {
 
 
         <div className="text-center mb-5 max-w-7xl mx-auto text-right">
-          <a
+          <Link
             href="/projects"
             className="text-lg font-semibold text-blue-700 hover:text-gray-900"
           >
             View More Projects &rarr;
-          </a>
+          </Link>
         </div>
       </section>
 

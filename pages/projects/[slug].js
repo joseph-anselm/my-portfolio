@@ -1,7 +1,8 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import sanityClient from '@/client';
 import { useRouter } from 'next/router';
 import client from '@/client';
+import { FiArrowLeft } from 'react-icons/fi';
 
 export default function Project({ project }) {
   const router = useRouter();
@@ -18,13 +19,13 @@ export default function Project({ project }) {
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-center md:space-x-10">
-        <div className="rounded-lg overflow-hidden h-96 md:w-1/2 relative">
+        <div className="rounded-lg overflow-hidden h-96 md:w-1/2 sm:auto relative">
           <Image
             src={project.imageUrl}
             alt={project.title}
             layout="fill"
             objectFit="contain"
-            className="transition-opacity duration-300"
+            className="transition-opacity duration-300 relative w-auto"
           />
         </div>
 
@@ -33,18 +34,22 @@ export default function Project({ project }) {
             <p className="text-gray-600">{project.longDescription}</p>
           </div>
 
-          <div className="mt-10 space-x-4">
-            <a href={project.url} target="_blank" rel="noopener noreferrer">
+          <div className="mt-10 space-x-4 flex flex-row">
+            <a href={project.url} >
               <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
                 View Project
               </button>
             </a>
 
             <button
-              onClick={() => router.back()}
-              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+              onClick={() => {
+                console.log('Back button clicked');
+                router.back();
+              }}
+              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded flex items-center"
             >
-              Back to Projects
+              <FiArrowLeft className="mr-2" />
+              <span>Back</span>
             </button>
           </div>
         </div>

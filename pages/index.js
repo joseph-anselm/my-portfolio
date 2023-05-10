@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import Image from 'next/legacy/image';
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
@@ -379,11 +379,12 @@ export default function Home() {
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     {projects.map((project) => (
       <div key={project._id} className="group relative">
-        <Link href={`/projects/${project.slug.current}`} target="_blank" rel="noopener noreferrer">
+        <Link href={`/projects/${project.slug.current}`}  rel="noopener noreferrer">
           <div className="rounded-lg overflow-hidden h-64 md:h-80">
             <Image
               src={project.image?.asset.url}
               alt={project.title}
+              layout="fill"
               className="transition-opacity duration-300 h-full w-full object-cover"
             />
           </div>

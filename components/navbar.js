@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import Image from "next/image";
+import { Bars3Icon, PhoneIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/legacy/image";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -73,7 +73,8 @@ export default function Navbar() {
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  <PhoneIcon className="h-6 w-6" aria-hidden="true" />
+                  
                 </button>
 
                 {/* Profile dropdown */}

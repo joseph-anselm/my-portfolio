@@ -26,7 +26,7 @@ const HeroSection = () => {
         </div>
         <div className="w-1/2">
           <h1 className="text-white text-5xl font-bold mb-8">
-            My Big Heading about me
+            I believe in excellence an I crave for it every opportunity.
           </h1>
         </div>
       </div>

@@ -11,21 +11,29 @@ const BlogPostPage = ({ post }) => {
   }
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <div>
-        <Image
-          src={post.featuredImage.asset.url}
-          alt={post.featuredImage.alt}
-          width={600}
-          height={400}
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex flex-col md:flex-row items-center justify-between mb-8">
+        <div className="md:w-1/2 mr-8">
+          <Image
+            src={post.featuredImage.asset.url}
+            alt={post.featuredImage.alt}
+            width={600}
+            height={400}
+            className="rounded-lg"
+          />
+        </div>
+        <div className="md:w-1/2">
+          <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+          <p className="text-gray-500">Author: {post.authorName}</p>
+        </div>
+      </div>
+
+      <div className="prose max-w-none">
+        <BlockContent
+          blocks={post.body}
+          imageOptions={{ w: 640, h: 480, fit: "max" }}
         />
       </div>
-      <BlockContent
-        blocks={post.body}
-        imageOptions={{ w: 320, h: 240, fit: "max" }}
-      />
-      <p>Author: {post.authorName}</p>
     </div>
   );
 };

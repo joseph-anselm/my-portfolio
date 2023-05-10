@@ -61,12 +61,12 @@ const [blogPosts, setBlogPosts] = useState([]);
                     </p>
                   </div>
                   <div className="mt-auto mb-2">
-                    <a
+                    <Link
                       href={`/blog/${post.slug.current}`}
                       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     >
                       Read More
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

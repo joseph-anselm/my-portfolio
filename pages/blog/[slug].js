@@ -8,7 +8,7 @@ const BlogPostPage = ({ post }) => {
   const router = useRouter();
 
   if (router.isFallback) {
-    return <div>Loading...</div>;
+    return <div>Loading....</div>;
   }
   const title = post.title;
 

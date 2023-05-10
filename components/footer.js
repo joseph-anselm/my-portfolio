@@ -62,21 +62,21 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="/blog/top-10-web-development-trends-for-2022"
+                href="/blog/10-web-development-trends-for-2023-stay-ahead-of-the-curve"
                 legacyBehavior
               >
                 <a className="hover:text-white">
-                  Top 10 Web Development Trends for 2022
+                  Top 10 Web Development Trends for 2023
                 </a>
               </Link>
             </li>
             <li>
               <Link
-                href="/blog/top-10-web-development-trends-for-2022"
+                href="/blog/unveiling-the-secrets-5-tips-for-building-exceptional-websites-with-seo-in-mind"
                 legacyBehavior
               >
                 <a className="hover:text-white">
-                  Top 10 Web Development Trends for 2022
+                5 Tips for Building Exceptional Websites
                 </a>
               </Link>
             </li>
@@ -88,7 +88,7 @@ const Footer = () => {
             Feel free to contact me for any inquiries or project proposals.
           </p>
           <a
-            href="mailto:hello@example.com"
+            href="mailto:iamjoeanselm@gmail.com"
             className="inline-block py-2 px-4 rounded-md bg-blue-500 hover:bg-blue-600 text-white text-sm mt-2"
           >
             Email Me

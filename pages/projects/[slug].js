@@ -15,17 +15,16 @@ export default function Project({ project }) {
     <div className="max-w-7xl mx-auto py-5">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-semibold mb-6">{project.title}</h1>
-        
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-center md:space-x-10">
-        <div className="rounded-lg overflow-hidden h-96 md:w-1/2 sm:auto relative">
+        <div className="rounded-lg overflow-hidden h-96 md:w-1/2 sm:w-full relative">
           <Image
             src={project.imageUrl}
             alt={project.title}
             layout="fill"
             objectFit="contain"
-            className="transition-opacity duration-300 relative w-auto"
+            className="transition-opacity duration-300"
           />
         </div>
 
@@ -34,8 +33,8 @@ export default function Project({ project }) {
             <p className="text-gray-600">{project.longDescription}</p>
           </div>
 
-          <div className="mt-10 space-x-4 flex flex-row">
-            <a href={project.url} >
+          <div className="mt-10 flex space-x-4">
+            <a href={project.url}>
               <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
                 View Project
               </button>
@@ -58,10 +57,9 @@ export default function Project({ project }) {
   );
 }
 
-export async function getStaticPaths(params) {
-  
+export async function getStaticPaths() {
   const projects = await client.fetch(`*[_type == "project" && defined(slug.current)]`);
-  
+
   const paths = projects.map((project) => ({
     params: { slug: project.slug?.current },
   }));

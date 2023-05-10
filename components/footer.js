@@ -42,17 +42,17 @@ const Footer = () => {
           <ul className="text-sm">
             <li>
               <Link
-                href="/blog/5-tips-for-building-great-websites"
+                href="/blog/5-proven-ways-to-make-money-with-artificial-intelligence-ai"
                 legacyBehavior
               >
                 <a className="hover:text-white">
-                  5 Tips for Building Great Websites
+                  5 Tips Proven ways to make money with AI
                 </a>
               </Link>
             </li>
             <li>
               <Link
-                href="/blog/how-to-choose-the-right-web-hosting"
+                href="/blog/decoding-the-digital-maze-how-to-choose-the-perfect-web-hosting-solution"
                 legacyBehavior
               >
                 <a className="hover:text-white">

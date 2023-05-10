@@ -12,7 +12,7 @@ export default function Project({ project }) {
   }
 
   return (
-    <div className="max-w-7xl mx-auto py-5">
+    <div className="max-w-7xl mx-auto py-5 px-2">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-semibold mb-6">{project.title}</h1>
       </div>

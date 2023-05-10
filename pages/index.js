@@ -172,7 +172,7 @@ export default function Home() {
               trends, and strive to continuously improve my skills to provide
               the best possible service to my clients.
             </p>
-            <div className="flex mx-auto text-center justify-center px-3">
+            <div className="flex mx-auto text-center justify-center px-5">
               <div className="flex m-5">
                 <h1 className="pl-2 text-6xl text-gray-800">12</h1>
                 <span className="w-16 self-end text-left ml-2 font-bold text-blue-200">

@@ -15,7 +15,7 @@ const HeroSection = () => {
 
   return (
     <div className="bg-blue-500" data-aos="fade-right" data-aos-duration="1000">
-      <div className="max-w-screen-lg mx-auto flex items-center">
+      <div className="max-w-screen-lg mx-auto flex items-end">
         <div className="w-1/2">
           <Image
             src="/images/Jojo-pure.png"
@@ -25,7 +25,7 @@ const HeroSection = () => {
           />
         </div>
         <div className="w-1/2">
-          <h1 className="text-white lg:text-5xl md:text-4xl sm:text-2xl font-bold mb-8 pr-3 flex items-end">
+          <h1 className="text-white lg:text-5xl md:text-4xl sm:text-2xl font-bold mb-8 pr-3 ">
           Excellence, Creativity, Value.
           </h1>
         </div>

@@ -56,7 +56,7 @@ export default function MyPage() {
             <h1 className="text-4xl font-bold mb-8">
               Hi, I&apos;m <span className="text-blue-500">Jojo Anselm</span>
             </h1>
-            <p className="text-lg mb-8 ">
+            <p className="mb-8 ">
               I am a tech professional with expertise in frontend and full-stack development, tech support, and business brand optimization. I build beautiful and functional web and mobile applications that deliver seamless user experiences, and provide tech support services to troubleshoot technical issues. Additionally, I specialize in business brand optimization, helping clients enhance their online presence and strengthen their brand identity through digital marketing strategies. By staying up-to-date with the latest technologies and best practices, I deliver custom solutions that exceed my clients&apos; expectations.
             </p>
             <h1 className="text-4xl font-bold mb-8">Tech Stacks</h1>

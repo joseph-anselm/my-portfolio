@@ -62,26 +62,26 @@ export default function MyPage() {
             <h1 className="text-4xl font-bold mb-8">Tech Stacks</h1>
           </div>
           <div className="max-w-screen-lg mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-              {skillSet.map((skill) => (
-                <div key={skill.name}>
-                  <CircularProgressbar
-                    value={skill.percentage}
-                    text={`${skill.percentage}%`}
-                    styles={buildStyles({
-                      textSize: "24px",
-                      pathColor: `#2E82FD`,
-                      textColor: "#2E82FD",
-                      trailColor: "#D1D5DB",
-                    })}
-                  />
-                  <p className="mt-4 text-xl font-semibold text-center">
-                    {skill.name}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    {skillSet.map((skill) => (
+      <div key={skill.name} className="flex flex-col items-center">
+        <CircularProgressbar
+          value={skill.percentage}
+          text={`${skill.percentage}%`}
+          styles={buildStyles({
+            textSize: "24px",
+            pathColor: "#2E82FD",
+            textColor: "#2E82FD",
+            trailColor: "#D1D5DB",
+          })}
+        />
+        <p className="mt-4 text-xl font-semibold text-center">{skill.name}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
+          
         </div>
       </section>
 

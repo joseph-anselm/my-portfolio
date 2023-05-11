@@ -26,7 +26,7 @@ const HeroSection = () => {
         </div>
         <div className="w-1/2">
           <h1 className="text-white lg:text-5xl md:text-4xl sm:text-2xl font-bold mb-8">
-            "Excellence, Creativity, Value".
+          &ldquo; Excellence, Creativity, Value &ldquo;.
           </h1>
         </div>
       </div>

@@ -17,7 +17,7 @@ export default function Project({ project }) {
         <h1 className="text-3xl font-semibold mb-6">{project.title}</h1>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center md:space-x-10">
+      <div className="flex flex-col md:flex-row items-center justify-center md:space-x-10 items-start">
         <div className="rounded-lg overflow-hidden md:w-1/2 sm:w-full">
           <div className="aspect-w-16 aspect-h-9">
             <Image

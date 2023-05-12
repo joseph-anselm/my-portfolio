@@ -8,7 +8,6 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/autoplay";
 import "swiper/css/effect-coverflow";
 import LazyLoad from "react-lazy-load";
-
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const images = [

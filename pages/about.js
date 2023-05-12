@@ -1,23 +1,13 @@
 import Image from "next/image";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { FaLaptopCode, FaMobileAlt, FaTools, FaSearch } from "react-icons/fa";
 import { useEffect } from "react";
 import AOS from "aos";
 import HeroSection from "@/components/herosection";
+import Techstacks from "@/components/techstacks";
 
-export default function MyPage() {
-  const skillSet = [
-    { name: "HTML/CSS", percentage: 95 },
-    { name: "Mysql / Postgres", percentage: 85 },
-    { name: "JavaScript", percentage: 85 },
-    { name: "React", percentage: 80 },
-    { name: "Django", percentage: 75 },
-    { name: "AWS/Azure", percentage: 80 },
-    { name: "PHP", percentage: 75 },
-    { name: "CMS / Headless CMS", percentage: 85 },
-  ];
-
+export default function About() {
+  
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -59,31 +49,16 @@ export default function MyPage() {
             <p className="mb-8 ">
               I am a tech professional with expertise in frontend and full-stack development, tech support, and business brand optimization. I build beautiful and functional web and mobile applications that deliver seamless user experiences, and provide tech support services to troubleshoot technical issues. Additionally, I specialize in business brand optimization, helping clients enhance their online presence and strengthen their brand identity through digital marketing strategies. By staying up-to-date with the latest technologies and best practices, I deliver custom solutions that exceed my clients&apos; expectations.
             </p>
-            <h1 className="text-4xl font-bold mb-8">Tech Stacks</h1>
+            
           </div>
-          <div className="max-w-screen-lg mx-auto">
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-    {skillSet.map((skill) => (
-      <div key={skill.name} className="flex flex-col items-center">
-        <CircularProgressbar
-          value={skill.percentage}
-          text={`${skill.percentage}%`}
-          styles={buildStyles({
-            textSize: "24px",
-            pathColor: "#2E82FD",
-            textColor: "#2E82FD",
-            trailColor: "#D1D5DB",
-          })}
-        />
-        <p className="mt-4 text-xl font-semibold text-center">{skill.name}</p>
-      </div>
-    ))}
-  </div>
-</div>
-
-          
         </div>
       </section>
+
+
+ <Techstacks />
+          
+       
+      
 
       <section>
         <div className="py-16 bg-[#ddeef8]">

@@ -183,3 +183,15 @@ a {
     height: 62px;
   }
 }
+
+.circular-progressbar-container:hover .CircularProgressbar-path {
+  stroke: #0B5ED7 !important;
+}
+
+.circular-progressbar-container:hover .CircularProgressbar-trail {
+  stroke: #D1D5DB !important;
+}
+
+.circular-progressbar-container:hover .CircularProgressbar-text {
+  fill: #0B5ED7 !important;
+}

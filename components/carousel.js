@@ -12,10 +12,10 @@ import LazyLoad from "react-lazy-load";
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const images = [
-  { src: "/images/Joe-square.jpg", alt: "Joseph Anselm Head Image" },
-  { src: "/images/Joe-square.jpg", alt: "Joseph Anselm" },
-  { src: "/images/Joe-square.jpg", alt: "Joseph Anselm" },
-  { src: "/images/Joe-square.jpg", alt: "Joseph Anselm" },
+  { src: "/images/Joe-pic2.jpg", alt: "Joseph Anselm Head Image" },
+  { src: "/images/jojo-pic1.jpg", alt: "Joseph Anselm" },
+  { src: "/images/jojo-pic2.jpg", alt: "Joseph Anselm" },
+  
 ];
 
 export default function Carousel() {

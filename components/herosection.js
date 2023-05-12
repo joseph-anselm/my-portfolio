@@ -15,7 +15,7 @@ const HeroSection = () => {
 
   return (
     <div className="bg-blue-500" data-aos="fade-right" data-aos-duration="1000">
-      <div className="max-w-screen-lg mx-auto flex items-end">
+      <div className="max-w-screen-lg mx-auto flex items-center">
         <div className="w-1/2">
           <Image
             src="/images/Jojo-pure.png"

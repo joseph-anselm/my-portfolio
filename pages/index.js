@@ -109,6 +109,9 @@ export default function Home() {
       <section className="">
         <div className="bg-white-900 text-black h-400 md:h-400">
           <div className="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:flex flex-col md:flex-row items-center justify-between">
+            <div className="md:w-1/2 mb-8 md:m-5 md:order-last">
+              <Carousel />
+            </div>
             <div className="md:w-1/2 text-center md:text-left m-2 ">
             <h1 className="text-3xl sm:text-3xl font-bold mb-4 whitespace-nowrap px-3">
               Hey! I am <span className="text-blue-700">Joe Anselm</span>
@@ -134,18 +137,6 @@ export default function Home() {
                   </a>
                 </Link>
               </div>
-            </div>
-
-            <div className="md:w-1/2 mb-8 md:m-5 md:order-last">
-              {/* <Image
-                src="/images/Joe-square.jpg"
-                alt="Joseph Anselm Head Image"
-                width={350}
-                height={200}
-                className="rounded-full drop-shadow-md hover:drop-shadow-2xl "
-              /> */}
-
-              <Carousel />
             </div>
           </div>
         </div>

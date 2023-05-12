@@ -13,7 +13,7 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 const images = [
   { src: "/images/Joe-pic2.jpg", alt: "Joseph Anselm Head Image" },
   { src: "/images/jojo-pic1.jpg", alt: "Joseph Anselm" },
-  { src: "/images/jojo-pic2.jpg", alt: "Joseph Anselm" },
+  { src: "/images/jojo-pic3.jpg", alt: "Joseph Anselm" },
   
 ];
 

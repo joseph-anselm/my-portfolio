@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import ContactForm from "@/components/contactForm";
 
+
 const ContactPage = () => {
   return (
     <div className="flex flex-col md:flex-row items-center max-w-7xl mx-auto">

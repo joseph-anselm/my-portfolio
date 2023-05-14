@@ -2,12 +2,15 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, PhoneIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/legacy/image";
+import { useRouter } from "next/router";
+
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "About Me", href: "/about", current: false },
+  { name: "About Me", href: "/about", current:false },
   { name: "Projects", href: "/projects", current: false },
   { name: "My Blog", href: "/blog", current: false },
+  { name: "Contact me", href: "/contact", current: false },
 ];
 
 function classNames(...classes) {
@@ -15,6 +18,8 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const router = useRouter();
+
   return (
     <Disclosure as="nav" className="bg-blue-200">
       {({ open }) => (

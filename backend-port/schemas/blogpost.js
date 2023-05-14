@@ -47,5 +47,12 @@ export default {
       type: 'blockContent',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{ type: 'category' }],
+      validation: (Rule) => Rule.required(),
+    }
   ],
 }

@@ -114,7 +114,7 @@ export default function Home() {
             </div>
             <div className="md:w-1/2 text-center md:text-left m-2 ">
             <h1 className="text-3xl sm:text-3xl font-bold mb-4 whitespace-nowrap px-3">
-              Hey! I am <span className="text-blue-700">Joe Anselm</span>
+              Hey! I am <span className="text-blue-700">Joseph Anselm</span>
             </h1>
               <p className="mb-8 text-justify">
                 My goal is to to create and support high-quality tech products,

@@ -3,6 +3,7 @@ import Image from "next/image";
 import sanityClient from "@/client";
 import BlockContent from "@sanity/block-content-to-react";
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
+import Link from "next/link";
 
 const BlogPostPage = ({ post }) => {
   const router = useRouter();
@@ -30,6 +31,7 @@ const BlogPostPage = ({ post }) => {
         <div className="md:w-1/2">
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
           <p className="text-gray-500">Author: {post.authorName}</p>
+          <p className="text-gray-500">Category: <Link href='/blog'>{post.categoryName}</Link></p>
         </div>
        
       </div>
@@ -88,6 +90,8 @@ export async function getStaticProps({ params }) {
     `*[_type == "blogPost" && slug.current == $slug]{
       _id,
       title,
+      category,
+      "categoryName":category->title,
       body,
       "authorName": author->name,
       featuredImage{

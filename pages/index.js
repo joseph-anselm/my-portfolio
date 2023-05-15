@@ -113,7 +113,7 @@ export default function Home() {
               <Carousel />
             </div>
             <div className="md:w-1/2 text-center md:text-left m-2 ">
-            <h1 className="lg:text-6xl md:text-4xl sm:text-2xl font-bold mb-4 whitespace-nowrap px-3">
+            <h1 className="lg:text-6xl md:text-4xl sm:text-3xl font-bold mb-4 whitespace-nowrap px-3">
               Hey! I am <span className="text-blue-700">Joseph Anselm</span>
             </h1>
               <p className="mb-8 text-justify">

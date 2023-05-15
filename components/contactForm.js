@@ -31,7 +31,7 @@ const ContactForm = () => {
 
   if (formSubmitted) {
     return (
-      <div className="text-center">
+      <div className="text-left">
         <p className="text-xl mb-4">Thanks for getting in touch!</p>
         <button
           onClick={() => setFormSubmitted(false)}
@@ -88,7 +88,7 @@ const ContactForm = () => {
 
       <button
         type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded"
+        className="bg-blue-500 text-white px-4 py-2 rounded w-full"
       >
         Submit
       </button>

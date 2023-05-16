@@ -57,11 +57,11 @@ export default function About() {
 
  <Techstacks />
           
-       
+      
       
 
       <section>
-        <div className="py-16 bg-[#ddeef8] px-4">
+        <div className="py-16 bg-[#ddeef8]">
           <div className="max-w-screen-lg mx-auto text-center">
             <h1 className="text-4xl font-bold mb-4">What I Do</h1>
             <p className="text-lg mb-8 text-center">

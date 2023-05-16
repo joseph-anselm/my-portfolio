@@ -10,12 +10,12 @@ const ContactPage = () => {
     <div className="bg-gray-200">
       <div className="container mx-auto flex flex-col md:flex-row items-center">
       
-      <div className="md:w-1/2 px-4 py-8 lg:order-1 sm:order-2 xs:order-2">
+      <div className="md:w-1/2 px-4 py-8 ">
           <h2 className="text-3xl font-bold mb-4">Drop A Message For Me!</h2>
           <ContactForm />       
       </div>
 
-      <div className="md:w-1/2 order-2 sm:order-1 flex flex-row">
+      <div className="md:w-1/2 flex flex-row lg:order-last md:order-first sm:order-first">
           <Image
             src="/images/jojo-contact.png"
             alt="Contact Image"

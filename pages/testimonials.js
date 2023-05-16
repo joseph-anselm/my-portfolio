@@ -6,7 +6,7 @@ import React from 'react'
 export default function testimonialspage() {
   return (
     <>
-    <div><HeroSection/></div>
+    <div><HeroSection title="Criticism Fair or not makes us grow!"/></div>
     <div><Testimonials/></div>
     </>
   )

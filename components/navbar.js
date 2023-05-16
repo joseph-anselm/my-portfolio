@@ -1,8 +1,10 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, PhoneIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, PhoneIcon, XMarkIcon,WhatsappIcon } from "@heroicons/react/24/outline";
+import { SiWhatsapp } from "react-icons/si";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 
 const navigation = [
@@ -74,7 +76,8 @@ export default function Navbar() {
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
-                  <PhoneIcon className="h-6 w-6" aria-hidden="true" />
+                  <Link href="https://wa.me/2348032516519" target="_blank" rel="noopener noreferrer"><SiWhatsapp className="h-6 w-6" aria-hidden="true" /></Link>
+
                   
                 </button>
 

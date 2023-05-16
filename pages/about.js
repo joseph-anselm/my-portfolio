@@ -38,10 +38,10 @@ export default function About() {
         </div>
       </div> */}  
 
-      <HeroSection />
+      <HeroSection title ="Leadership, Excellence, Creativity, Value." />
 
       <section>
-        <div className="bg-[#ddeef8] flex flex-col justify-center py-9 ">
+        <div className="bg-[#ddeef8] flex flex-col justify-center py-9 px-4 ">
           <div className="text-center max-w-screen-lg mx-auto">
             <h1 className="text-4xl font-bold mb-8">
               Hi, I&apos;m <span className="text-blue-500">Joseph Anselm</span>
@@ -61,7 +61,7 @@ export default function About() {
       
 
       <section>
-        <div className="py-16 bg-[#ddeef8]">
+        <div className="py-16 bg-[#ddeef8] px-4">
           <div className="max-w-screen-lg mx-auto text-center">
             <h1 className="text-4xl font-bold mb-4">What I Do</h1>
             <p className="text-lg mb-8 text-center">

@@ -29,7 +29,7 @@ export default function Techstacks() {
       <div className="text-center max-w-screen-lg mx-auto">
         <h1 className="text-4xl font-bold my-5">Tech Stacks</h1>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 px-4">
         {skillSet.map((skill) => (
           <div key={skill.name}>
             <CircularProgressbar

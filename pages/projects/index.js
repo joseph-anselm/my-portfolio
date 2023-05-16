@@ -4,6 +4,7 @@ import sanityClient from "@/client";
 import { useEffect, useState } from "react";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import client from '@/client';
+import HeroSection from '@/components/herosection';
 
 export default function Projects() {
 
@@ -28,6 +29,8 @@ export default function Projects() {
   }, []);
 
   return (
+    <>
+    <HeroSection title ="Quality, Professionalism, Competence." />
     <div className="max-w-7xl mx-auto py-5 px-2">
       <h1 className="text-3xl font-semibold mb-6">Projects</h1>
       <p className='mb-10'>Check out my portfolio of unique and captivating projects that showcase my passion for design and development. From dynamic web applications to interactive mobile apps, each project represents my dedication to delivering high-quality results that exceed expectations. Explore my portfolio and discover how I can help you bring your ideas to life</p>
@@ -62,6 +65,7 @@ export default function Projects() {
         ))}
       </div>
     </div>
+    </>
   );
 }
 

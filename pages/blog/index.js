@@ -3,6 +3,7 @@ import sanityClient from "@/client";
 import { useEffect, useState } from "react";
 import client from '@/client';
 import Link from 'next/link';
+import HeroSection from '@/components/herosection';
 
 
 
@@ -38,6 +39,7 @@ const [blogPosts, setBlogPosts] = useState([]);
   
   return (
     <>
+    <HeroSection title="My Thoughts, Blogs and Update :)" />
       <section className="featured-post">
         <div className="bg-white w-full px-4 py-8">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">

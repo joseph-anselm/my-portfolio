@@ -38,7 +38,8 @@ export default function About() {
         </div>
       </div> */}  
 
-      <HeroSection title ="Leadership, Excellence, Creativity, Value." />
+      <HeroSection title ="Leadership, Excellence, Creativity, Value."  image="/images/Jojo-pure.png" />
+ 
 
       <section>
         <div className="bg-[#ddeef8] flex flex-col justify-center py-9 px-4 ">

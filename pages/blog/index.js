@@ -39,7 +39,7 @@ const [blogPosts, setBlogPosts] = useState([]);
   
   return (
     <>
-    <HeroSection title="My Thoughts, Blogs and Update :)" />
+    <HeroSection title="My Thoughts, Blogs and Update :)" image="/images/jojoblog.png"/>
       <section className="featured-post">
         <div className="bg-white w-full px-4 py-8">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import AOS from "aos";
 
-const HeroSection = ({title}) => {
+const HeroSection = ({ title, image }) => {
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -18,7 +18,7 @@ const HeroSection = ({title}) => {
       <div className="max-w-screen-lg mx-auto flex items-center">
         <div className="w-1/2">
           <Image
-            src="/images/Jojo-pure.png"
+            src={image}
             alt="My Image"
             width={400}
             height={400}

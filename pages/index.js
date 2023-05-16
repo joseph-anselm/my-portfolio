@@ -1,25 +1,19 @@
 import Head from "next/head";
 import Image from 'next/legacy/image';
 import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import Carousel from "@/components/carousel";
 import LazyLoad from "react-lazy-load";
-
+import Testimonials from "@/components/testimonial";
 import { useEffect, useState } from "react";
+import client from "@/client";
 
-import sanityClient from "@sanity/client";
 
-const client = sanityClient({
-  projectId: "jy07zzhq",
-  dataset: "production",
-  useCdn: false, // Set this to true if you want to enable CDN caching
-});
 
-const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+
+export default function Home() {  
   const [blogPosts, setBlogPosts] = useState([]);
   const [projects, setProjectSchema] = useState([]);
 
@@ -113,7 +107,7 @@ export default function Home() {
               <Carousel />
             </div>
             <div className="md:w-1/2 text-center md:text-left m-2 ">
-            <h1 className="lg:text-6xl md:text-4xl sm:text-3xl font-bold mb-4 whitespace-nowrap px-3">
+            <h1 className="lg:text-5xl md:text-4xl sm:text-2xl font-bold mb-4 whitespace-nowrap px-3">
               Hey! I am <span className="text-blue-700">Joseph Anselm</span>
             </h1>
               <p className="mb-8 text-justify">
@@ -397,7 +391,7 @@ export default function Home() {
 </div>
 
 
-        <div className="text-center mb-5 max-w-7xl mx-auto text-right">
+        <div className="mb-5 max-w-7xl mx-auto text-right">
           <Link
             href="/projects"
             className="text-lg font-semibold text-blue-700 hover:text-gray-900"
@@ -408,65 +402,19 @@ export default function Home() {
       </section>
 
       <section className="home-testimonial">
-        <div className="bg-blue-200 w-full px-4 py-11">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8 pt-8">
-            Testimonials
-          </h1>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-            <div className="rounded-lg lg:p-24 p-16 shadow-lg flex flex-col lg:flex-row items-center mb-8 md:mb-0">
-              <div className="flex-shrink-0">
-                <Image
-                  src="/images/Joseph-Anselm-1.png"
-                  alt="John Doe"
-                  className="rounded-full w-12 h-12 lg:w-16 lg:h-16 lg:mr-4 lg:self-center"
-                  width={50}
-                  height={50}
-                />
-              </div>
-              <div className="mt-4 lg:mt-0 text-center lg:text-left">
-                <p className="text-gray-800 text-lg font-bold mb-2">John Doe</p>
-                <p className="text-gray-600 text-sm">
-                  &quot; Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.&ldquo;
-                </p>
-              </div>
-            </div>
 
-            <div className="rounded-lg lg:p-24 p-16 shadow-lg flex flex-col lg:flex-row items-center mb-8 md:mb-0">
-              <div className="flex-shrink-0">
-                <Image
-                  src="/images/Joseph-Anselm-1.png"
-                  alt="John Doe"
-                  className="rounded-full w-12 h-12 lg:w-16 lg:h-16 lg:mr-4 lg:self-center"
-                  width={50}
-                  height={50}
-                />
-              </div>
-              <div className="mt-4 lg:mt-0 text-center lg:text-left">
-                <p className="text-gray-800 text-lg font-bold mb-2">John Doe</p>
-                <p className="text-gray-600 text-sm">
-                  &quot; Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.&ldquo;
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="custom-shape-divider-top-1680109549">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
+
+        <Testimonials limit={2}/> 
+        <div className="mb-5 max-w-7xl mx-auto text-right">
+          <Link
+            href="/testimonials"
+            className="text-lg font-semibold text-blue-700 hover:text-gray-900"
           >
-            <path
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              class="shape-fill"
-            ></path>
-          </svg>
-        </div>
+            More Testimonials &rarr;
+          </Link>
+        </div> 
+
+           
       </section>
 
       {/* <section className="featured-post">

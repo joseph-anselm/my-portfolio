@@ -497,7 +497,7 @@ const TestimonialForm = ({ onClose }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
       <div className="mb-4">
-        <label htmlFor="title" className="block text-gray-700">
+        <label htmlFor="title" className="block text-gray-700" placeholder='Mr'>
           Title:
         </label>
         <select

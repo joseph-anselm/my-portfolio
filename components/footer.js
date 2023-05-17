@@ -7,9 +7,8 @@ const Footer = () => {
         <div className="space-y-4 mx-4">
           <h2 className="text-lg font-medium">About Me</h2>
           <p className="text-sm">
-            I am a freelance web developer and designer with over 5 years of
-            experience. I specialize in creating custom websites and
-            applications using modern technologies.
+          
+            Experienced IT professional with 10+ years in web development, design, and IT engineering. Proven track record delivering high-quality, user-friendly, and secure solutions. Proficient in various technologies, including cloud computing and artificial intelligence. Motivated, results-oriented, and collaborative team player. Achieve common goals effectively.
           </p>
         </div>
         <div className="space-y-4 mx-4">

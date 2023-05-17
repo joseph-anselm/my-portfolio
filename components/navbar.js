@@ -9,10 +9,11 @@ import Link from "next/link";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "About Me", href: "/about", current:false },
+  { name: "About", href: "/about" },
   { name: "Projects", href: "/projects", current: false },
-  { name: "My Blog", href: "/blog", current: false },
-  { name: "Contact me", href: "/contact", current: false },
+  { name: "Blog", href: "/blog", current: false },
+  { name: "Contact", href: "/contact", current: false },
+  { name: "Services", href: "/services", current: false },
 ];
 
 function classNames(...classes) {
@@ -107,15 +108,16 @@ export default function Navbar() {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none self-center">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            target="_blank" 
+                            href="/JOSEPH_ANSELM Profile.pdf" download
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Profile Download
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>

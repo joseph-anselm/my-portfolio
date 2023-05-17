@@ -7,6 +7,7 @@ import blockContent from './blockContent'
 import category from './category'
 import contact from './contactMessage'
 import testimonials from './testimonials'
+import service from './service'
 
 
-export const schemaTypes = [sitesettings, blogPost, project, author, blockContent, category, contact, testimonials]
+export const schemaTypes = [sitesettings, blogPost, project, author, blockContent, category, contact, testimonials, service]

@@ -38,7 +38,7 @@ export default function About() {
         </div>
       </div> */}  
 
-      <HeroSection title ="Leadership, Excellence, Creativity, Value."  image="/images/Jojo-pure.png" />
+      <HeroSection title ="Leadership, Excellence, Creativity, Honesty, Value."  image="/images/Jojo-pure.png" />
  
 
       <section>
@@ -47,8 +47,16 @@ export default function About() {
             <h1 className="text-4xl font-bold mb-8">
               Hi, I&apos;m <span className="text-blue-500">Joseph Anselm</span>
             </h1>
-            <p className="mb-8 ">
-              I am a tech professional with expertise in frontend and full-stack development, tech support, and business brand optimization. I build beautiful and functional web and mobile applications that deliver seamless user experiences, and provide tech support services to troubleshoot technical issues. Additionally, I specialize in business brand optimization, helping clients enhance their online presence and strengthen their brand identity through digital marketing strategies. By staying up-to-date with the latest technologies and best practices, I deliver custom solutions that exceed my clients&apos; expectations.
+            <p className="mb-8 text-justify">
+            As an IT Engineer and Web Developer, I possess a diverse skill set and a strong passion for technology. With expertise in troubleshooting, system maintenance, and web development, I am equipped to handle a wide range of challenges. <br/>
+
+            In web development, I have successfully designed and developed responsive websites and applications that prioritize user experience. Proficient in several programming languages, Libraries and frameworks, allowing me to create efficient and scalable solutions.
+
+            I am experienced in working with popular CMS platforms and Headless CMS solutions. This enables me to customize websites and applications to meet specific requirements effectively.<br/>
+            Furthermore, I have knowledge of cloud computing platforms like AWS and Azure, enabling secure and efficient deployment of applications. Additionally, my understanding of Artificial Intelligence (AI) technologies enhances my ability to develop intelligent and automated systems. <br/>
+
+            With strong communication skills and an ongoing commitment to staying at the forefront of technology trends, I excel in collaborating with clients, stakeholders, and team members to deliver effective IT solutions. I am committed to staying updated on the latest technologies and frameworks, ensuring that I provide cutting-edge solutions to meet evolving needs.<br/>
+
             </p>
             
           </div>
@@ -56,7 +64,7 @@ export default function About() {
       </section>
 
 
- <Techstacks />
+    <Techstacks />
           
       
       

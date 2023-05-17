@@ -1,4 +1,4 @@
-import { FaLaptopCode, FaMobileAlt, FaTools, FaSearch, FaCloud, FaServer, FaLaptop, faBriefcase  } from 'react-icons/fa';
+import { FaLaptopCode, FaMobileAlt, FaTools, FaSearch, FaCloud, FaServer, FaLaptop, FaBriefcase  } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import sanityClient from '../client';
 

@@ -47,12 +47,12 @@ export default function Testimonials({limit})  {
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-8 pt-8">
           Testimonials
         </h1>
-        <div className="text-center mt-8">
+        <div className="text-center mt-4">
             <button
-            className="text-blue-600 underline"
+            className="text-blue-600 underline font-bold"
             onClick={() => setShowModal(true)}
             >
-            Leave a testimonial
+            Leave a testimonial&rarr;
             </button>
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">

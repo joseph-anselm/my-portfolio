@@ -15,23 +15,38 @@ const Footer = () => {
           <h2 className="text-lg font-medium">My Services</h2>
           <ul className="text-sm">
             <li>
-              <Link href="/services/web-design" legacyBehavior>
-                <a className="hover:text-white">Web Design</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/services/web-development" legacyBehavior>
-                <a className="hover:text-white">Web Development</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/services/seo" legacyBehavior>
-                <a className="hover:text-white">SEO</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/services/seo" legacyBehavior>
+              <Link href="/services/" legacyBehavior>
                 <a className="hover:text-white">Tech Support</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" legacyBehavior>
+                <a className="hover:text-white">Business Digitization</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" legacyBehavior>
+                <a className="hover:text-white">Business Branding</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" legacyBehavior>
+                <a className="hover:text-white">Enhanced SEO</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" legacyBehavior>
+                <a className="hover:text-white">Managed IT Services</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" legacyBehavior>
+                <a className="hover:text-white">AI and Cloud Computing Solutions</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" legacyBehavior>
+                <a className="hover:text-white">Dev Ops</a>
               </Link>
             </li>
           </ul>

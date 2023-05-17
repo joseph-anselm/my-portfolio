@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import HeroSection from "@/components/herosection";
 import Techstacks from "@/components/techstacks";
+import ServicesSection from "@/components/serviceSection";
 
 export default function About() {
   
@@ -69,7 +70,7 @@ export default function About() {
       
       
 
-      <section>
+      {/* <section>
         <div className="py-16 bg-[#ddeef8]">
           <div className="max-w-screen-lg mx-auto text-center">
             <h1 className="text-4xl font-bold mb-4">What I Do</h1>
@@ -117,7 +118,8 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <ServicesSection limitServices={4}/>
     </>
   );
 }

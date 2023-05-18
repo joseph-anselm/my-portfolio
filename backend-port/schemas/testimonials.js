@@ -63,7 +63,7 @@ export default {
       options: {
         hotspot: true, // Enable image hotspot for cropping
       },
-      validation: (Rule) => Rule.required(),
+      
     },
     {
       name: 'rating',

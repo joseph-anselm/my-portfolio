@@ -42,7 +42,7 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  
+                  <Link href="/">
                   <Image
                     className="hidden h-12 w-24 lg:block"
                     src="/images/logo3.png"
@@ -50,6 +50,7 @@ export default function Navbar() {
                     height={48}
                     width={96}
                   />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block flex-1 justify-center self-center">
                   <div className="flex space-x-4 flex-1 justify-center align-middle text-black-800">

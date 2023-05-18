@@ -59,7 +59,7 @@ export default function Testimonials({limit})  {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="rounded-lg lg:p-14 p-10 shadow-lg flex flex-col lg:flex-row items-center mb-8 md:mb-0"
+              className="rounded-lg lg:p-12 p-8 shadow-lg flex flex-col lg:flex-row items-center mb-8 md:mb-0"
             >
               <div className="flex-shrink-0">
                 <Image

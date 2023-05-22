@@ -43,7 +43,7 @@ const [blogPosts, setBlogPosts] = useState([]);
       <section className="featured-post">
         <div className="bg-white w-full px-4 py-8">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-            Featured Posts
+            Blog Posts
           </h1>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {blogPosts.map((post) => (

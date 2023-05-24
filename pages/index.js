@@ -512,7 +512,7 @@ export default function Home() {
                 <div
                   className="w-full h-80 bg-cover bg-center rounded-lg mb-4"
                   style={{
-                    backgroundImage: `url(${post.featuredImage.asset.url})`,
+                    backgroundImage: `url(${post.featuredImage?.asset.url})`,
                   }}
                 ></div>
                 <div className="flex flex-col items-center justify-between h-full">
@@ -521,7 +521,7 @@ export default function Home() {
                       {post.title}
                     </h2>
                     <p className="text-gray-600 text-sm mb-2">
-                      {post.excerpt.slice(0, 150)}...
+                      {post.excerpt?.slice(0, 150)}...
                     </p>
                   </div>
                   <div className="mt-auto mb-2">

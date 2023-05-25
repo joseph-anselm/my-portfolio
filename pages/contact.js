@@ -24,7 +24,7 @@ const ContactPage = () => {
             className="shadow-sm"
           />
           <div className="flex flex-col mt-8 self-center gap-4 text-blue-700 px-3">
-          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://twitter.com/@coded_toolz" target="_blank" rel="noopener noreferrer">
           <FaTwitter />
           </a>
           <a href="https://www.linkedin.com/in/joseph-anselm" target="_blank" rel="noopener noreferrer">
@@ -36,10 +36,10 @@ const ContactPage = () => {
           <a href="tel:+2348032516519" target="_blank" rel="noopener noreferrer">
             <FaPhone />
           </a>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/joseph-anselm" target="_blank" rel="noopener noreferrer">
             <FaGithubSquare/>
           </a>
-          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com/jojo" target="_blank" rel="noopener noreferrer">
             <FaYoutubeSquare/>
           </a>
         </div>

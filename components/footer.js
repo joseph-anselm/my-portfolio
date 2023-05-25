@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { FaTwitter, FaLinkedin, FaEnvelopeOpen, FaPhone, FaGitSquare, FaGithubSquare, FaYoutubeSquare } from "react-icons/fa"
+
 
 const Footer = () => {
   return (
@@ -107,7 +109,59 @@ const Footer = () => {
           >
             Email Me
           </a>
+          <div className="flex self-center gap-4 text-blue-700">
+                <a
+                  href="https://twitter.com/@coded_toolz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transform hover:scale-150 transition duration-300"
+                >
+                  <FaTwitter />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/joseph-anselm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transform hover:scale-150 transition duration-300"
+                >
+                  <FaLinkedin />
+                </a>
+                <a
+                  href="mailto:iamjoeanselm@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transform hover:scale-110 transition duration-300"
+                >
+                  <FaEnvelopeOpen />
+                </a>
+                <a
+                  href="tel:+2348032516519"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transform hover:scale-150 transition duration-300"
+                >
+                  <FaPhone />
+                </a>
+                <a
+                  href="https://github.com/joseph-anselm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transform hover:scale-150 transition duration-300"
+                >
+                  <FaGithubSquare />
+                </a>
+                <a
+                  href="https://www.youtube.com/jojo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transform hover:scale-150 transition duration-300"
+                >
+                  <FaYoutubeSquare />
+                </a>
         </div>
+
+        </div>
+       
       </div>
 
       <div className="bg-gray-700 py-4 px-4 sm:px-6 lg:px-8 text-sm">

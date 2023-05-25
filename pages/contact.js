@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ContactForm from "@/components/contactForm";
-import { FaTwitter, FaLinkedin, FaEnvelopeOpen, FaPhone, FaGitSquare, FaGithubSquare, FaYoutubeSquare } from "react-icons/fa"
+import { FaTwitter, FaLinkedin, FaEnvelopeOpen, FaPhone, FaGithubSquare, FaYoutubeSquare } from "react-icons/fa"
 
 
 
@@ -25,22 +25,22 @@ const ContactPage = () => {
           />
           <div className="flex flex-col mt-8 self-center gap-4 text-blue-700 px-3">
           <a href="https://twitter.com/@coded_toolz" target="_blank" rel="noopener noreferrer">
-          <FaTwitter />
+          <FaTwitter className="hover:text-black transform hover:scale-150 transition duration-300" />
           </a>
           <a href="https://www.linkedin.com/in/joseph-anselm" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin/>
+            <FaLinkedin className="hover:text-black transform hover:scale-150 transition duration-300"/>
           </a>
           <a href="mailto:iamjoeanselm@gmail.com" target="_blank" rel="noopener noreferrer">
-            <FaEnvelopeOpen/>
+            <FaEnvelopeOpen className="hover:text-black transform hover:scale-150 transition duration-300"/>
           </a>
           <a href="tel:+2348032516519" target="_blank" rel="noopener noreferrer">
-            <FaPhone />
+            <FaPhone className="hover:text-black transform hover:scale-150 transition duration-300"/>
           </a>
           <a href="https://github.com/joseph-anselm" target="_blank" rel="noopener noreferrer">
-            <FaGithubSquare/>
+            <FaGithubSquare className="hover:text-black transform hover:scale-150 transition duration-300"/>
           </a>
-          <a href="https://www.youtube.com/jojo" target="_blank" rel="noopener noreferrer">
-            <FaYoutubeSquare/>
+          <a href="https://www.youtube.com/@jojologz" target="_blank" rel="noopener noreferrer">
+            <FaYoutubeSquare className="hover:text-black transform hover:scale-150 transition duration-300"/>
           </a>
         </div>
       </div>

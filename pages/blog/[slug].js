@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import sanityClient from "@/client";
 import BlockContent from "@sanity/block-content-to-react";
-import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
+import { FaFacebookF, FaTwitter, FaLinkedin } from "react-icons/fa"; // Add icon imports
 import Link from "next/link";
 
 const BlogPostPage = ({ post }) => {
@@ -13,8 +14,7 @@ const BlogPostPage = ({ post }) => {
   }
   const title = post.title;
 
-  const shareUrl = `https://josephanselm.com/${post.slug?.current}`;
-  
+  const shareUrl = `https://josephanselm.com/blog/${post.slug?.current}`;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -31,9 +31,10 @@ const BlogPostPage = ({ post }) => {
         <div className="md:w-1/2">
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
           <p className="text-gray-500">Author: {post.authorName}</p>
-          <p className="text-gray-500">Category: <Link href='/blog'>{post.categoryName}</Link></p>
+          <p className="text-gray-500">
+            Category: <Link href="/blog">{post.categoryName}</Link>
+          </p>
         </div>
-       
       </div>
 
       <div className="prose max-w-none">
@@ -43,7 +44,7 @@ const BlogPostPage = ({ post }) => {
         />
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4 flex">
         <button
           onClick={() => {
             router.back();
@@ -54,13 +55,13 @@ const BlogPostPage = ({ post }) => {
         </button>
         <div className="flex space-x-2">
           <FacebookShareButton url={shareUrl} quote={title}>
-            <i className="fab fa-facebook-f"></i>
+            <FaFacebookF className="hover:text-blue-700 transform hover:scale-150 transition duration-300" />
           </FacebookShareButton>
           <TwitterShareButton url={shareUrl} title={title}>
-            <i className="fab fa-twitter"></i>
+            <FaTwitter  className="hover:text-blue-700 transform hover:scale-150 transition duration-300"/>
           </TwitterShareButton>
           <LinkedinShareButton url={shareUrl} title={title}>
-            <i className="fab fa-linkedin"></i>
+            <FaLinkedin className="hover:text-blue-700 transform hover:scale-150 transition duration-300"/>
           </LinkedinShareButton>
         </div>
       </div>
@@ -69,6 +70,7 @@ const BlogPostPage = ({ post }) => {
 };
 
 export default BlogPostPage;
+
 
 export async function getStaticPaths() {
   const posts = await sanityClient.fetch('*[_type == "blogPost"]{ slug }');
@@ -90,6 +92,7 @@ export async function getStaticProps({ params }) {
     `*[_type == "blogPost" && slug.current == $slug]{
       _id,
       title,
+      slug,
       category,
       "categoryName":category->title,
       body,

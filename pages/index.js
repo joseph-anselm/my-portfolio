@@ -241,7 +241,7 @@ export default function Home() {
               <div className="p-6">
                 <h2 className="text-lg font-semibold mb-2">Web Design</h2>
                 <p className="text-gray-600">
-                  Elevate your online presence with captivating website designs and brand setup that engage your audience and drive conversions. I blend aesthetic appeal with user-centric functionality to create stunning, intuitive websites. Maximize your brand&apos;s impact and leave a lasting impression with a website that captures attention and delivers results.
+                  Elevate your online presence with captivating website designs and brand setup that engages your audience and drive conversions. I blend aesthetic appeal with user-centric functionality to create stunning, intuitive websites. Maximize your brand&apos;s impact and leave a lasting impression with a website that captures attention and delivers results.
                 </p>
               </div>
             </div>

@@ -13,7 +13,7 @@ import client from "@/client";
 
 
 
-export default function Home() {  
+export default function Home() {
   const [blogPosts, setBlogPosts] = useState([]);
   const [projects, setProjectSchema] = useState([]);
 
@@ -107,9 +107,9 @@ export default function Home() {
               <Carousel />
             </div>
             <div className="md:w-1/2 text-center md:text-left m-2 ">
-            <h1 className="lg:text-5xl md:text-4xl sm:text-2xl font-bold mb-4 whitespace-nowrap px-3">
-              Hey! I am <span className="text-blue-700">Joseph Anselm</span>
-            </h1>
+              <h1 className="lg:text-5xl md:text-4xl sm:text-2xl font-bold mb-4 whitespace-nowrap px-3">
+                Hey! I am <span className="text-blue-700">Joseph Anselm</span>
+              </h1>
               <p className="mb-8 text-justify">
                 My goal is to to create and support high-quality tech products,
                 apps and offer exceptional customer service. I am committed to
@@ -209,7 +209,7 @@ export default function Home() {
               </svg>
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-center">Expertise</h1>
+          <h1 className="text-4xl font-bold text-center">Core Expertise</h1>
         </div>
         <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -224,9 +224,7 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <h2 className="text-lg font-semibold mb-2">Web Development</h2>
-                <p className="text-gray-600">
-                  I create custom websites and applications using modern web
-                  technologies to help your business succeed online.
+                <p className="text-gray-600"> Crafting custom web apps and cross-platform mobile apps, I leverage modern web technologies to drive your online success. With seamless user experiences and enhanced functionality, my solutions empower your business to thrive in the digital landscape. Reach wider audiences and achieve growth with innovative, tailored applications that exceed expectations.
                 </p>
               </div>
             </div>
@@ -243,8 +241,7 @@ export default function Home() {
               <div className="p-6">
                 <h2 className="text-lg font-semibold mb-2">Web Design</h2>
                 <p className="text-gray-600">
-                  I design beautiful and functional websites that provide the
-                  best user experience for your customers and target audience.
+                  Elevate your online presence with captivating website designs that engage your audience and drive conversions. I blend aesthetic appeal with user-centric functionality to create stunning, intuitive websites. Maximize your brand's impact and leave a lasting impression with a website that captures attention and delivers results.
                 </p>
               </div>
             </div>
@@ -259,10 +256,9 @@ export default function Home() {
                 />
               </div>
               <div className="p-6">
-                <h2 className="text-lg font-semibold mb-2">IT Tech Support</h2>
+                <h2 className="text-lg font-semibold mb-2">DevOps / Tech Support</h2>
                 <p className="text-gray-600">
-                  I offer fast and reliable IT technical support to keep your
-                  business running smoothly and efficiently.
+                  Empower your business with streamlined operations through my comprehensive IT support services. From prompt issue resolution to seamless workflows, I ensure optimal performance and reliability. Leverage my expertise in DevOps and cloud computing to enhance productivity and efficiency. Experience a smooth and secure IT infrastructure that drives your business forward.
                 </p>
               </div>
             </div>
@@ -361,34 +357,34 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto container mt-12 px-4 pb-16 sm:px-6 lg:px-8">
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    {projects.map((project) => (
-      <div key={project._id} className="group relative">
-        <Link href={`/projects/${project.slug.current}`}  rel="noopener noreferrer">
-          <div className="rounded-lg overflow-hidden h-64 md:h-80">
-            <Image
-              src={project.image?.asset.url}
-              alt={project.title}
-              layout="fill"
-              className="transition-opacity duration-300 h-full w-full object-cover"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {projects.map((project) => (
+              <div key={project._id} className="group relative">
+                <Link href={`/projects/${project.slug.current}`} rel="noopener noreferrer">
+                  <div className="rounded-lg overflow-hidden h-64 md:h-80">
+                    <Image
+                      src={project.image?.asset.url}
+                      alt={project.title}
+                      layout="fill"
+                      className="transition-opacity duration-300 h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <div className="bg-white bg-opacity-75 py-2 px-4 rounded-lg max-w-full w-full">
+                      <h2 className="text-lg font-semibold mb-2 overflow-ellipsis overflow-hidden whitespace-nowrap">
+                        {project.title}
+                      </h2>
+                      <p className="text-gray-600 hidden md:block ">
+                        {project.shortDescription}
+                      </p>
+                      <HiOutlineExternalLink className="text-gray-500 text-xl ml-2" />
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
           </div>
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100">
-            <div className="bg-white bg-opacity-75 py-2 px-4 rounded-lg max-w-full w-full">
-              <h2 className="text-lg font-semibold mb-2 overflow-ellipsis overflow-hidden whitespace-nowrap">
-                {project.title}
-              </h2>
-              <p className="text-gray-600 hidden md:block ">
-                {project.shortDescription}
-              </p>
-              <HiOutlineExternalLink className="text-gray-500 text-xl ml-2" />
-            </div>
-          </div>
-        </Link>
-      </div>
-    ))}
-  </div>
-</div>
+        </div>
 
 
         <div className="mb-5 max-w-7xl mx-auto text-right">
@@ -404,7 +400,7 @@ export default function Home() {
       <section className="home-testimonial">
 
 
-        <Testimonials limit={2}/> 
+        <Testimonials limit={2} />
         <div className="mb-5 max-w-7xl mx-auto text-right">
           <Link
             href="/testimonials"
@@ -412,9 +408,9 @@ export default function Home() {
           >
             More Testimonials &rarr;
           </Link>
-        </div> 
+        </div>
 
-           
+
       </section>
 
       {/* <section className="featured-post">
@@ -501,9 +497,9 @@ export default function Home() {
       <section className="featured-post">
         <div className="bg-white w-full px-4 py-8">
           <Link href="/blog">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-            Featured Posts
-          </h1>
+            <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+              Featured Posts
+            </h1>
           </Link>
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {blogPosts.map((post) => (

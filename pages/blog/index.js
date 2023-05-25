@@ -175,7 +175,7 @@ export default function BlogList() {
             <div className="flex justify-center mt-4">
               <button
                 onClick={loadMorePosts}
-                className="text-sm text-blue-500 border border-blue-500 hover:border-blue-500 hover:bg-blue-500 text-black hover:text-black font-bold py-1 px-3 rounded"
+                className="text-sm text-blue-500 border border-blue-500 hover:border-blue-500 hover:bg-blue-500 hover:text-black font-bold py-1 px-3 rounded"
                 disabled={isLoadingMore}
               >
                 {isLoadingMore ? "Loading..." : "Load More"}

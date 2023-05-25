@@ -45,7 +45,7 @@ export default function About() {
       <section>
         <div className="bg-[#ddeef8] flex flex-col justify-center py-9 px-4 ">
           <div className="text-center max-w-screen-lg mx-auto">
-            <h1 className="text-4xl font-bold mb-8">
+            <h1 className="md:text-4xl sm:text-3xl font-bold mb-8">
               Hi, I&apos;m <span className="text-blue-500">Joseph Anselm</span>
             </h1>
             <p className="mb-8 text-justify">

@@ -2,8 +2,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import sanityClient from "@/client";
 import BlockContent from "@sanity/block-content-to-react";
-import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
-import { FaFacebookF, FaTwitter, FaLinkedin } from "react-icons/fa"; // Add icon imports
+import Share from "@/components/share";
 import Link from "next/link";
 
 const BlogPostPage = ({ post }) => {
@@ -14,10 +13,10 @@ const BlogPostPage = ({ post }) => {
   }
   const title = post.title;
 
-  const shareUrl = `https://josephanselm.com/blog/${post.slug?.current}`;
+  
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container px-4 py-8">
       <div className="flex flex-col md:flex-row items-center justify-between mb-8">
         <div className="md:w-1/2 mr-8">
           <Image
@@ -53,17 +52,8 @@ const BlogPostPage = ({ post }) => {
         >
           Back to blog list
         </button>
-        <div className="flex space-x-2">
-          <FacebookShareButton url={shareUrl} quote={title}>
-            <FaFacebookF className="hover:text-blue-700 transform hover:scale-150 transition duration-300" />
-          </FacebookShareButton>
-          <TwitterShareButton url={shareUrl} title={title}>
-            <FaTwitter  className="hover:text-blue-700 transform hover:scale-150 transition duration-300"/>
-          </TwitterShareButton>
-          <LinkedinShareButton url={shareUrl} title={title}>
-            <FaLinkedin className="hover:text-blue-700 transform hover:scale-150 transition duration-300"/>
-          </LinkedinShareButton>
-        </div>
+        <Share post={post}/>
+        
       </div>
     </div>
   );

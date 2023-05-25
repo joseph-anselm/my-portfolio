@@ -3,6 +3,7 @@ import client from '@/client';
 import { useEffect, useState } from "react";
 import Link from 'next/link';
 import HeroSection from '@/components/herosection';
+import Share from '@/components/share';
 
 export default function BlogList() {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -61,6 +62,7 @@ export default function BlogList() {
                     <p className="text-gray-600 text-sm mb-2">
                       {post.excerpt.slice(0, 150)}...
                     </p>
+                    <Share post={post} />
                   </div>
                   <div className="mt-auto mb-2">
                     <Link

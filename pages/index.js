@@ -8,7 +8,7 @@ import LazyLoad from "react-lazy-load";
 import Testimonials from "@/components/testimonial";
 import { useEffect, useState } from "react";
 import client from "@/client";
-
+import Share from "@/components/share";
 
 
 
@@ -521,6 +521,7 @@ export default function Home() {
                     <p className="text-gray-600 text-sm mb-2">
                       {post.excerpt?.slice(0, 150)}...
                     </p>
+                    <Share post={post}/>
                   </div>
                   <div className="mt-auto mb-2">
                     <a

@@ -213,7 +213,7 @@ export default function Home() {
         </div>
         <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:bg-blue-100 transition duration-300">
               <div className="relative h-48 w-full">
                 <Image
                   src="/Joseph-Anselm-2.png"
@@ -229,7 +229,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:bg-blue-100 transition duration-300">
               <div className="relative h-48 w-full">
                 <Image
                   src="/images/Joseph-Anselm-5.png"
@@ -246,7 +246,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:bg-blue-100 transition duration-300">
               <div className="relative h-48 w-full">
                 <Image
                   src="/images/Joseph-Anselm-9.png"
@@ -505,7 +505,7 @@ export default function Home() {
             {blogPosts.map((post) => (
               <div
                 key={post._id}
-                className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col items-center"
+                className="bg-gray-100 hover:bg-blue-100 rounded-lg p-4 shadow-lg flex flex-col items-center"
               >
                 <div
                   className="w-full h-80 bg-cover bg-center rounded-lg mb-4"

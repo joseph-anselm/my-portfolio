@@ -162,7 +162,7 @@ export default function BlogList() {
                 <div className="mt-auto mb-2">
                   <Link
                     href={`/blog/${post.slug.current}`}
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" target='blank'
                   >
                     Read More
                   </Link>

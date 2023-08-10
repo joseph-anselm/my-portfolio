@@ -3,6 +3,7 @@ import sanityClient from '@/client';
 import { useRouter } from 'next/router';
 import client from '@/client';
 import { FiArrowLeft } from 'react-icons/fi';
+import Link from 'next/link';
 
 export default function Project({ project }) {
   const router = useRouter();
@@ -38,11 +39,20 @@ export default function Project({ project }) {
           </div>
 
           <div className="mt-10 flex space-x-4">
-            <a href={project.url}>
+            {/* <a href={project.url} target="_blank" rel="noopener noreferrer">
               <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
                 View Project
               </button>
-            </a>
+            </a> */}
+
+
+            <Link href={project.url} legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                  View Project url
+                </button>
+              </a>
+            </Link>
 
             <button
               onClick={() => {

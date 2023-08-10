@@ -33,7 +33,7 @@ export default function Projects() {
     <HeroSection title ="Quality, Professionalism, Competence."  image="/images/j3.png"/>
     <div className="max-w-7xl mx-auto py-5 px-2">
       <h1 className="text-3xl font-semibold mb-6">Projects</h1>
-      <p className='mb-10'>Check out my portfolio of unique and captivating projects that showcase my passion for design and development. From dynamic web applications to interactive mobile apps, each project represents my dedication to delivering high-quality results that exceed expectations. Explore my portfolio and discover how I can help you bring your ideas to life</p>
+      <p className='mb-10'>Check out my portfolio of unique and captivating projects that showcase my passion for design and development. From dynamic web applications to interactive mobile apps, each project represents my dedication to delivering high-quality results that exceed expectations. Explore my portfolio and discover how I can help you bring your ideas to life.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {projects.map((project) => (
           <div key={project._id} className="group relative">

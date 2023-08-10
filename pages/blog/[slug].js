@@ -16,7 +16,7 @@ const BlogPostPage = ({ post }) => {
   
 
   return (
-    <div className="container px-4 py-8">
+    <div className="container max-w-7xl mx-auto px-4 py-8">
       <div className="flex flex-col md:flex-row items-center justify-between mb-8">
         <div className="md:w-1/2 mr-8">
           <Image

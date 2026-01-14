@@ -1,66 +1,286 @@
+// import { useRouter } from "next/router";
+// import Image from "next/image";
+// import sanityClient from "@/client";
+// import BlockContent from "@sanity/block-content-to-react";
+// import Share from "@/components/share";
+// import Link from "next/link";
+
+// const BlogPostPage = ({ post }) => {
+//   const router = useRouter();
+
+//   if (router.isFallback) {
+//     return <div>Loading....</div>;
+//   }
+//   const title = post.title;
+
+  
+
+//   return (
+//     <div className="container max-w-7xl mx-auto px-4 py-8">
+//       <div className="flex flex-col md:flex-row items-center justify-between mb-8">
+//         <div className="md:w-1/2 mr-8">
+//           <Image
+//             src={post.featuredImage.asset.url}
+//             alt={post.featuredImage.alt}
+//             width={600}
+//             height={400}
+//             className="rounded-lg"
+//           />
+//         </div>
+//         <div className="md:w-1/2">
+//           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+//           <p className="text-gray-500">Author: {post.authorName}</p>
+//           <p className="text-gray-500">
+//             Category: <Link href="/blog">{post.categoryName}</Link>
+//           </p>
+//         </div>
+//       </div>
+
+//       <div className="prose max-w-none">
+//         <BlockContent
+//           blocks={post.body}
+//           imageOptions={{ w: 640, h: 480, fit: "max" }}
+//         />
+//       </div>
+
+//       <div className="mt-4 flex">
+//         <button
+//           onClick={() => {
+//             router.back();
+//           }}
+//           className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+//         >
+//           Back to blog list
+//         </button>
+//         <Share post={post}/>
+        
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default BlogPostPage;
+
+
+// export async function getStaticPaths() {
+//   const posts = await sanityClient.fetch('*[_type == "blogPost"]{ slug }');
+
+//   const paths = posts.map((post) => ({
+//     params: { slug: post.slug.current },
+//   }));
+
+//   return {
+//     paths,
+//     fallback: true,
+//   };
+// }
+
+// export async function getStaticProps({ params }) {
+//   const { slug } = params;
+
+//   const post = await sanityClient.fetch(
+//     `*[_type == "blogPost" && slug.current == $slug]{
+//       _id,
+//       title,
+//       slug,
+//       category,
+//       "categoryName":category->title,
+//       body,
+//       "authorName": author->name,
+//       featuredImage{
+//         asset->{
+//           _id,
+//           url,
+//         },
+//         alt
+//       },
+//     }[0]`,
+//     { slug }
+//   );
+
+//   return {
+//     props: { post },
+//     revalidate: 1,
+//   };
+// }
+
+
+
+
+
+
+import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import sanityClient from "@/client";
 import BlockContent from "@sanity/block-content-to-react";
 import Share from "@/components/share";
 import Link from "next/link";
+import { 
+  ArrowLeft, 
+  User, 
+  Tag, 
+  Calendar, 
+  Clock, 
+  ChevronRight,
+  Bookmark
+} from "lucide-react";
 
 const BlogPostPage = ({ post }) => {
   const router = useRouter();
 
   if (router.isFallback) {
-    return <div>Loading....</div>;
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50">
+        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p className="text-slate-500 font-medium animate-pulse">Fetching the latest insights...</p>
+      </div>
+    );
   }
-  const title = post.title;
 
-  
+  if (!post) return null;
 
   return (
-    <div className="container max-w-7xl mx-auto px-4 py-8">
-      <div className="flex flex-col md:flex-row items-center justify-between mb-8">
-        <div className="md:w-1/2 mr-8">
+    <article className="min-h-screen bg-white">
+      {/* 1. Top Navigation / Progress Hint */}
+      <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100 py-4 px-6">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <button
+            onClick={() => router.back()}
+            className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-blue-600 transition-all group"
+          >
+            <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+            <span className="hidden sm:inline">Back to Blog</span>
+          </button>
+          
+          <div className="flex items-center gap-3">
+             <div className="hidden md:flex items-center gap-2 text-xs text-slate-400 uppercase tracking-widest font-bold">
+                <Link href="/" className="hover:text-blue-600">Home</Link>
+                <ChevronRight size={12} />
+                <Link href="/blog" className="hover:text-blue-600">Blog</Link>
+             </div>
+             <button className="p-2 text-slate-400 hover:text-blue-600 transition-colors">
+                <Bookmark size={20} />
+             </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* 2. Content Header */}
+      <header className="pt-16 pb-12 px-6">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          {/* Category Badge */}
+          <Link href="/blog" legacyBehavior>
+            <a className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-blue-600 hover:text-white transition-all">
+              <Tag size={12} />
+              {post.categoryName}
+            </a>
+          </Link>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] font-sora tracking-tight">
+            {post.title}
+          </h1>
+
+          {/* Meta Bar */}
+          <div className="flex flex-wrap items-center justify-center gap-y-4 gap-x-8 text-slate-500 text-sm font-medium pt-4 border-y border-slate-50 py-6">
+            <div className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors border border-slate-200">
+                <User size={18} />
+              </div>
+              <span className="text-slate-900 font-bold">{post.authorName}</span>
+            </div>
+            
+            <div className="flex items-center gap-2">
+              <Calendar size={18} className="text-blue-500" />
+              <span>Oct 24, 2023</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Clock size={18} className="text-blue-500" />
+              <span>8 min read</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* 3. Featured Image Container */}
+      <div className="max-w-7xl mx-auto px-6 mb-16">
+        <div className="relative aspect-[21/9] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-900/10 border-8 border-slate-50">
           <Image
             src={post.featuredImage.asset.url}
-            alt={post.featuredImage.alt}
-            width={600}
-            height={400}
-            className="rounded-lg"
+            alt={post.featuredImage.alt || post.title}
+            layout="fill"
+            objectFit="cover"
+            className="hover:scale-105 transition-transform duration-1000 ease-out"
+            priority
           />
         </div>
-        <div className="md:w-1/2">
-          <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-          <p className="text-gray-500">Author: {post.authorName}</p>
-          <p className="text-gray-500">
-            Category: <Link href="/blog">{post.categoryName}</Link>
-          </p>
+      </div>
+
+      {/* 4. Article Body */}
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="prose prose-lg prose-slate prose-headings:font-sora prose-headings:text-slate-900 prose-headings:tracking-tight prose-p:text-slate-600 prose-p:leading-[1.8] prose-a:text-blue-600 prose-a:no-underline hover:prose-a:text-blue-700 prose-img:rounded-3xl prose-strong:text-slate-900 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-2 prose-blockquote:rounded-r-2xl max-w-none">
+          <BlockContent
+            blocks={post.body}
+            imageOptions={{ w: 1000, h: 750, fit: "max" }}
+            className="blog-content-wrapper"
+          />
+        </div>
+
+        {/* 5. Article Footer */}
+        <div className="mt-20 pt-12 border-t border-slate-100">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-8 bg-slate-50 rounded-3xl p-8">
+            <div className="space-y-2 text-center sm:text-left">
+              <h4 className="font-bold text-slate-900 font-sora">Share this article</h4>
+              <p className="text-sm text-slate-500">Spread the knowledge with your network.</p>
+            </div>
+            <div className="flex items-center gap-4">
+               <Share post={post}/>
+            </div>
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => router.back()}
+              className="px-10 py-4 rounded-2xl bg-white border-2 border-slate-100 text-slate-600 font-bold hover:border-blue-600 hover:text-blue-600 transition-all shadow-sm active:scale-95 flex items-center gap-3"
+            >
+              <ArrowLeft size={20} />
+              Return to Blog Feed
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="prose max-w-none">
-        <BlockContent
-          blocks={post.body}
-          imageOptions={{ w: 640, h: 480, fit: "max" }}
-        />
-      </div>
-
-      <div className="mt-4 flex">
-        <button
-          onClick={() => {
-            router.back();
-          }}
-          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-        >
-          Back to blog list
-        </button>
-        <Share post={post}/>
-        
-      </div>
-    </div>
+      {/* 6. Newsletter / CTA */}
+      <section className="max-w-7xl mx-auto px-6 my-24">
+        <div className="bg-[#0f172a] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+          {/* Decorative shapes */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
+          
+          <div className="relative z-10 space-y-6">
+            <h3 className="text-3xl md:text-4xl font-bold text-white font-sora">Never miss a tech update</h3>
+            <p className="text-slate-400 max-w-lg mx-auto leading-relaxed">
+              Get the latest insights on AI, Cloud Computing, and Web Development Trends delivered straight to your inbox.
+            </p>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-4" onSubmit={(e) => e.preventDefault()}>
+              <input 
+                type="email" 
+                placeholder="you@example.com" 
+                className="flex-1 px-6 py-4 rounded-2xl bg-slate-800/50 border border-slate-700 text-white placeholder:text-slate-500 outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              />
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-blue-600/20 active:scale-95">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </article>
   );
 };
 
 export default BlogPostPage;
-
 
 export async function getStaticPaths() {
   const posts = await sanityClient.fetch('*[_type == "blogPost"]{ slug }');
@@ -103,118 +323,3 @@ export async function getStaticProps({ params }) {
     revalidate: 1,
   };
 }
-
-
-
-
-// import { useRouter } from "next/router";
-// import Image from "next/image";
-// import sanityClient from "@/client";
-// import BlockContent from "@sanity/block-content-to-react";
-// import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
-// import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
-
-// const BlogPostPage = ({ post }) => {
-//   const router = useRouter();
-
-//   if (router.isFallback) {
-//     return <div>Loading...</div>;
-//   }
-
-//   const shareUrl = `https://your-blog-url.com/${post.slug?.current}`;
-//   const title = post.title;
-
-//   return (
-//     <div className="max-w-3xl mx-auto px-4 py-6">
-//       <div className="flex items-center mb-4">
-//         <div className="w-1/2 pr-4">
-//           <Image
-//             src={post.featuredImage.asset.url}
-//             alt={post.featuredImage.alt}
-//             width={600}
-//             height={400}
-//             objectFit="cover"
-//           />
-//         </div>
-//         <div className="w-1/2">
-//           <h1 className="text-3xl font-semibold">{post.title}</h1>
-//         </div>
-//       </div>
-//       <BlockContent
-//         blocks={post.body}
-//         imageOptions={{ w: 320, h: 240, fit: "max" }}
-//         className="mb-6"
-//       />
-//       <p>Author: {post.authorName}</p>
-//       <div className="flex space-x-2 mt-6">
-//         <button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-//           <FaThumbsUp className="inline-block mr-1" /> Like
-//         </button>
-//         <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
-//           <FaThumbsDown className="inline-block mr-1" /> Dislike
-//         </button>
-//       </div>
-//       <div className="flex items-center mt-6">
-//         <button
-//           onClick={() => router.push("/blog")}
-//           className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-//         >
-//           Back to Blog List
-//         </button>
-//         <div className="ml-auto flex space-x-2">
-//           <FacebookShareButton url={shareUrl} quote={title}>
-//             <i className="fab fa-facebook-f"></i>
-//           </FacebookShareButton>
-//           <TwitterShareButton url={shareUrl} title={title}>
-//             <i className="fab fa-twitter"></i>
-//           </TwitterShareButton>
-//           <LinkedinShareButton url={shareUrl} title={title}>
-//             <i className="fab fa-linkedin"></i>
-//           </LinkedinShareButton>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default BlogPostPage;
-
-// export async function getStaticPaths() {
-//   const posts = await sanityClient.fetch('*[_type == "blogPost"]{ slug }');
-
-//   const paths = posts.map((post) => ({
-//     params: { slug: post.slug.current },
-//   }));
-
-//   return {
-//     paths,
-//     fallback: true,
-//   };
-// }
-
-// export async function getStaticProps({ params }) {
-//   const { slug } = params;
-
-//   const post = await sanityClient.fetch(    `*[_type == "blogPost" && slug.current == $slug]{
-//     _id,
-//     title,
-//     body,
-//     "authorName": author->name,
-//     featuredImage{
-//       asset->{
-//         _id,
-//         url,
-//       },
-//       alt
-//     },
-//   }[0]`,
-//   { slug }
-// );
-
-// return {
-//   props: { post },
-//   revalidate: 1,
-// };
-// }
-
-   

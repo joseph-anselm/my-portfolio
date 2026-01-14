@@ -1,133 +1,110 @@
-// import Image from "next/image"
+import React, { useState, useEffect } from 'react';
+import { MessageSquare, Menu, X } from 'lucide-react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-// export default function Navbar() {
-//   const links = ["Home", "About", "Projects", "Blog", "Services", "Contact"]
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Services', href: '/services' },
+];
 
-//   return (
-//     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
-//       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        
-//         {/* Logo */}
-//         <div className="flex items-center gap-2">
-//           <Image src="/logo.png" alt="Logo" width={36} height={36} />
-//           <span className="font-semibold text-lg">Joseph Anselm</span>
-//         </div>
-
-//         {/* Links */}
-//         <nav className="hidden md:flex items-center gap-8">
-//           {links.map(link => (
-//             <a
-//               key={link}
-//               href={`#${link.toLowerCase()}`}
-//               className="text-sm text-gray-700 hover:text-blue-600 transition"
-//             >
-//               {link}
-//             </a>
-//           ))}
-//         </nav>
-
-//         {/* Avatar */}
-//         <Image
-//           src="/profile.jpg"
-//           alt="Profile"
-//           width={36}
-//           height={36}
-//           className="rounded-full"
-//         />
-//       </div>
-//     </header>
-//   )
-// }
-
-
-"use client"
-
-import { useEffect, useState } from "react"
-import Image from "next/image"
-
-export default function Navbar() {
-  const links = [
-    { label: "Home", id: "home" },
-    { label: "About", id: "about" },
-    { label: "Projects", id: "projects" },
-    { label: "Blog", id: "blog" },
-    { label: "Services", id: "services" },
-    { label: "Contact", id: "contact" },
-  ]
-
-  const [active, setActive] = useState("home")
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
+  const currentPath = router.pathname;
 
   useEffect(() => {
-    const sections = links
-      .map(link => document.getElementById(link.id))
-      .filter(Boolean)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id)
-          }
-        })
-      },
-      {
-        rootMargin: "-40% 0px -50% 0px", // 👈 critical fix
-        threshold: 0,
-      }
-    )
-
-    sections.forEach(section => observer.observe(section))
-
-    return () => observer.disconnect()
-  }, [])
+  const isActive = (href) => {
+    if (href === '/') {
+      return currentPath === href;
+    }
+    return currentPath.startsWith(href);
+  };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2">
-          <Image src="/logo.png" alt="Logo" width={36} height={36} />
-          <span className="font-semibold text-lg">Joseph Anselm</span>
-        </a>
+        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
+          <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform">
+            J
+          </div>
+          <div className="leading-tight">
+            <span className="block font-bold text-lg text-gray-900">Joseph</span>
+            <span className="block text-xs font-semibold text-blue-600 tracking-wider uppercase">Anselm</span>
+          </div>
+        </Link>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map(link => {
-            const isActive = active === link.id
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center gap-1 bg-gray-100/50 p-1.5 rounded-full border border-gray-200">
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                isActive(item.href)
+                ? 'bg-gray-900 text-white shadow-md' 
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
 
-            return (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                className={`relative text-sm font-medium transition
-                  ${isActive
-                    ? "text-blue-600"
-                    : "text-gray-700 hover:text-blue-600"}
-                `}
-              >
-                {link.label}
-
-                {/* underline */}
-                <span
-                  className={`absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-all duration-300
-                    ${isActive ? "w-full" : "w-0 group-hover:w-full"}
-                  `}
-                />
-              </a>
-            )
-          })}
-        </nav>
-
-        {/* Avatar */}
-        <Image
-          src="/profile.jpg"
-          alt="Profile"
-          width={36}
-          height={36}
-          className="rounded-full border"
-        />
+        {/* Actions */}
+        <div className="flex items-center gap-4">
+          <Link href="/contact" className="hidden md:flex p-2.5 bg-white border border-gray-200 rounded-full text-gray-700 hover:text-blue-600 hover:border-blue-100 hover:bg-blue-50 transition-all shadow-sm">
+            <MessageSquare size={20} />
+          </Link>
+          <div className="hidden md:block w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md ring-1 ring-gray-100">
+            <img src="https://picsum.photos/seed/joseph/100/100" alt="Profile" className="w-full h-full object-cover" />
+          </div>
+          
+          <button 
+            className="lg:hidden p-2 text-gray-700"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
-    </header>
-  )
-}
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-100 shadow-xl p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4">
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={`text-lg font-medium transition-colors ${
+                isActive(item.href) 
+                ? 'text-blue-600' 
+                : 'text-gray-700 hover:text-blue-600'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;

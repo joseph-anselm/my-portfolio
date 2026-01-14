@@ -1,6 +1,7 @@
 import React from 'react'
 import HeroSection from '@/components/herosection'
 import ServicesSection from '@/components/serviceSection'
+import Services from '@/components/serviceSection'
 
 function services() {
   return (
@@ -9,7 +10,7 @@ function services() {
             <HeroSection title="Expertise, Excitement and Excellence" image="/images/jojoserve.png"/>
         </div>
         <div>
-            <ServicesSection/>
+            <Services/>
         </div>
     </div>
   )

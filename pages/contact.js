@@ -115,7 +115,7 @@ const ContactPage = () => {
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed max-w-xl font-light">
                 Have a vision for a project or need specialized tech support? 
-                Drop me a message and let's discuss how my 10+ years of experience 
+                Drop me a message and let&apos;s discuss how my 10+ years of experience 
                 can help you achieve your goals.
               </p>
             </div>

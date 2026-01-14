@@ -111,7 +111,7 @@ const ContactPage = () => {
                 Get in touch
               </div>
               <h1 className="text-5xl lg:text-6xl font-extrabold text-slate-900 font-sora leading-tight">
-                Let's Build Something <span className="text-blue-600">Great</span> Together
+                Let&apos;s Build Something <span className="text-blue-600">Great</span> Together
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed max-w-xl font-light">
                 Have a vision for a project or need specialized tech support? 

@@ -230,7 +230,7 @@ export default function Testimonials({ limit }) {
               What My <span className="text-blue-600">Clients</span> Are Saying
             </h2>
             <p className="text-slate-500 text-lg font-light leading-relaxed">
-              Real feedback from partners and clients I've worked with across the globe.
+              Real feedback from partners and clients I&apos;ve worked with across the globe.
             </p>
           </div>
           
@@ -275,7 +275,7 @@ export default function Testimonials({ limit }) {
 
                   {/* Message */}
                   <p className="text-slate-600 leading-relaxed font-light italic">
-                    "{testimonial.message}"
+                    &quot;{testimonial.message}&quot;
                   </p>
 
                   {/* Author Info */}

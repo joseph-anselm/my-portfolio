@@ -174,25 +174,28 @@ const ContactPage = () => {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="relative">
-            {/* Form Accent Decor */}
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-blue-600/5 rounded-[3rem] blur-2xl"></div>
-            
-            <div className="bg-white rounded-[2.5rem] shadow-2xl shadow-blue-900/10 border border-slate-100 p-8 md:p-12">
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-slate-900 font-sora flex items-center gap-3">
-                  Send a Message
-                  <Send className="text-blue-600" size={20} />
-                </h2>
-                <p className="text-slate-500 text-sm mt-2">I typically respond within 2-4 business hours.</p>
-              </div>
+            <div className="relative">
+              {/* Form Accent Decor */}
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-blue-600/5 rounded-[3rem] blur-2xl"></div>
+              
+              <div className="bg-white min-h-[550px] rounded-[2.5rem] shadow-2xl shadow-blue-900/10 border border-slate-100 p-8 md:p-12">
+                <div className="mb-8">
+                  <h2 className="text-2xl font-bold text-slate-900 font-sora flex items-center gap-3">
+                    Send a Message
+                    <Send className="text-blue-600" size={20} />
+                  </h2>
+                  <p className="text-slate-500 text-sm mt-2">
+                    I typically respond within 2-4 business hours.
+                  </p>
+                </div>
 
-              {/* The form logic remains identical via the imported component */}
-              <div className="contact-form-wrapper">
-                <ContactForm />
+                {/* The form logic remains identical via the imported component */}
+                <div className="contact-form-wrapper">
+                  <ContactForm />
+                </div>
               </div>
             </div>
-          </div>
+
 
         </div>
       </div>

@@ -109,12 +109,13 @@ export default function IntroSection() {
             </div>
 
             <div className="space-y-6 text-slate-600 font-light leading-relaxed">
-              <p>
-                My expertise spans the full infrastructure lifecycle—from cloud deployment on <span className="font-medium text-slate-900">AWS/Azure</span> to custom CMS architecture. I focus on bridging the gap between hardware limitations and software aspirations, ensuring every solution is built for longevity and growth.
-              </p>
-              <p>
-                Whether it&apos;s modernizing legacy workflows or crafting a brand&apos;s first digital footprint, I prioritize <span className="font-medium text-slate-900">communication and collaboration</span>, ensuring that the technology always serves the human goals behind the business.
-              </p>
+          <p>
+            My expertise spans end-to-end system engineering—from cloud infrastructure provisioning and deployment on <span className="font-medium text-slate-900">AWS/Azure</span> to designing and implementing resilient custom CMS and application architectures. I work hands-on across backend, frontend, and deployment pipelines to build systems that are stable, scalable, and production-ready.
+            </p>
+            <p>
+            Whether refactoring fragile legacy stacks or building platforms from the ground up, I focus on <span className="font-medium text-slate-900">code quality, uptime, and maintainability</span>, ensuring technology performs reliably under real-world constraints and supports long-term business growth.
+            </p>
+
             </div>
           </div>
 

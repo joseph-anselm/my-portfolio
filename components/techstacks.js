@@ -1,56 +1,3 @@
-// import React from "react";
-// import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-// import "react-circular-progressbar/dist/styles.css";
-// import { SiHtml5, SiMysql, SiJavascript, SiReact, SiDjango, SiAws, SiPhp, SiWordpress } from "react-icons/si";
-
-// export default function Techstacks() {
-//   const skillSet = [
-//     { name: "HTML/CSS", percentage: 95, icon: <SiHtml5 /> },
-//     { name: "Mysql / Postgres", percentage: 85, icon: <SiMysql /> },
-//     { name: "JavaScript", percentage: 85, icon: <SiJavascript /> },
-//     { name: "React", percentage: 80, icon: <SiReact /> },
-//     { name: "Django", percentage: 80, icon: <SiDjango /> },
-//     { name: "AWS/Azure", percentage: 80, icon: <SiAws /> },
-//     { name: "PHP", percentage: 80, icon: <SiPhp /> },
-//     { name: "CMS / Headless CMS", percentage: 85, icon: <SiWordpress /> },
-//   ];
-
-//   return (
-//     <div className="max-w-screen-lg mx-auto pb-10">
-//       <div className="text-center max-w-screen-md mx-auto">
-//         <h1 className="text-2xl font-bold my-5">Tech Stacks</h1>
-//       </div>
-//       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 px-4">
-//         {skillSet.map((skill) => (
-//           <div key={skill.name}>
-//             <CircularProgressbar
-//               value={skill.percentage}
-//               text={`${skill.percentage}%`}
-//               styles={buildStyles({
-//                 textSize: "14px",
-//                 pathColor: `#2E82FD`,
-//                 textColor: "#2E82FD",
-//                 trailColor: "#D1D5DB",
-//                 pathTransitionDuration: 0.3, // Control the transition duration on hover
-//                 trailColor: "#D1D5DB",
-//                 backgroundColor: "#0B5ED7", // Set the deeper blue color for hover
-//               })}
-//               strokeWidth={8}
-//               className="w-16"
-//             >
-//               <div className="flex justify-center">
-//                 {skill.icon}
-//               </div>
-//             </CircularProgressbar>
-//             <p className="mt-2 text-lg font-semibold text-center">
-//               {skill.name}
-//             </p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
 
 
 
@@ -69,14 +16,39 @@ import {
 } from 'lucide-react';
 
 const skillSet = [
-  { name: "HTML/CSS", percentage: 95, icon: <Code2 size={20} />, category: "Frontend" },
-  { name: "Mysql / Postgres", percentage: 85, icon: <Database size={20} />, category: "Database" },
-  { name: "JavaScript", percentage: 85, icon: <Terminal size={20} />, category: "Logic" },
-  { name: "React", percentage: 80, icon: <Cpu size={20} />, category: "Library" },
-  { name: "Django", percentage: 80, icon: <Globe size={20} />, category: "Backend" },
-  { name: "AWS/Azure", percentage: 80, icon: <Cloud size={20} />, category: "Infra" },
-  { name: "PHP", percentage: 80, icon: <Server size={20} />, category: "Backend" },
-  { name: "CMS Solutions", percentage: 85, icon: <Layout size={20} />, category: "System" },
+  // Frontend
+  { name: "HTML / CSS", percentage: 95, icon: <Code2 size={20} />, category: "Frontend" },
+  { name: "JavaScript (ES6+)", percentage: 90, icon: <Terminal size={20} />, category: "Logic" },
+  { name: "React", percentage: 85, icon: <Cpu size={20} />, category: "Library" },
+  { name: "Next.js", percentage: 85, icon: <Globe size={20} />, category: "Framework" },
+  { name: "Tailwind CSS", percentage: 90, icon: <Layout size={20} />, category: "Styling" },
+
+  // Backend
+  { name: "Django", percentage: 80, icon: <Server size={20} />, category: "Backend" },
+  { name: "PHP", percentage: 85, icon: <Server size={20} />, category: "Backend" },
+  { name: "REST APIs", percentage: 85, icon: <Globe size={20} />, category: "Backend" },
+
+  // Databases
+  { name: "MySQL / PostgreSQL", percentage: 85, icon: <Database size={20} />, category: "Database" },
+  { name: "MongoDB", percentage: 80, icon: <Database size={20} />, category: "Database" },
+
+  // CMS & Platforms
+  { name: "WordPress", percentage: 90, icon: <Layout size={20} />, category: "CMS" },
+  { name: "Sanity.io", percentage: 85, icon: <Layout size={20} />, category: "Headless CMS" },
+  { name: "Strapi", percentage: 80, icon: <Layout size={20} />, category: "Headless CMS" },
+  { name: "Custom CMS Architecture", percentage: 85, icon: <Layout size={20} />, category: "System" },
+
+  // Cloud & Infrastructure
+  { name: "AWS", percentage: 85, icon: <Cloud size={20} />, category: "Cloud" },
+  { name: "Azure", percentage: 80, icon: <Cloud size={20} />, category: "Cloud" },
+  { name: "Linux Servers", percentage: 85, icon: <Server size={20} />, category: "Infrastructure" },
+
+  // DevOps
+  { name: "Docker", percentage: 75, icon: <Cpu size={20} />, category: "DevOps" },
+  { name: "CI/CD Pipelines", percentage: 75, icon: <Zap size={20} />, category: "DevOps" },
+
+  // Payments & Integrations
+  { name: "Stripe Integration", percentage: 80, icon: <Zap size={20} />, category: "Payments" },
 ];
 
 /**

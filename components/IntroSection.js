@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import Link from 'next/link';
 import { 
   Code2, 
   Cloud, 
@@ -41,7 +42,7 @@ export default function IntroSection() {
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 font-sora leading-[1.1] tracking-tight">
                 Architecting <br />
-                <span className="text-blue-600">Tomorrow's</span> Web.
+                <span className="text-blue-600">Tomorrow&apos;s</span> Web.
               </h2>
             </div>
 
@@ -68,10 +69,10 @@ export default function IntroSection() {
               
               </div>
 
-              <a href="/contact" className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:gap-3 transition-all group/link">
+              <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:gap-3 transition-all group/link">
                 Discuss a Project 
                 <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -112,7 +113,7 @@ export default function IntroSection() {
                 My expertise spans the full infrastructure lifecycle—from cloud deployment on <span className="font-medium text-slate-900">AWS/Azure</span> to custom CMS architecture. I focus on bridging the gap between hardware limitations and software aspirations, ensuring every solution is built for longevity and growth.
               </p>
               <p>
-                Whether it's modernizing legacy workflows or crafting a brand’s first digital footprint, I prioritize <span className="font-medium text-slate-900">communication and collaboration</span>, ensuring that the technology always serves the human goals behind the business.
+                Whether it&apos;s modernizing legacy workflows or crafting a brand&apos;s first digital footprint, I prioritize <span className="font-medium text-slate-900">communication and collaboration</span>, ensuring that the technology always serves the human goals behind the business.
               </p>
             </div>
           </div>

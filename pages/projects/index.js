@@ -75,6 +75,7 @@
 
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import sanityClient from "@/client";
 import { 
   ExternalLink, 
@@ -225,16 +226,16 @@ export default function Projects() {
            <div className="relative z-10 space-y-6">
               <h3 className="text-2xl md:text-3xl font-bold text-white font-sora">Have a project in mind?</h3>
               <p className="text-slate-400 max-w-lg mx-auto">
-                I'm always looking for exciting new challenges. Let's discuss how we can build your next digital success story together.
+                I&apos;m always looking for exciting new challenges. Let&apos;s discuss how we can build your next digital success story together.
               </p>
               <div className="pt-4">
-                <a 
+                <Link 
                   href="/contact" 
                   className="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 active:scale-95"
                 >
                   Start a Conversation
                   <ArrowUpRight size={20} />
-                </a>
+                </Link>
               </div>
            </div>
         </div>

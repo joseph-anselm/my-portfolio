@@ -6,6 +6,7 @@ import AOS from "aos";
 import HeroSection from "@/components/herosection";
 import Techstacks from "@/components/techstacks";
 import ServicesSection from "@/components/serviceSection";
+import IntroSection from "@/components/IntroSection";
 
 export default function About() {
   
@@ -42,27 +43,7 @@ export default function About() {
       <HeroSection title ="Leadership, Excellence, Creativity, Honesty, Value."  image="/images/Jojo-pure.png" />
  
 
-      <section>
-        <div className="bg-[#ddeef8] flex flex-col justify-center py-9 px-4 ">
-          <div className="text-center max-w-screen-lg mx-auto">
-            <h1 className="lg:text-5xl text-3xl font-bold mb-8">
-              Hi, I&apos;m <span className="text-blue-500">Joseph Anselm</span>
-            </h1>
-            <p className="mb-8 text-justify">
-            As an IT Engineer and Web Developer, I possess a diverse skill set and a strong passion for technology. With expertise in troubleshooting, system maintenance, and web development, I am equipped to handle a wide range of challenges. <br/>
-
-            In web development, I have successfully designed and developed responsive websites and applications that prioritize user experience. Proficient in several programming languages, Libraries and frameworks, allowing me to create efficient and scalable solutions.
-
-            I am experienced in working with popular CMS platforms and Headless CMS solutions. This enables me to customize websites and applications to meet specific requirements effectively.<br/>
-            Furthermore, I have knowledge of cloud computing platforms like AWS and Azure, enabling secure and efficient deployment of applications. Additionally, my understanding of Artificial Intelligence (AI) technologies enhances my ability to develop intelligent and automated systems. <br/>
-
-            With strong communication skills and an ongoing commitment to staying at the forefront of technology trends, I excel in collaborating with clients, stakeholders, and team members to deliver effective IT solutions. I am committed to staying updated on the latest technologies and frameworks, ensuring that I provide cutting-edge solutions to meet evolving needs.<br/>
-
-            </p>
-            
-          </div>
-        </div>
-      </section>
+        <IntroSection />
 
 
     <Techstacks />

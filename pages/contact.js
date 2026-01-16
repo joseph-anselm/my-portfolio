@@ -67,6 +67,7 @@ import {
   MapPin,
   MessageSquare
 } from "lucide-react";
+import HeroSection from "@/components/herosection";
 
 const ContactPage = () => {
   const contactDetails = [
@@ -92,6 +93,10 @@ const ContactPage = () => {
   ];
 
   return (
+    <div>
+      <HeroSection 
+      image = "/images/jojo-contact.png"
+      />
     <div className="min-h-screen bg-slate-50 relative overflow-hidden mt-16">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none -z-10">
@@ -199,6 +204,7 @@ const ContactPage = () => {
 
         </div>
       </div>
+    </div>
     </div>
   );
 };

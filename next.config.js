@@ -2,8 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.sanity.io', 'ui-avatars.com'],
+    domains: [
+      'cdn.sanity.io',
+      'ui-avatars.com',
+      'picsum.photos', // ✅ add this
+    ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

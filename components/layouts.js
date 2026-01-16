@@ -3,6 +3,8 @@ import Navbar from "./Navbar";
 import Footer from "./footer";
 import Head from "next/head";
 import BackToTop from "./backtotop";
+import WhatsAppFlyer from "./WhatsAppFlyer";
+import WhatsAppButton from "./WhatsAppButton";
 export default function Layout({ children }) {
   return (
     <>
@@ -14,6 +16,8 @@ export default function Layout({ children }) {
       </Head>
       <Navbar />
       <main>{children}</main>
+      <WhatsAppFlyer/>
+      <WhatsAppButton />
       <Footer />
       <BackToTop />
     </>

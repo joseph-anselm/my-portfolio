@@ -112,6 +112,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { PortableText } from "@/lib/sanity";
 import sanityClient from "@/client";
 import BlockContent from "@sanity/block-content-to-react";
 import Share from "@/components/share";
@@ -220,11 +221,45 @@ const BlogPostPage = ({ post }) => {
       {/* 4. Article Body */}
       <div className="max-w-7xl mx-auto px-6">
         <div className="prose prose-lg prose-slate prose-headings:font-sora prose-headings:text-slate-900 prose-headings:tracking-tight prose-p:text-slate-600 prose-p:leading-[1.8] prose-a:text-blue-600 prose-a:no-underline hover:prose-a:text-blue-700 prose-img:rounded-3xl prose-strong:text-slate-900 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-2 prose-blockquote:rounded-r-2xl max-w-none">
-          <BlockContent
-            blocks={post.body}
-            imageOptions={{ w: 1000, h: 750, fit: "max" }}
-            className="blog-content-wrapper"
-          />
+         <PortableText
+  value={post.body}
+  components={{
+    types: {
+      image: ({ value }) => (
+        <Image
+          src={value.asset.url}
+          alt={value.alt || ''}
+          width={1000}
+          height={750}
+          className="rounded-3xl my-8"
+        />
+      ),
+    },
+    marks: {
+      strong: ({ children }) => <strong className="text-slate-900">{children}</strong>,
+      em: ({ children }) => <em>{children}</em>,
+      link: ({ children, value }) => (
+        <a href={value.href} target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700">
+          {children}
+        </a>
+      ),
+    },
+    block: {
+      h1: ({ children }) => <h1 className="text-4xl md:text-5xl font-bold my-4">{children}</h1>,
+      h2: ({ children }) => <h2 className="text-3xl font-semibold my-3">{children}</h2>,
+      h3: ({ children }) => <h3 className="text-2xl font-semibold my-2">{children}</h3>,
+      normal: ({ children }) => <p className="my-2 leading-7 text-slate-600">{children}</p>,
+      blockquote: ({ children }) => (
+        <blockquote className="border-l-4 border-blue-500 bg-blue-50 p-4 rounded-r-lg my-4">{children}</blockquote>
+      ),
+    },
+    list: {
+      bullet: ({ children }) => <ul className="list-disc ml-8 my-2">{children}</ul>,
+      number: ({ children }) => <ol className="list-decimal ml-8 my-2">{children}</ol>,
+    },
+  }}
+/>
+
         </div>
 
         {/* 5. Article Footer */}

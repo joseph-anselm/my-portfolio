@@ -124,7 +124,7 @@ export default function Projects() {
       <HeroSection 
         title="Quality. Professionalism. Competence." 
         description="Explore a curated gallery of digital solutions, from complex web systems to bespoke mobile experiences."
-        image="https://picsum.photos/seed/portfolio/800/800"
+        image="/images/Projectpic.jpg"
         category="My Portfolio"
       />
 

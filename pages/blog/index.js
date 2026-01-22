@@ -270,7 +270,7 @@ export default function BlogList() {
       {/* 1. Header Section */}
       <HeroSection 
         title="Insights & Updates" 
-        image="https://picsum.photos/seed/journal/800/800" 
+        image="/images/Blogpic.jpg" 
       />
 
       <section className="py-24 px-6">

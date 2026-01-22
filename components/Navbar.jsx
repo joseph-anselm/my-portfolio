@@ -39,15 +39,14 @@ const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform">
-            J
-          </div>
-          <div className="leading-tight">
-            <span className="block font-bold text-lg text-gray-900">Joseph</span>
-            <span className="block text-xs font-semibold text-blue-600 tracking-wider uppercase">Anselm</span>
-          </div>
-        </Link>
+            <Link href="/" className="cursor-pointer">
+              <img
+                src="/images/logo1.png"   // your bold logo image
+                alt="Joseph Anselm Logo"
+                className="h-10 w-auto object-contain hover:scale-105 transition-transform"
+              />
+            </Link>
+
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-1 bg-gray-100/50 p-1.5 rounded-full border border-gray-200">

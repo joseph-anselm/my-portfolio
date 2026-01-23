@@ -304,6 +304,8 @@ import Hero from "@/components/Hero.js";
 import WaveDivider from "@/components/WaveDivider.js";
 import About from "@/components/AboutMe";
 import ProjectSection from "@/components/ProjectSection";
+import Layout from "@/components/layouts";
+import { pageSEO } from "@/lib/seo";
 
 export default function Home() {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -357,6 +359,7 @@ export default function Home() {
 
   return (
     <>
+    <Layout seo={pageSEO.home}>
       <section className="">
         <Hero />
         <WaveDivider />
@@ -505,6 +508,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Layout>
     </>
+    
   );
 }

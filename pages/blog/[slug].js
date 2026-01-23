@@ -369,6 +369,8 @@ import sanityClient from "@/client";
 import BlockContent from "@sanity/block-content-to-react";
 import Share from "@/components/share";
 import Link from "next/link";
+import { generateBlogPostSEO } from '@/lib/seo';
+import Layout from "@/components/layouts";
 import { 
   ArrowLeft, 
   User, 
@@ -398,6 +400,7 @@ const BlogPostPage = ({ post }) => {
   if (!post) return null;
 
   return (
+    <Layout seo={generateBlogPostSEO(post)}>
     <article className="min-h-screen bg-white">
       {/* 1. Top Navigation / Progress Hint */}
       <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100 py-4 px-6">
@@ -590,6 +593,7 @@ const BlogPostPage = ({ post }) => {
         </section>
       </div>
     </article>
+    </Layout>
   );
 };
 

@@ -7,6 +7,8 @@ import HeroSection from "@/components/herosection";
 import Techstacks from "@/components/techstacks";
 import ServicesSection from "@/components/serviceSection";
 import IntroSection from "@/components/IntroSection";
+import Layout from "@/components/layouts";
+import { pageSEO } from "@/lib/seo";
 
 export default function About() {
   
@@ -22,6 +24,7 @@ export default function About() {
 
   return (
     <>
+    <Layout seo={pageSEO.about}>
       {/* <div className="bg-blue-500">
         <div className="max-w-screen-lg mx-auto flex items-center">
           <div className="w-1/2">
@@ -101,6 +104,7 @@ export default function About() {
         </div>
       </section> */}
       <ServicesSection limitServices={4}/>
+      </Layout>
     </>
   );
 }

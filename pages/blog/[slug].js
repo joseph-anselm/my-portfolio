@@ -608,53 +608,139 @@ export async function getStaticPaths() {
   };
 }
 
+// export async function getStaticProps({ params }) {
+//   const { slug } = params;
+
+//   // First, fetch the post
+//   const post = await sanityClient.fetch(
+//     `*[_type == "blogPost" && slug.current == $slug]{
+//       _id,
+//       title,
+//       slug,
+//       category,
+//       "categoryName":category->title,
+//       body,
+//       "authorName": author->name,
+//       featuredImage{
+//         asset->{
+//           _id,
+//           url,
+//         },
+//         alt
+//       },
+//     }[0]`,
+//     { slug }
+//   );
+
+//   // If no post found, return 404
+//   if (!post) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+
+//   // Then fetch reaction counts for this post
+//   const reactionCounts = await sanityClient.fetch(
+//     `{
+//       "likes": count(*[_type == "reaction" && post._ref == $postId && type == "like"]),
+//       "dislikes": count(*[_type == "reaction" && post._ref == $postId && type == "dislike"])
+//     }`,
+//     { postId: post._id }
+//   );
+
+//   return {
+//     props: { 
+//       post: {
+//         ...post,
+//         reactionCounts
+//       }
+//     },
+//     revalidate: 1,
+//   };
+// }
+
+// pages/blog/[slug].js - Updated getStaticProps
 export async function getStaticProps({ params }) {
   const { slug } = params;
 
-  // First, fetch the post
-  const post = await sanityClient.fetch(
-    `*[_type == "blogPost" && slug.current == $slug]{
-      _id,
-      title,
-      slug,
-      category,
-      "categoryName":category->title,
-      body,
-      "authorName": author->name,
-      featuredImage{
-        asset->{
-          _id,
-          url,
+  try {
+    // First, fetch the post
+    const post = await sanityClient.fetch(
+      `*[_type == "blogPost" && slug.current == $slug][0]{
+        _id,
+        title,
+        slug,
+        category,
+        "categoryName": category->title,
+        body,
+        "authorName": author->name,
+        featuredImage{
+          asset->{
+            _id,
+            url,
+          },
+          alt
         },
-        alt
-      },
-    }[0]`,
-    { slug }
-  );
+        publishedAt,
+        _updatedAt
+      }`,
+      { slug }
+    );
 
-  // If no post found, return 404
-  if (!post) {
+    // If no post found, return 404
+    if (!post) {
+      console.log(`Post not found for slug: ${slug}`);
+      return {
+        notFound: true,
+      };
+    }
+
+    // Check for missing required fields
+    if (!post.featuredImage || !post.featuredImage.asset || !post.featuredImage.asset.url) {
+      console.warn(`Post ${slug} has missing featuredImage`, post);
+      // Add a fallback image or handle gracefully
+      post.featuredImage = post.featuredImage || {
+        asset: {
+          url: '/images/fallback-blog.jpg',
+          alt: 'Default blog image'
+        }
+      };
+    }
+
+    // Fetch reaction counts with error handling
+    let reactionCounts = { likes: 0, dislikes: 0 };
+    try {
+      reactionCounts = await sanityClient.fetch(
+        `{
+          "likes": count(*[_type == "reaction" && post._ref == $postId && type == "like"]),
+          "dislikes": count(*[_type == "reaction" && post._ref == $postId && type == "dislike"])
+        }`,
+        { postId: post._id }
+      ) || { likes: 0, dislikes: 0 };
+    } catch (reactionError) {
+      console.error('Error fetching reaction counts:', reactionError);
+      // Continue with default counts
+    }
+
     return {
-      notFound: true,
+      props: { 
+        post: {
+          ...post,
+          reactionCounts
+        }
+      },
+      revalidate: 60, // Reduce revalidation time for debugging
+    };
+  } catch (error) {
+    console.error(`Error fetching post ${slug}:`, error);
+    
+    // Return a fallback or error page
+    return {
+      props: {
+        error: error.message,
+        slug
+      },
+      revalidate: 1,
     };
   }
-
-  // Then fetch reaction counts for this post
-  const reactionCounts = await sanityClient.fetch(
-    `{
-      "likes": count(*[_type == "reaction" && post._ref == $postId && type == "like"]),
-      "dislikes": count(*[_type == "reaction" && post._ref == $postId && type == "dislike"])
-    }`,
-    { postId: post._id }
-  );
-
-  return {
-    props: { 
-      post: {
-        ...post,
-        reactionCounts
-      }
-    },
-    revalidate: 1,
-  };
 }

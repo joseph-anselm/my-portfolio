@@ -8,6 +8,8 @@ import category from './category'
 import contact from './contactMessage'
 import testimonials from './testimonials'
 import service from './service'
+import comments from './comments'
+import reactions from './reactions'
 
 
-export const schemaTypes = [sitesettings, blogPost, project, author, blockContent, category, contact, testimonials, service]
+export const schemaTypes = [sitesettings, blogPost, project, author, blockContent, category, contact, testimonials, service, comments, reactions]

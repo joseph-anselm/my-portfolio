@@ -668,28 +668,26 @@ export async function getStaticProps({ params }) {
   const { slug } = params;
 
   try {
-    // First, fetch the post
-    const post = await sanityClient.fetch(
-      `*[_type == "blogPost" && slug.current == $slug][0]{
-        _id,
-        title,
-        slug,
-        category,
-        "categoryName": category->title,
-        body,
-        "authorName": author->name,
-        featuredImage{
-          asset->{
-            _id,
-            url,
-          },
-          alt
-        },
-        publishedAt,
-        _updatedAt
-      }`,
-      { slug }
-    );
+const post = await sanityClient.fetch(
+  `*[_type == "blogPost" && slug.current == $slug][0]{
+    _id,
+    title,
+    slug,
+    body,
+    publishedAt,
+    _updatedAt,
+
+    "categoryName": coalesce(category->title, "General"),
+    "authorName": coalesce(author->name, "Editorial Team"),
+
+    featuredImage{
+      asset->{ _id, url },
+      alt
+    }
+  }`,
+  { slug }
+);
+
 
     // If no post found, return 404
     if (!post) {

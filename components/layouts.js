@@ -57,45 +57,7 @@ export default function Layout({ children, seo = {} }) {
     canonical: seo.canonical || `${defaultSEO.canonical}${currentPath}`,
   };
 
-  // Schema.org structured data for better Google visibility
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Joseph Anselm",
-    "url": pageSEO.canonical,
-    "image": pageSEO.ogImage,
-    "sameAs": [
-      "https://linkedin.com/in/joseph-anselm",
-      "https://github.com/josephanselm",
-      "https://twitter.com/josephanselm"
-    ],
-    "jobTitle": "Full Stack Developer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Joseph Anselm Portfolio"
-    },
-    "description": pageSEO.description
-  };
-
-  // Breadcrumb structured data
-  const breadcrumbData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://josephanselm.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": pageSEO.title || "Page",
-        "item": pageSEO.canonical
-      }
-    ]
-  };
+ 
 
   return (
     <>
@@ -183,15 +145,8 @@ export default function Layout({ children, seo = {} }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdn.sanity.io" />
         
-        {/* Structured Data (JSON-LD) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
-        />
+      
+       
         
         {/* Additional SEO Meta Tags */}
         <meta name="language" content="English" />

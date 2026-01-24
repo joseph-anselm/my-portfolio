@@ -1,7 +1,28 @@
-# public/robots.txt
+# *
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /api/
+Disallow: /admin
+Disallow: /api
+Disallow: /server-sitemap.xml
+Disallow: /_next
+Disallow: /404
+Disallow: /500
 
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Host
+Host: https://anselmjoseph.com
+
+# Sitemaps
 Sitemap: https://anselmjoseph.com/sitemap.xml
+Sitemap: https://josephanselm.com/server-sitemap.xml

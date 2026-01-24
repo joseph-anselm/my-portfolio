@@ -8,7 +8,7 @@
     "start": "next start",
     "sanity": "cd studio && sanity start",
     "lint": "next lint",
-    "sitemap": "next-sitemap"
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.4.0",

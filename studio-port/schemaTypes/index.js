@@ -12,4 +12,5 @@ import comments from '../schemas/comments'
 import reactions from '../schemas/reactions'
 
 
+
 export const schemaTypes = [sitesettings, blogPost, project, author, blockContent, category, contact, testimonials, service, comments, reactions]

@@ -3,7 +3,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 
 import author from './author'
-import blogPost from './blogpost'
+import blogPost from './blogPost'
 import project from './project'
 import contactMessage from './contactMessage'
 import blockContent from './blockContent'

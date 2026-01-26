@@ -1,6 +1,6 @@
 // schemas/index.js
 import sitesettings from '../schemas/sitesettings'
-import blogPost from '../schemas/blogpost'
+import blogPost from '../schemas/blogPost'
 import project from '../schemas/project'
 import author from '../schemas/author'
 import blockContent from '../schemas/blockContent'

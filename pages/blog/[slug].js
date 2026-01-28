@@ -1995,18 +1995,11 @@
 // }
 
 import React from "react";
-import { useRouter } from "next/router";
 import sanityClient from "../../lib/sanity";
 import { PortableText } from "@portabletext/react";
-import { urlFor } from "../../lib/sanityImage";
+import { urlFor } from "@/lib/sanityImage";
 
 export default function BlogPost({ post }) {
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return <div className="py-20 text-center">Loading article…</div>;
-  }
-
   if (!post) {
     return <div className="py-20 text-center">Post not found.</div>;
   }
@@ -2029,13 +2022,11 @@ export default function BlogPost({ post }) {
         <p className="mt-4 text-slate-500 font-medium">By {authorName}</p>
       </header>
 
-      {/* HERO IMAGE — NO next/image */}
       {featuredImage && (
         <img
           src={urlFor(featuredImage).width(1600).height(900).url()}
           alt={featuredImage.alt || title}
           className="w-full rounded-3xl mb-12"
-          loading="eager"
         />
       )}
 
@@ -2081,22 +2072,7 @@ export default function BlogPost({ post }) {
   );
 }
 
-export async function getStaticPaths() {
-  const slugs = await sanityClient.fetch(
-    `*[
-      _type == "blogPost" &&
-      defined(slug.current) &&
-      !(_id in path("drafts.**"))
-    ].slug.current`
-  );
-
-  return {
-    paths: slugs.map((slug) => ({ params: { slug } })),
-    fallback: "blocking",
-  };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params, res }) {
   try {
     const post = await sanityClient.fetch(
       `*[
@@ -2116,14 +2092,21 @@ export async function getStaticProps({ params }) {
       { slug: params.slug }
     );
 
-    if (!post) return { notFound: true };
+    if (!post) {
+      return { notFound: true };
+    }
+
+    // Optional caching (safe)
+    res.setHeader(
+      "Cache-Control",
+      "public, s-maxage=60, stale-while-revalidate=300"
+    );
 
     return {
       props: { post },
-      revalidate: 60,
     };
   } catch (err) {
-    console.error("Sanity production error:", err);
+    console.error("SSR Sanity error:", err);
     return { notFound: true };
   }
 }

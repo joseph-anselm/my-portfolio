@@ -1861,126 +1861,228 @@
 // }
 
 
-/**
- * NEXT.JS [SLUG].JS - FIXED PRODUCTION VERSION
- * Copy this into your pages/blog/[slug].js file.
- */
-"use client";
+// /**
+//  * NEXT.JS [SLUG].JS - FIXED PRODUCTION VERSION
+//  * Copy this into your pages/blog/[slug].js file.
+//  */
+// import React from "react";
+// import { useRouter } from "next/router";
+// import Image from "next/image";
+// import sanityClient from "../../lib/sanity"; // Update your client path
+// import { PortableText } from "../../lib/sanity";
+
+// export default function BlogPost({ post }) {
+//   const router = useRouter();
+
+//   if (router.isFallback) {
+//     return <div>Loading...</div>;
+//   }
+
+//   // Handle case where post is null (Sanity delete/draft)
+//   if (!post) return <div>Post not found.</div>;
+
+//   // FALLBACKS: This prevents the 500 error!
+//   const title = post?.title || "Untitled";
+//   const author = post?.authorName || "Team";
+//   const category = post?.categoryName || "General";
+//   const heroImage = post?.featuredImage?.asset?.url || "/fallback-image.jpg";
+
+//   return (
+//     <article className="max-w-4xl mx-auto py-20 px-6">
+//       <header className="text-center mb-12">
+//         <span className="text-blue-600 font-bold uppercase tracking-widest text-xs">
+//           {category}
+//         </span>
+//         <h1 className="text-5xl font-extrabold mt-4">{title}</h1>
+//         <p className="mt-4 text-slate-500 font-medium">By {author}</p>
+//       </header>
+      
+//       {/* Safe Image access */}
+//       <div className="relative aspect-video rounded-3xl overflow-hidden mb-12">
+//         <Image 
+//           src={heroImage} 
+//           alt={post?.featuredImage?.alt || title} 
+//           layout="fill" 
+//           objectFit="cover" 
+//         />
+//       </div>
+
+//       <div className="prose prose-lg mx-auto">
+//           <PortableText
+//               value={post.body}
+//               components={{
+//                 block: {
+//                   h1: ({ children }) => (
+//                     <h1 className="text-4xl font-bold my-6">{children}</h1>
+//                   ),
+//                   h2: ({ children }) => (
+//                     <h2 className="text-3xl font-bold my-6">{children}</h2>
+//                   ),
+//                   blockquote: ({ children }) => (
+//                     <blockquote className="border-l-4 pl-4 italic my-6">
+//                       {children}
+//                     </blockquote>
+//                   ),
+//                 },
+//                 list: {
+//                   bullet: ({ children }) => (
+//                     <ul className="list-disc ml-6 my-4">{children}</ul>
+//                   ),
+//                   number: ({ children }) => (
+//                     <ol className="list-decimal ml-6 my-4">{children}</ol>
+//                   ),
+//                 },
+//                 types: {
+//                   image: ({ value }) => {
+//                     if (!value?.asset?.url) return null;
+//                     return (
+//                       <Image
+//                         src={value.asset.url}
+//                         alt=""
+//                         width={1000}
+//                         height={700}
+//                         className="rounded-xl my-8"
+//                       />
+//                     );
+//                   },
+//                 },
+//               }}
+//             />
+//       </div>
+//     </article>
+//   );
+// }
+
+// export async function getStaticPaths() {
+//   const paths = await sanityClient.fetch(
+//     `*[_type == "blogPost" && defined(slug.current)][].slug.current`
+//   );
+//   return {
+//     paths: paths.map((slug) => ({ params: { slug } })),
+//     fallback: true,
+//   };
+// }
+
+// export async function getStaticProps({ params }) {
+//   const { slug } = params;
+  
+//   try {
+//     const post = await sanityClient.fetch(
+//       `*[_type == "blogPost" && slug.current == $slug][0]{
+//         _id,
+//         title,
+//         "authorName": author->name,
+//         "categoryName": category->title,
+//         featuredImage{
+//           asset->{ url },
+//           alt
+//         },
+//         body
+//       }`,
+//       { slug }
+//     );
+
+//     if (!post) return { notFound: true };
+
+//     return {
+//       props: { post },
+//       revalidate: 60,
+//     };
+//   } catch (error) {
+//     console.error("Sanity fetch error:", error);
+//     return { notFound: true };
+//   }
+// }
+
 import React from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
-import sanityClient from "../../lib/sanity"; // Update your client path
+import sanityClient from "../../lib/sanity";
 import { PortableText } from "../../lib/sanity";
+import { urlFor } from "../../lib/sanity";
 
 export default function BlogPost({ post }) {
   const router = useRouter();
 
   if (router.isFallback) {
-    return <div>Loading...</div>;
+    return <div className="py-20 text-center">Loading article…</div>;
   }
 
-  // Handle case where post is null (Sanity delete/draft)
-  if (!post) return <div>Post not found.</div>;
+  if (!post) {
+    return <div className="py-20 text-center">Post not found.</div>;
+  }
 
-  // FALLBACKS: This prevents the 500 error!
-  const title = post?.title || "Untitled";
-  const author = post?.authorName || "Team";
-  const category = post?.categoryName || "General";
-  const heroImage = post?.featuredImage?.asset?.url || "/fallback-image.jpg";
+  const {
+    title = "Untitled",
+    authorName = "Team",
+    categoryName = "General",
+    featuredImage,
+    body = [],
+  } = post;
 
   return (
     <article className="max-w-4xl mx-auto py-20 px-6">
       <header className="text-center mb-12">
         <span className="text-blue-600 font-bold uppercase tracking-widest text-xs">
-          {category}
+          {categoryName}
         </span>
         <h1 className="text-5xl font-extrabold mt-4">{title}</h1>
-        <p className="mt-4 text-slate-500 font-medium">By {author}</p>
+        <p className="mt-4 text-slate-500 font-medium">By {authorName}</p>
       </header>
-      
-      {/* Safe Image access */}
-      <div className="relative aspect-video rounded-3xl overflow-hidden mb-12">
-        <Image 
-          src={heroImage} 
-          alt={post?.featuredImage?.alt || title} 
-          layout="fill" 
-          objectFit="cover" 
+
+      {/* HERO IMAGE — SAFE */}
+      {featuredImage && (
+        <img
+          src={urlFor(featuredImage).width(1600).height(900).url()}
+          alt={featuredImage.alt || title}
+          className="w-full rounded-3xl mb-12"
         />
-      </div>
+      )}
 
       <div className="prose prose-lg mx-auto">
-          <PortableText
-              value={post.body}
-              components={{
-                block: {
-                  h1: ({ children }) => (
-                    <h1 className="text-4xl font-bold my-6">{children}</h1>
-                  ),
-                  h2: ({ children }) => (
-                    <h2 className="text-3xl font-bold my-6">{children}</h2>
-                  ),
-                  blockquote: ({ children }) => (
-                    <blockquote className="border-l-4 pl-4 italic my-6">
-                      {children}
-                    </blockquote>
-                  ),
-                },
-                list: {
-                  bullet: ({ children }) => (
-                    <ul className="list-disc ml-6 my-4">{children}</ul>
-                  ),
-                  number: ({ children }) => (
-                    <ol className="list-decimal ml-6 my-4">{children}</ol>
-                  ),
-                },
-                types: {
-                  image: ({ value }) => {
-                    if (!value?.asset?.url) return null;
-                    return (
-                      <Image
-                        src={value.asset.url}
-                        alt=""
-                        width={1000}
-                        height={700}
-                        className="rounded-xl my-8"
-                      />
-                    );
-                  },
-                },
-              }}
-            />
+        <PortableText
+          value={post.body}
+          components={{
+            types: {
+              image: ({ value }) =>
+                value?.asset ? (
+                  <img
+                    src={urlFor(value).width(1200).url()}
+                    className="rounded-xl my-8"
+                  />
+                ) : null,
+            },
+          }}
+        />
       </div>
     </article>
   );
 }
 
 export async function getStaticPaths() {
-  const paths = await sanityClient.fetch(
-    `*[_type == "blogPost" && defined(slug.current)][].slug.current`
+  const slugs = await sanityClient.fetch(
+    `*[_type == "blogPost" && defined(slug.current) && !(_id in path("drafts.**"))].slug.current`
   );
+
   return {
-    paths: paths.map((slug) => ({ params: { slug } })),
-    fallback: true,
+    paths: slugs.map((slug) => ({ params: { slug } })),
+    fallback: "blocking",
   };
 }
 
 export async function getStaticProps({ params }) {
-  const { slug } = params;
-  
   try {
     const post = await sanityClient.fetch(
       `*[_type == "blogPost" && slug.current == $slug][0]{
-        _id,
         title,
-        "authorName": author->name,
-        "categoryName": category->title,
+        "authorName": coalesce(author->name, "Team"),
+        "categoryName": coalesce(category->title, "General"),
         featuredImage{
-          asset->{ url },
+          asset,
           alt
         },
         body
       }`,
-      { slug }
+      { slug: params.slug }
     );
 
     if (!post) return { notFound: true };
@@ -1989,8 +2091,8 @@ export async function getStaticProps({ params }) {
       props: { post },
       revalidate: 60,
     };
-  } catch (error) {
-    console.error("Sanity fetch error:", error);
+  } catch (err) {
+    console.error("Sanity error:", err);
     return { notFound: true };
   }
 }

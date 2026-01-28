@@ -1997,7 +1997,7 @@
 import React from "react";
 import sanityClient from "../../lib/sanity";
 import { PortableText } from "@portabletext/react";
-import { urlFor } from "@/lib/sanityImage";
+import { urlFor } from "../../lib/sanityImage";
 
 export default function BlogPost({ post }) {
   if (!post) {

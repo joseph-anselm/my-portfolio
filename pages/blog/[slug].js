@@ -1618,244 +1618,379 @@
 // }
 
 
+// import React from "react";
+// import { useRouter } from "next/router";
+// import Image from "next/image";
+// import Link from "next/link";
+// import sanityClient from "@/client";
+// import { PortableText } from "@portabletext/react";
+// import Layout from "@/components/layouts";
+// import Share from "@/components/share";
+// import ReactionButtons from "@/components/ReactionButtons";
+// import CommentsSection from "@/components/CommentsSection";
+// import { generateBlogPostSEO } from "@/lib/seo";
+// import {
+//   ArrowLeft,
+//   User,
+//   Tag,
+//   Calendar,
+//   Clock,
+// } from "lucide-react";
+
+// /* -----------------------------------
+//    PAGE COMPONENT
+// ----------------------------------- */
+
+// const BlogPostPage = ({ post }) => {
+//   const router = useRouter();
+
+//   if (router.isFallback) {
+//     return (
+//       <div className="min-h-screen flex items-center justify-center">
+//         Loading…
+//       </div>
+//     );
+//   }
+
+//   if (!post) {
+//     return (
+//       <Layout>
+//         <div className="min-h-screen flex items-center justify-center text-slate-500">
+//           This article is unavailable.
+//         </div>
+//       </Layout>
+//     );
+//   }
+
+//   return (
+//     <Layout seo={generateBlogPostSEO(post)}>
+//       <article className="bg-white">
+
+//         {/* Header */}
+//         <header className="pt-16 pb-12 text-center px-6">
+//           <Link
+//             href="/blog"
+//             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase"
+//           >
+//             <Tag size={12} />
+//             {post.categoryName}
+//           </Link>
+
+//           <h1 className="mt-6 text-4xl md:text-5xl font-extrabold">
+//             {post.title}
+//           </h1>
+
+//           <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+//             <span className="flex items-center gap-2">
+//               <User size={16} /> {post.authorName}
+//             </span>
+//             <span className="flex items-center gap-2">
+//               <Calendar size={16} /> {post.publishedAt}
+//             </span>
+//             <span className="flex items-center gap-2">
+//               <Clock size={16} /> 8 min read
+//             </span>
+//           </div>
+//         </header>
+
+//         {/* Featured Image */}
+//         <div className="max-w-6xl mx-auto px-6 mb-16">
+//           <div className="relative aspect-[21/9] rounded-3xl overflow-hidden">
+//             <Image
+//               src={post.featuredImage?.asset?.url || "/images/fallback-blog.jpg"}
+//               alt={post.featuredImage?.alt || post.title}
+//               fill
+//               className="object-cover"
+//               priority
+//             />
+//           </div>
+//         </div>
+
+//         {/* Content */}
+//         <div className="max-w-4xl mx-auto px-6 prose prose-lg">
+//           <PortableText
+//   value={post.body}
+//   components={{
+//     block: {
+//       h1: ({ children }) => (
+//         <h1 className="text-4xl font-bold my-6">{children}</h1>
+//       ),
+//       h2: ({ children }) => (
+//         <h2 className="text-3xl font-bold my-6">{children}</h2>
+//       ),
+//       blockquote: ({ children }) => (
+//         <blockquote className="border-l-4 pl-4 italic my-6">
+//           {children}
+//         </blockquote>
+//       ),
+//     },
+//     list: {
+//       bullet: ({ children }) => (
+//         <ul className="list-disc ml-6 my-4">{children}</ul>
+//       ),
+//       number: ({ children }) => (
+//         <ol className="list-decimal ml-6 my-4">{children}</ol>
+//       ),
+//     },
+//     types: {
+//       image: ({ value }) => {
+//         if (!value?.asset?.url) return null;
+//         return (
+//           <Image
+//             src={value.asset.url}
+//             alt=""
+//             width={1000}
+//             height={700}
+//             className="rounded-xl my-8"
+//           />
+//         );
+//       },
+//     },
+//   }}
+// />
+
+//         </div>
+
+//         {/* Reactions */}
+//         <div className="max-w-4xl mx-auto px-6 mt-12">
+//           <ReactionButtons
+//             postId={post._id}
+//             initialCounts={post.reactionCounts}
+//           />
+//         </div>
+
+//         {/* Share */}
+//         <div className="max-w-4xl mx-auto px-6 mt-12">
+//           <Share post={post} />
+//         </div>
+
+//         {/* Comments */}
+//         <div className="max-w-4xl mx-auto px-6 mt-20">
+//           <CommentsSection postId={post._id} />
+//         </div>
+
+//         {/* Back */}
+//         <div className="flex justify-center my-20">
+//           <button
+//             onClick={() => router.push("/blog")}
+//             className="flex items-center gap-2 px-8 py-4 border rounded-xl"
+//           >
+//             <ArrowLeft size={18} /> Back to Blog
+//           </button>
+//         </div>
+//       </article>
+//     </Layout>
+//   );
+// };
+
+// export default BlogPostPage;
+
+// /* -----------------------------------
+//    STATIC GENERATION
+// ----------------------------------- */
+
+// export async function getStaticPaths() {
+//   const slugs = await sanityClient.fetch(
+//     `*[_type == "blogPost" && defined(slug.current)][]{
+//       "slug": slug.current
+//     }`
+//   );
+
+//   return {
+//     paths: slugs.map((s) => ({ params: { slug: s.slug } })),
+//     fallback: "blocking", // 🚨 IMPORTANT
+//   };
+// }
+
+// export async function getStaticProps({ params }) {
+//   const { slug } = params;
+
+//   try {
+// const post = await sanityClient.fetch(
+//   `*[
+//     _type == "blogPost" &&
+//     !(_id in path("drafts.**")) &&
+//     slug.current == $slug
+//   ][0]{
+//     _id,
+//     title,
+//     excerpt,
+//     body,
+//     publishedAt,
+
+//     "authorName": coalesce(author->name, "Editorial Team"),
+//     "categoryName": coalesce(category->title, "General"),
+
+//     featuredImage{
+//       asset->{url},
+//       alt
+//     }
+//   }`,
+//   { slug }
+// );
+
+
+//     if (!post?.title || !post?.body) {
+//       return { notFound: true };
+//     }
+
+//     let reactionCounts = { likes: 0, dislikes: 0 };
+//     try {
+//       reactionCounts = await sanityClient.fetch(
+//         `{
+//           "likes": count(*[_type == "reaction" && post._ref == $id && type == "like"]),
+//           "dislikes": count(*[_type == "reaction" && post._ref == $id && type == "dislike"])
+//         }`,
+//         { id: post._id }
+//       );
+//     } catch (_) {}
+
+//     return {
+//       props: {
+//         post: {
+//           ...post,
+//           reactionCounts,
+//         },
+//       },
+//       revalidate: 60,
+//     };
+//   } catch (err) {
+//     console.error("BLOG ISR ERROR:", err);
+//     return { notFound: true, revalidate: 10 };
+//   }
+// }
+
+
+/**
+ * NEXT.JS [SLUG].JS - FIXED PRODUCTION VERSION
+ * Copy this into your pages/blog/[slug].js file.
+ */
+"use client";
 import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import Link from "next/link";
-import sanityClient from "@/client";
-import { PortableText } from "@portabletext/react";
-import Layout from "@/components/layouts";
-import Share from "@/components/share";
-import ReactionButtons from "@/components/ReactionButtons";
-import CommentsSection from "@/components/CommentsSection";
-import { generateBlogPostSEO } from "@/lib/seo";
-import {
-  ArrowLeft,
-  User,
-  Tag,
-  Calendar,
-  Clock,
-} from "lucide-react";
+import sanityClient from "../../lib/sanity"; // Update your client path
+import { PortableText } from "../../lib/sanity";
 
-/* -----------------------------------
-   PAGE COMPONENT
------------------------------------ */
-
-const BlogPostPage = ({ post }) => {
+export default function BlogPost({ post }) {
   const router = useRouter();
 
   if (router.isFallback) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Loading…
-      </div>
-    );
+    return <div>Loading...</div>;
   }
 
-  if (!post) {
-    return (
-      <Layout>
-        <div className="min-h-screen flex items-center justify-center text-slate-500">
-          This article is unavailable.
-        </div>
-      </Layout>
-    );
-  }
+  // Handle case where post is null (Sanity delete/draft)
+  if (!post) return <div>Post not found.</div>;
+
+  // FALLBACKS: This prevents the 500 error!
+  const title = post?.title || "Untitled";
+  const author = post?.authorName || "Team";
+  const category = post?.categoryName || "General";
+  const heroImage = post?.featuredImage?.asset?.url || "/fallback-image.jpg";
 
   return (
-    <Layout seo={generateBlogPostSEO(post)}>
-      <article className="bg-white">
+    <article className="max-w-4xl mx-auto py-20 px-6">
+      <header className="text-center mb-12">
+        <span className="text-blue-600 font-bold uppercase tracking-widest text-xs">
+          {category}
+        </span>
+        <h1 className="text-5xl font-extrabold mt-4">{title}</h1>
+        <p className="mt-4 text-slate-500 font-medium">By {author}</p>
+      </header>
+      
+      {/* Safe Image access */}
+      <div className="relative aspect-video rounded-3xl overflow-hidden mb-12">
+        <Image 
+          src={heroImage} 
+          alt={post?.featuredImage?.alt || title} 
+          layout="fill" 
+          objectFit="cover" 
+        />
+      </div>
 
-        {/* Header */}
-        <header className="pt-16 pb-12 text-center px-6">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase"
-          >
-            <Tag size={12} />
-            {post.categoryName}
-          </Link>
-
-          <h1 className="mt-6 text-4xl md:text-5xl font-extrabold">
-            {post.title}
-          </h1>
-
-          <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-500">
-            <span className="flex items-center gap-2">
-              <User size={16} /> {post.authorName}
-            </span>
-            <span className="flex items-center gap-2">
-              <Calendar size={16} /> {post.publishedAt}
-            </span>
-            <span className="flex items-center gap-2">
-              <Clock size={16} /> 8 min read
-            </span>
-          </div>
-        </header>
-
-        {/* Featured Image */}
-        <div className="max-w-6xl mx-auto px-6 mb-16">
-          <div className="relative aspect-[21/9] rounded-3xl overflow-hidden">
-            <Image
-              src={post.featuredImage?.asset?.url || "/images/fallback-blog.jpg"}
-              alt={post.featuredImage?.alt || post.title}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="max-w-4xl mx-auto px-6 prose prose-lg">
+      <div className="prose prose-lg mx-auto">
           <PortableText
-  value={post.body}
-  components={{
-    block: {
-      h1: ({ children }) => (
-        <h1 className="text-4xl font-bold my-6">{children}</h1>
-      ),
-      h2: ({ children }) => (
-        <h2 className="text-3xl font-bold my-6">{children}</h2>
-      ),
-      blockquote: ({ children }) => (
-        <blockquote className="border-l-4 pl-4 italic my-6">
-          {children}
-        </blockquote>
-      ),
-    },
-    list: {
-      bullet: ({ children }) => (
-        <ul className="list-disc ml-6 my-4">{children}</ul>
-      ),
-      number: ({ children }) => (
-        <ol className="list-decimal ml-6 my-4">{children}</ol>
-      ),
-    },
-    types: {
-      image: ({ value }) => {
-        if (!value?.asset?.url) return null;
-        return (
-          <Image
-            src={value.asset.url}
-            alt=""
-            width={1000}
-            height={700}
-            className="rounded-xl my-8"
-          />
-        );
-      },
-    },
-  }}
-/>
-
-        </div>
-
-        {/* Reactions */}
-        <div className="max-w-4xl mx-auto px-6 mt-12">
-          <ReactionButtons
-            postId={post._id}
-            initialCounts={post.reactionCounts}
-          />
-        </div>
-
-        {/* Share */}
-        <div className="max-w-4xl mx-auto px-6 mt-12">
-          <Share post={post} />
-        </div>
-
-        {/* Comments */}
-        <div className="max-w-4xl mx-auto px-6 mt-20">
-          <CommentsSection postId={post._id} />
-        </div>
-
-        {/* Back */}
-        <div className="flex justify-center my-20">
-          <button
-            onClick={() => router.push("/blog")}
-            className="flex items-center gap-2 px-8 py-4 border rounded-xl"
-          >
-            <ArrowLeft size={18} /> Back to Blog
-          </button>
-        </div>
-      </article>
-    </Layout>
+              value={post.body}
+              components={{
+                block: {
+                  h1: ({ children }) => (
+                    <h1 className="text-4xl font-bold my-6">{children}</h1>
+                  ),
+                  h2: ({ children }) => (
+                    <h2 className="text-3xl font-bold my-6">{children}</h2>
+                  ),
+                  blockquote: ({ children }) => (
+                    <blockquote className="border-l-4 pl-4 italic my-6">
+                      {children}
+                    </blockquote>
+                  ),
+                },
+                list: {
+                  bullet: ({ children }) => (
+                    <ul className="list-disc ml-6 my-4">{children}</ul>
+                  ),
+                  number: ({ children }) => (
+                    <ol className="list-decimal ml-6 my-4">{children}</ol>
+                  ),
+                },
+                types: {
+                  image: ({ value }) => {
+                    if (!value?.asset?.url) return null;
+                    return (
+                      <Image
+                        src={value.asset.url}
+                        alt=""
+                        width={1000}
+                        height={700}
+                        className="rounded-xl my-8"
+                      />
+                    );
+                  },
+                },
+              }}
+            />
+      </div>
+    </article>
   );
-};
-
-export default BlogPostPage;
-
-/* -----------------------------------
-   STATIC GENERATION
------------------------------------ */
+}
 
 export async function getStaticPaths() {
-  const slugs = await sanityClient.fetch(
-    `*[_type == "blogPost" && defined(slug.current)][]{
-      "slug": slug.current
-    }`
+  const paths = await sanityClient.fetch(
+    `*[_type == "blogPost" && defined(slug.current)][].slug.current`
   );
-
   return {
-    paths: slugs.map((s) => ({ params: { slug: s.slug } })),
-    fallback: "blocking", // 🚨 IMPORTANT
+    paths: paths.map((slug) => ({ params: { slug } })),
+    fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-
+  
   try {
-const post = await sanityClient.fetch(
-  `*[
-    _type == "blogPost" &&
-    !(_id in path("drafts.**")) &&
-    slug.current == $slug
-  ][0]{
-    _id,
-    title,
-    excerpt,
-    body,
-    publishedAt,
+    const post = await sanityClient.fetch(
+      `*[_type == "blogPost" && slug.current == $slug][0]{
+        _id,
+        title,
+        "authorName": author->name,
+        "categoryName": category->title,
+        featuredImage{
+          asset->{ url },
+          alt
+        },
+        body
+      }`,
+      { slug }
+    );
 
-    "authorName": coalesce(author->name, "Editorial Team"),
-    "categoryName": coalesce(category->title, "General"),
-
-    featuredImage{
-      asset->{url},
-      alt
-    }
-  }`,
-  { slug }
-);
-
-
-    if (!post?.title || !post?.body) {
-      return { notFound: true };
-    }
-
-    let reactionCounts = { likes: 0, dislikes: 0 };
-    try {
-      reactionCounts = await sanityClient.fetch(
-        `{
-          "likes": count(*[_type == "reaction" && post._ref == $id && type == "like"]),
-          "dislikes": count(*[_type == "reaction" && post._ref == $id && type == "dislike"])
-        }`,
-        { id: post._id }
-      );
-    } catch (_) {}
+    if (!post) return { notFound: true };
 
     return {
-      props: {
-        post: {
-          ...post,
-          reactionCounts,
-        },
-      },
+      props: { post },
       revalidate: 60,
     };
-  } catch (err) {
-    console.error("BLOG ISR ERROR:", err);
-    return { notFound: true, revalidate: 10 };
+  } catch (error) {
+    console.error("Sanity fetch error:", error);
+    return { notFound: true };
   }
 }

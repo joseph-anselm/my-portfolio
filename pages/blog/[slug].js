@@ -1994,136 +1994,245 @@
 //   }
 // }
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import sanityClient from "../../lib/sanity";
+import Image from "next/image";
+import Link from "next/link";
+import sanityClient from "@/client";
 import { PortableText } from "@portabletext/react";
-import { urlFor } from "../../lib/sanityImage";
+import Layout from "@/components/layouts";
+import Share from "@/components/share";
+import ReactionButtons from "@/components/ReactionButtons";
+import CommentsSection from "@/components/CommentsSection";
+import { generateBlogPostSEO } from "@/lib/seo";
+import {
+  ArrowLeft,
+  User,
+  Tag,
+  Calendar,
+  Clock,
+} from "lucide-react";
 
-export default function BlogPost({ post }) {
+/* -----------------------------------
+   PAGE COMPONENT
+----------------------------------- */
+
+export default function BlogPostPage() {
   const router = useRouter();
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  if (router.isFallback) {
-    return <div className="py-20 text-center">Loading article…</div>;
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    const fetchPost = async () => {
+      const slug =
+        router.query.slug ||
+        window.location.pathname.split("/").pop();
+
+      try {
+        const data = await sanityClient.fetch(
+          `*[
+            _type == "blogPost" &&
+            !(_id in path("drafts.**")) &&
+            slug.current == $slug
+          ][0]{
+            _id,
+            title,
+            excerpt,
+            body,
+            publishedAt,
+
+            "authorName": coalesce(author->name, "Editorial Team"),
+            "categoryName": coalesce(category->title, "General"),
+
+            featuredImage{
+              asset->{url},
+              alt
+            }
+          }`,
+          { slug }
+        );
+
+        if (!data) {
+          setPost(null);
+          return;
+        }
+
+        // Fetch reactions safely
+        let reactionCounts = { likes: 0, dislikes: 0 };
+        try {
+          reactionCounts = await sanityClient.fetch(
+            `{
+              "likes": count(*[_type == "reaction" && post._ref == $id && type == "like"]),
+              "dislikes": count(*[_type == "reaction" && post._ref == $id && type == "dislike"])
+            }`,
+            { id: data._id }
+          );
+        } catch (_) {}
+
+        setPost({ ...data, reactionCounts });
+      } catch (err) {
+        console.error("BLOG FETCH ERROR:", err);
+        setPost(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPost();
+  }, [router.isReady, router.query.slug]);
+
+  /* -----------------------------------
+     STATES
+  ----------------------------------- */
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="w-10 h-10 border-4 border-slate-300 border-t-blue-600 rounded-full animate-spin" />
+        </div>
+      </Layout>
+    );
   }
 
   if (!post) {
-    return <div className="py-20 text-center">Post not found.</div>;
+    return (
+      <Layout>
+        <div className="min-h-screen flex flex-col items-center justify-center text-center px-6 text-slate-500">
+          This article is unavailable.
+          <button
+            onClick={() => router.push("/blog")}
+            className="mt-6 flex items-center gap-2 px-6 py-3 border rounded-xl"
+          >
+            <ArrowLeft size={16} /> Back to Blog
+          </button>
+        </div>
+      </Layout>
+    );
   }
 
-  const {
-    title,
-    authorName,
-    categoryName,
-    featuredImage,
-    body,
-  } = post;
+  /* -----------------------------------
+     RENDER
+  ----------------------------------- */
 
   return (
-    <article className="max-w-4xl mx-auto py-20 px-6">
-      <header className="text-center mb-12">
-        <span className="text-blue-600 font-bold uppercase tracking-widest text-xs">
-          {categoryName}
-        </span>
-        <h1 className="text-5xl font-extrabold mt-4">{title}</h1>
-        <p className="mt-4 text-slate-500 font-medium">By {authorName}</p>
-      </header>
+    <Layout seo={generateBlogPostSEO(post)}>
+      <article className="bg-white">
 
-      {/* HERO IMAGE — NO next/image */}
-      {featuredImage && (
-        <img
-          src={urlFor(featuredImage).width(1600).height(900).url()}
-          alt={featuredImage.alt || title}
-          className="w-full rounded-3xl mb-12"
-          loading="eager"
-        />
-      )}
+        {/* Header */}
+        <header className="pt-16 pb-12 text-center px-6">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase"
+          >
+            <Tag size={12} />
+            {post.categoryName}
+          </Link>
 
-      <div className="prose prose-lg mx-auto">
-        <PortableText
-          value={body}
-          components={{
-            block: {
-              h1: ({ children }) => (
-                <h1 className="text-4xl font-bold my-6">{children}</h1>
-              ),
-              h2: ({ children }) => (
-                <h2 className="text-3xl font-bold my-6">{children}</h2>
-              ),
-              blockquote: ({ children }) => (
-                <blockquote className="border-l-4 pl-4 italic my-6">
-                  {children}
-                </blockquote>
-              ),
-            },
-            list: {
-              bullet: ({ children }) => (
-                <ul className="list-disc ml-6 my-4">{children}</ul>
-              ),
-              number: ({ children }) => (
-                <ol className="list-decimal ml-6 my-4">{children}</ol>
-              ),
-            },
-            types: {
-              image: ({ value }) =>
-                value?.asset ? (
-                  <img
-                    src={urlFor(value).width(1200).url()}
-                    className="rounded-xl my-8"
-                    alt=""
-                  />
-                ) : null,
-            },
-          }}
-        />
-      </div>
-    </article>
+          <h1 className="mt-6 text-4xl md:text-5xl font-extrabold">
+            {post.title}
+          </h1>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+            <span className="flex items-center gap-2">
+              <User size={16} /> {post.authorName}
+            </span>
+            <span className="flex items-center gap-2">
+              <Calendar size={16} /> {post.publishedAt}
+            </span>
+            <span className="flex items-center gap-2">
+              <Clock size={16} /> 8 min read
+            </span>
+          </div>
+        </header>
+
+        {/* Featured Image */}
+        <div className="max-w-6xl mx-auto px-6 mb-16">
+          <div className="relative aspect-[21/9] rounded-3xl overflow-hidden">
+            <Image
+              src={post.featuredImage?.asset?.url || "/images/fallback-blog.jpg"}
+              alt={post.featuredImage?.alt || post.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="max-w-4xl mx-auto px-6 prose prose-lg">
+          <PortableText
+            value={post.body}
+            components={{
+              block: {
+                h1: ({ children }) => (
+                  <h1 className="text-4xl font-bold my-6">{children}</h1>
+                ),
+                h2: ({ children }) => (
+                  <h2 className="text-3xl font-bold my-6">{children}</h2>
+                ),
+                blockquote: ({ children }) => (
+                  <blockquote className="border-l-4 pl-4 italic my-6">
+                    {children}
+                  </blockquote>
+                ),
+              },
+              list: {
+                bullet: ({ children }) => (
+                  <ul className="list-disc ml-6 my-4">{children}</ul>
+                ),
+                number: ({ children }) => (
+                  <ol className="list-decimal ml-6 my-4">{children}</ol>
+                ),
+              },
+              types: {
+                image: ({ value }) => {
+                  if (!value?.asset?.url) return null;
+                  return (
+                    <Image
+                      src={value.asset.url}
+                      alt=""
+                      width={1000}
+                      height={700}
+                      className="rounded-xl my-8"
+                    />
+                  );
+                },
+              },
+            }}
+          />
+        </div>
+
+        {/* Reactions */}
+        <div className="max-w-4xl mx-auto px-6 mt-12">
+          <ReactionButtons
+            postId={post._id}
+            initialCounts={post.reactionCounts}
+          />
+        </div>
+
+        {/* Share */}
+        <div className="max-w-4xl mx-auto px-6 mt-12">
+          <Share post={post} />
+        </div>
+
+        {/* Comments */}
+        <div className="max-w-4xl mx-auto px-6 mt-20">
+          <CommentsSection postId={post._id} />
+        </div>
+
+        {/* Back */}
+        <div className="flex justify-center my-20">
+          <button
+            onClick={() => router.push("/blog")}
+            className="flex items-center gap-2 px-8 py-4 border rounded-xl"
+          >
+            <ArrowLeft size={18} /> Back to Blog
+          </button>
+        </div>
+      </article>
+    </Layout>
   );
-}
-
-export async function getStaticPaths() {
-  const slugs = await sanityClient.fetch(
-    `*[
-      _type == "blogPost" &&
-      defined(slug.current) &&
-      !(_id in path("drafts.**"))
-    ].slug.current`
-  );
-
-  return {
-    paths: slugs.map((slug) => ({ params: { slug } })),
-    fallback: "blocking",
-  };
-}
-
-export async function getStaticProps({ params }) {
-  try {
-    const post = await sanityClient.fetch(
-      `*[
-        _type == "blogPost" &&
-        slug.current == $slug &&
-        !(_id in path("drafts.**"))
-      ][0]{
-        title,
-        "authorName": coalesce(author->name, "Team"),
-        "categoryName": coalesce(category->title, "General"),
-        featuredImage{
-          asset,
-          alt
-        },
-        body
-      }`,
-      { slug: params.slug }
-    );
-
-    if (!post) return { notFound: true };
-
-    return {
-      props: { post },
-      revalidate: 60,
-    };
-  } catch (err) {
-    console.error("Sanity production error:", err);
-    return { notFound: true };
-  }
 }

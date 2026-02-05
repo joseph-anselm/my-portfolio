@@ -2143,7 +2143,7 @@ export default function BlogPostPage() {
               <Calendar size={16} /> {post.publishedAt}
             </span>
             <span className="flex items-center gap-2">
-              <Clock size={16} /> 8 min read
+              <Clock size={16} /> 1 min read
             </span>
           </div>
         </header>

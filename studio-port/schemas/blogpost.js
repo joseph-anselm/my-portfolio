@@ -115,6 +115,11 @@ export default {
       // CRITICAL FIX: Ensure image is mandatory
       validation: Rule => Rule.required().error('A featured image is required to prevent frontend crashes.')
     },
+        {
+      name: "excerpt",
+      type: "text",
+      validation: Rule => Rule.required(),
+    },
     {
       name: 'body',
       title: 'Content Body',

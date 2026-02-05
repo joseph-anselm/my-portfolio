@@ -2090,7 +2090,7 @@ export default function BlogPostPage() {
   if (loading) {
     return (
       <Layout>
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="max-w-7xl min-h-screen flex items-center justify-center">
           <div className="w-10 h-10 border-4 border-slate-300 border-t-blue-600 rounded-full animate-spin" />
         </div>
       </Layout>
@@ -2122,7 +2122,7 @@ export default function BlogPostPage() {
       <article className="bg-white">
 
         {/* Header */}
-        <header className="pt-16 pb-12 text-center px-6">
+        <header className="max-w-7xl pt-24 pb-12 mx-auto text-center px-6">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase"
@@ -2149,7 +2149,7 @@ export default function BlogPostPage() {
         </header>
 
         {/* Featured Image */}
-        <div className="max-w-6xl mx-auto px-6 mb-16">
+        <div className="max-w-7xl mx-auto px-6 mb-16">
           <div className="relative aspect-[21/9] rounded-3xl overflow-hidden">
             <Image
               src={post.featuredImage?.asset?.url || "/images/fallback-blog.jpg"}
@@ -2162,13 +2162,13 @@ export default function BlogPostPage() {
         </div>
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto px-6 prose prose-lg">
+        <div className="max-w-7xl mx-auto px-6 prose prose-lg">
           <PortableText
             value={post.body}
             components={{
               block: {
                 h1: ({ children }) => (
-                  <h1 className="text-4xl font-bold my-6">{children}</h1>
+                  <h1 className="text-7xl font-bold my-6">{children}</h1>
                 ),
                 h2: ({ children }) => (
                   <h2 className="text-3xl font-bold my-6">{children}</h2>
@@ -2206,7 +2206,7 @@ export default function BlogPostPage() {
         </div>
 
         {/* Reactions */}
-        <div className="max-w-4xl mx-auto px-6 mt-12">
+        <div className="max-w-7xl mx-auto px-6 mt-12">
           <ReactionButtons
             postId={post._id}
             initialCounts={post.reactionCounts}
@@ -2219,7 +2219,7 @@ export default function BlogPostPage() {
         </div>
 
         {/* Comments */}
-        <div className="max-w-4xl mx-auto px-6 mt-20">
+        <div className="max-w-7xl px-6 mt-20">
           <CommentsSection postId={post._id} />
         </div>
 
